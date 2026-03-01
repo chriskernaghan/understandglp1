@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Real stories from real people navigating GLP-1 medications. First-hand accounts of life on Ozempic, Wegovy, Mounjaro, Zepbound, and more — the highs, the lows, and everything in between.">
+<title>Real Stories — Understand GLP-1</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--white:#fff;--off-white:#FAFAF9;--gray-50:#F5F5F3;--gray-100:#EDEDEB;--gray-200:#DDDDD9;--gray-400:#A3A39E;--gray-500:#787872;--gray-700:#404040;--gray-900:#1A1A1A;--black:#0D0D0D;--accent:#0D6E4F;--accent-light:#E8F5EE;--accent-hover:#0A5A40;--warm:#F7F3EE;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Outfit',-apple-system,sans-serif;--page-max:1200px;--page-px:28px;--radius:12px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-body);background:var(--white);color:var(--gray-900);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--gray-100)}
+.nav-inner{max-width:var(--page-max);margin:0 auto;padding:0 var(--page-px);display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--font-display);font-size:24px;color:var(--black);text-decoration:none;letter-spacing:-0.01em}.logo em{font-style:italic;color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{text-decoration:none;color:var(--gray-500);font-size:14px;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--black)}.nav-links .active{color:var(--black);font-weight:600}
+.nav-cta{background:var(--black);color:var(--white)!important;padding:8px 20px;border-radius:100px;font-size:13px!important;font-weight:600!important}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}.burger span{display:block;width:22px;height:2px;background:var(--black);transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:var(--white);z-index:99;padding:32px var(--page-px);flex-direction:column;gap:0}.mobile-menu.open{display:flex}.mobile-menu a{display:block;padding:16px 0;font-size:18px;font-weight:500;color:var(--gray-900);text-decoration:none;border-bottom:1px solid var(--gray-100)}.mobile-menu a:last-child{border-bottom:none}
+.blog-wrap{max-width:var(--page-max);margin:0 auto;padding:0 var(--page-px)}
+.blog-hero{padding:64px 0 48px;border-bottom:1px solid var(--gray-100);margin-bottom:48px}
+.blog-hero h1{font-family:var(--font-display);font-size:clamp(36px,5vw,56px);margin-bottom:12px;font-weight:400;letter-spacing:-0.025em}
+.blog-hero p{font-size:18px;color:var(--gray-500);max-width:560px;font-weight:300;line-height:1.65}
+.categories{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:48px}
+.cat-tag{display:inline-block;padding:8px 18px;border-radius:100px;font-size:13px;font-weight:500;border:1px solid var(--gray-200);color:var(--gray-500);text-decoration:none;transition:all .2s;cursor:pointer;background:var(--white)}
+.cat-tag:hover,.cat-tag.active{background:var(--black);color:var(--white);border-color:var(--black)}
+.blog-layout{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:start}
+.blog-sidebar{position:sticky;top:76px;display:flex;flex-direction:column;gap:24px;padding-top:8px}
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-bottom:60px}
+.post-card{background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius);overflow:hidden;transition:box-shadow .3s,transform .3s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.post-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.06);transform:translateY(-2px)}
+.post-card__img{height:180px;background:var(--warm);display:flex;align-items:center;justify-content:center;font-size:44px}
+.post-card__body{padding:24px;flex:1;display:flex;flex-direction:column}
+.post-card__cat{font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--accent);margin-bottom:10px}
+.post-card__title{font-family:var(--font-display);font-size:20px;line-height:1.25;margin-bottom:10px;letter-spacing:-0.01em}
+.post-card__excerpt{font-size:14px;color:var(--gray-500);line-height:1.55;flex:1;margin-bottom:16px;font-weight:300}
+.post-card__meta{font-size:12px;color:var(--gray-400);display:flex;gap:12px;align-items:center}
+.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--black)}
+.featured .post-card__img{height:100%;min-height:260px}
+.featured .post-card__body{padding:32px;justify-content:center}
+.featured .post-card__title{font-size:26px}
+.email-box{background:var(--gray-50);border-radius:var(--radius);padding:28px}
+.email-box__title{font-family:var(--font-display);font-size:20px;margin-bottom:8px;letter-spacing:-0.01em}
+.email-box__desc{font-size:13px;color:var(--gray-500);margin-bottom:16px;line-height:1.55;font-weight:300}
+.email-box input[type="email"]{width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:100px;font-size:14px;font-family:var(--font-body);margin-bottom:10px;outline:none;transition:border .2s;background:var(--white)}.email-box input:focus{border-color:var(--accent)}
+.email-box button{width:100%;padding:12px;background:var(--black);color:var(--white);font-size:14px;font-weight:600;border:none;border-radius:100px;cursor:pointer;font-family:var(--font-body);transition:background .2s}.email-box button:hover{background:var(--gray-700)}
+.sidebar-card{background:var(--gray-50);border-radius:var(--radius);padding:28px}
+.sidebar-card__label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--accent);margin-bottom:10px}
+.sidebar-card__title{font-family:var(--font-display);font-size:20px;margin-bottom:8px;letter-spacing:-0.01em}
+.sidebar-card__desc{font-size:14px;color:var(--gray-500);margin-bottom:16px;line-height:1.55;font-weight:300}
+.sidebar-card__btn{display:inline-block;background:var(--black);color:var(--white);font-size:13px;font-weight:600;padding:10px 24px;border-radius:100px;text-decoration:none;transition:background .2s}.sidebar-card__btn:hover{background:var(--gray-700)}
+.submit-cta{background:var(--accent-light);border-radius:var(--radius);padding:28px;text-align:center}
+.submit-cta h3{font-family:var(--font-display);font-size:20px;margin-bottom:8px;letter-spacing:-0.01em}
+.submit-cta p{font-size:13px;color:var(--gray-500);margin-bottom:16px;line-height:1.55;font-weight:300}
+.submit-cta a{display:inline-block;background:var(--accent);color:var(--white);font-size:13px;font-weight:600;padding:10px 24px;border-radius:100px;text-decoration:none;transition:background .2s}
+.submit-cta a:hover{background:var(--accent-hover)}
+.load-more{text-align:center;padding:20px 0 60px}
+footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--gray-100)}
+.footer-brand .logo{font-size:22px;display:inline-block;margin-bottom:12px}.footer-brand p{font-size:13px;color:var(--gray-500);line-height:1.55;max-width:260px;font-weight:300}
+.footer-col h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:16px;color:var(--gray-400)}.footer-col a{display:block;font-size:14px;color:var(--gray-500);text-decoration:none;margin-bottom:10px;font-weight:400;transition:color .2s}.footer-col a:hover{color:var(--black)}
+.footer-bottom{display:flex;justify-content:space-between;padding-top:24px;font-size:12px;color:var(--gray-400)}
+.footer-disclaimer{max-width:700px;font-size:11px;color:var(--gray-400);line-height:1.55;margin-top:16px}
+@media(max-width:960px){.blog-layout{grid-template-columns:1fr}.blog-sidebar{position:static;order:2}.featured{grid-template-columns:1fr}.featured .post-card__img{min-height:180px}.posts-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:640px){.nav-links{display:none}.burger{display:flex}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:8px}}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+  <a href="index.html" class="logo">understand<em>GLP1</em></a>
+  <ul class="nav-links">
+    <li><a href="blog.html">News</a></li>
+    <li><a href="stories.html" class="active">Stories</a></li>
+    <li><a href="food.html">Food &amp; Nutrition</a></li>
+    <li><a href="index.html#medications">Medications</a></li>
+    <li><a href="blog.html" class="nav-cta">Read the Blog</a></li>
+  </ul>
+  <button class="burger" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="mobile-menu" id="mob">
+  <a href="index.html">Home</a><a href="blog.html">News &amp; Blog</a><a href="stories.html">Real Stories</a><a href="food.html">Food &amp; Nutrition</a><a href="index.html#medications">Medications</a>
+  <a href="semaglutide.html">Semaglutide</a><a href="tirzepatide.html">Tirzepatide</a><a href="liraglutide.html">Liraglutide</a><a href="dulaglutide.html">Dulaglutide</a>
+</div>
+
+<div class="blog-wrap">
+  <header class="blog-hero">
+    <h1>Real Stories</h1>
+    <p>First-hand accounts from people navigating GLP-1 medications. Unfiltered, honest, and deeply personal.</p>
+  </header>
+
+  <div class="categories">
+    <span class="cat-tag active">All Stories</span>
+    <span class="cat-tag">Ozempic / Wegovy</span>
+    <span class="cat-tag">Mounjaro / Zepbound</span>
+    <span class="cat-tag">Saxenda</span>
+    <span class="cat-tag">Switching Medications</span>
+    <span class="cat-tag">Side Effects</span>
+    <span class="cat-tag">Mental Health</span>
+    <span class="cat-tag">Long-Term (1yr+)</span>
+  </div>
+
+  <div class="blog-layout">
+    <div>
+      <div class="posts-grid">
+
+        <a href="story-sarah-wegovy-8-months.html" class="post-card featured">
+          <div class="post-card__img">💬</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Featured Story</div>
+            <div class="post-card__title">"The Food Noise Disappeared — and So Did 47 Pounds"</div>
+            <div class="post-card__excerpt">Sarah M. spent 30 years battling her weight. After 8 months on Wegovy, the constant mental chatter about food went quiet for the first time. Here's her full journey — the breakthrough, the side effects, and what she wishes she'd known from day one.</div>
+            <div class="post-card__meta"><span>Feb 24, 2026</span><span>·</span><span>12 min read</span></div>
+          </div>
+        </a>
+
+        <a href="story-james-ozempic-to-mounjaro.html" class="post-card">
+          <div class="post-card__img">🔄</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Switching Medications</div>
+            <div class="post-card__title">"Ozempic Made Me Miserable. Mounjaro Changed Everything."</div>
+            <div class="post-card__excerpt">James R. almost gave up on GLP-1 medications entirely after severe nausea on Ozempic. His doctor suggested switching to Mounjaro — and the difference was night and day.</div>
+            <div class="post-card__meta"><span>Feb 19, 2026</span><span>·</span><span>9 min read</span></div>
+          </div>
+        </a>
+
+        <a href="story-priya-zepbound-protein.html" class="post-card">
+          <div class="post-card__img">🥩</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Diet &amp; Nutrition</div>
+            <div class="post-card__title">"I Wish Someone Had Warned Me About the Protein Problem"</div>
+            <div class="post-card__excerpt">Priya K. lost 32 lbs on Zepbound in 4 months — but a DEXA scan revealed she'd lost almost as much muscle as fat. Her hard-won advice on eating enough when you have zero appetite.</div>
+            <div class="post-card__meta"><span>Feb 14, 2026</span><span>·</span><span>10 min read</span></div>
+          </div>
+        </a>
+
+        <a href="story-david-type2-trulicity.html" class="post-card">
+          <div class="post-card__img">📊</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Type 2 Diabetes</div>
+            <div class="post-card__title">"Trulicity Gave Me My A1C Back — and My Confidence"</div>
+            <div class="post-card__excerpt">David T. was diagnosed with type 2 diabetes at 42 and felt like a failure. After 18 months on Trulicity, his A1C dropped from 9.1 to 6.4 — and he stopped dreading blood work.</div>
+            <div class="post-card__meta"><span>Feb 8, 2026</span><span>·</span><span>8 min read</span></div>
+          </div>
+        </a>
+
+        <a href="story-maria-saxenda-journey.html" class="post-card">
+          <div class="post-card__img">📈</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Long-Term</div>
+            <div class="post-card__title">"2 Years on Saxenda: The Honest Truth About What Happens Long-Term"</div>
+            <div class="post-card__excerpt">Maria L. has been on Saxenda for over two years. She shares what nobody talks about — the plateaus, the social pressure, the insurance battles, and why she's staying on it anyway.</div>
+            <div class="post-card__meta"><span>Feb 3, 2026</span><span>·</span><span>14 min read</span></div>
+          </div>
+        </a>
+
+        <a href="story-tom-mental-health-glp1.html" class="post-card">
+          <div class="post-card__img">🧠</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Mental Health</div>
+            <div class="post-card__title">"Nobody Prepared Me for the Emotional Side of Rapid Weight Loss"</div>
+            <div class="post-card__excerpt">Tom W. lost 60 lbs in 7 months on Wegovy. Physically, he felt great. Mentally, he was struggling with identity, loose skin anxiety, and a complicated relationship with his "before" self.</div>
+            <div class="post-card__meta"><span>Jan 27, 2026</span><span>·</span><span>11 min read</span></div>
+          </div>
+        </a>
+
+        <a href="story-rachel-ozempic-pcos.html" class="post-card">
+          <div class="post-card__img">💊</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Ozempic / Wegovy</div>
+            <div class="post-card__title">"Ozempic Didn't Just Help My Weight — It Helped My PCOS"</div>
+            <div class="post-card__excerpt">Rachel S. started Ozempic for weight management but was stunned when her PCOS symptoms dramatically improved. Her periods became regular for the first time in a decade.</div>
+            <div class="post-card__meta"><span>Jan 20, 2026</span><span>·</span><span>9 min read</span></div>
+          </div>
+        </a>
+
+        <a href="story-carlos-mounjaro-couple.html" class="post-card">
+          <div class="post-card__img">👫</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Mounjaro / Zepbound</div>
+            <div class="post-card__title">"My Wife and I Both Started Mounjaro. Here's What Happened."</div>
+            <div class="post-card__excerpt">Carlos and Elena D. started Mounjaro together. He lost 45 lbs in 5 months; she lost 18. Their story about different responses, supporting each other, and navigating it as a couple.</div>
+            <div class="post-card__meta"><span>Jan 14, 2026</span><span>·</span><span>13 min read</span></div>
+          </div>
+        </a>
+
+        <a href="story-nina-stopping-glp1.html" class="post-card">
+          <div class="post-card__img">⏸️</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Stopping Medication</div>
+            <div class="post-card__title">"I Stopped Ozempic After 14 Months. Here's What Happened Next."</div>
+            <div class="post-card__excerpt">Nina P. decided to stop Ozempic after reaching her goal weight. She shares the honest reality of weight regain, what she kept, and what she'd do differently.</div>
+            <div class="post-card__meta"><span>Jan 8, 2026</span><span>·</span><span>10 min read</span></div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="load-more"><span class="cat-tag" style="padding:12px 32px;font-size:14px;">Load More Stories</span></div>
+    </div>
+
+    <div class="blog-sidebar">
+      <div class="submit-cta">
+        <h3>Share your story</h3>
+        <p>Been on a GLP-1 medication? We'd love to hear about your experience — good, bad, or somewhere in between.</p>
+        <a href="#">Submit Your Story →</a>
+      </div>
+
+      <div class="email-box">
+        <div class="email-box__title">Get the newsletter</div>
+        <div class="email-box__desc">Weekly digest of GLP-1 news, stories, and tips — no spam.</div>
+        <input type="email" placeholder="you@email.com">
+        <button onclick="this.textContent='✓ Subscribed!';this.disabled=true">Subscribe Free</button>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__label">Partner</div>
+        <div class="sidebar-card__title">Ready to start?</div>
+        <div class="sidebar-card__desc">Get evaluated by a licensed provider from home.</div>
+        <a href="#" class="sidebar-card__btn" rel="nofollow sponsored">Check Eligibility →</a>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__label">Explore</div>
+        <div class="sidebar-card__title">More from us</div>
+        <div style="margin-top:12px">
+          <a href="blog.html" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">News &amp; Blog →</a>
+          <a href="food.html" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">Food &amp; Nutrition →</a>
+          <a href="index.html#medications" style="display:block;color:var(--accent);font-size:14px;font-weight:600;text-decoration:none;">Medication Guides →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><a href="index.html" class="logo">understand<em>GLP1</em></a><p>Your independent, evidence-based guide to GLP-1 and GLP-2 medications. Not affiliated with any pharmaceutical company.</p></div>
+    <div class="footer-col"><h4>Content</h4><a href="blog.html">News &amp; Blog</a><a href="stories.html">Real Stories</a><a href="food.html">Food &amp; Nutrition</a><a href="#">Tools</a></div>
+    <div class="footer-col"><h4>Medications</h4><a href="semaglutide.html">Semaglutide</a><a href="tirzepatide.html">Tirzepatide</a><a href="liraglutide.html">Liraglutide</a><a href="dulaglutide.html">Dulaglutide</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Advertise</a><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2026 UnderstandGLP1.com</span><span>Built with care in Northern Ireland 🍀</span></div>
+  <div class="footer-disclaimer">This website is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare provider before starting any medication. This site may contain affiliate links.</div>
+</footer>
+
+</body>
+</html>

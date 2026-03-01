@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GLP-1 compatible recipes, meal plans, and nutrition guides. What to eat, what to avoid, and how to get enough protein when your appetite is low.">
+<title>Food &amp; Nutrition — Understand GLP-1</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--white:#fff;--off-white:#FAFAF9;--gray-50:#F5F5F3;--gray-100:#EDEDEB;--gray-200:#DDDDD9;--gray-400:#A3A39E;--gray-500:#787872;--gray-700:#404040;--gray-900:#1A1A1A;--black:#0D0D0D;--accent:#0D6E4F;--accent-light:#E8F5EE;--accent-hover:#0A5A40;--warm:#F7F3EE;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Outfit',-apple-system,sans-serif;--page-max:1200px;--page-px:28px;--radius:12px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-body);background:var(--white);color:var(--gray-900);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--gray-100)}
+.nav-inner{max-width:var(--page-max);margin:0 auto;padding:0 var(--page-px);display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--font-display);font-size:24px;color:var(--black);text-decoration:none;letter-spacing:-0.01em}.logo em{font-style:italic;color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}.nav-links a{text-decoration:none;color:var(--gray-500);font-size:14px;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--black)}.nav-links .active{color:var(--black);font-weight:600}
+.nav-cta{background:var(--black);color:var(--white)!important;padding:8px 20px;border-radius:100px;font-size:13px!important;font-weight:600!important}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}.burger span{display:block;width:22px;height:2px;background:var(--black);transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:var(--white);z-index:99;padding:32px var(--page-px);flex-direction:column;gap:0}.mobile-menu.open{display:flex}.mobile-menu a{display:block;padding:16px 0;font-size:18px;font-weight:500;color:var(--gray-900);text-decoration:none;border-bottom:1px solid var(--gray-100)}.mobile-menu a:last-child{border-bottom:none}
+.blog-wrap{max-width:var(--page-max);margin:0 auto;padding:0 var(--page-px)}
+.blog-hero{padding:64px 0 48px;border-bottom:1px solid var(--gray-100);margin-bottom:48px}
+.blog-hero h1{font-family:var(--font-display);font-size:clamp(36px,5vw,56px);margin-bottom:12px;font-weight:400;letter-spacing:-0.025em}
+.blog-hero p{font-size:18px;color:var(--gray-500);max-width:560px;font-weight:300;line-height:1.65}
+.categories{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:48px}
+.cat-tag{display:inline-block;padding:8px 18px;border-radius:100px;font-size:13px;font-weight:500;border:1px solid var(--gray-200);color:var(--gray-500);text-decoration:none;transition:all .2s;cursor:pointer;background:var(--white)}
+.cat-tag:hover,.cat-tag.active{background:var(--black);color:var(--white);border-color:var(--black)}
+.blog-layout{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:start}
+.blog-sidebar{position:sticky;top:76px;display:flex;flex-direction:column;gap:24px;padding-top:8px}
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-bottom:60px}
+.post-card{background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius);overflow:hidden;transition:box-shadow .3s,transform .3s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.post-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.06);transform:translateY(-2px)}
+.post-card__img{height:180px;background:linear-gradient(135deg,#fef9f0,#f0f7f4);display:flex;align-items:center;justify-content:center;font-size:44px}
+.post-card__body{padding:24px;flex:1;display:flex;flex-direction:column}
+.post-card__cat{font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--accent);margin-bottom:10px}
+.post-card__title{font-family:var(--font-display);font-size:20px;line-height:1.25;margin-bottom:10px;letter-spacing:-0.01em}
+.post-card__excerpt{font-size:14px;color:var(--gray-500);line-height:1.55;flex:1;margin-bottom:16px;font-weight:300}
+.post-card__meta{font-size:12px;color:var(--gray-400);display:flex;gap:12px;align-items:center}
+.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--black)}
+.featured .post-card__img{height:100%;min-height:260px}
+.featured .post-card__body{padding:32px;justify-content:center}
+.featured .post-card__title{font-size:26px}
+.email-box{background:var(--gray-50);border-radius:var(--radius);padding:28px}
+.email-box__title{font-family:var(--font-display);font-size:20px;margin-bottom:8px;letter-spacing:-0.01em}
+.email-box__desc{font-size:13px;color:var(--gray-500);margin-bottom:16px;line-height:1.55;font-weight:300}
+.email-box input[type="email"]{width:100%;padding:12px 16px;border:1px solid var(--gray-200);border-radius:100px;font-size:14px;font-family:var(--font-body);margin-bottom:10px;outline:none;transition:border .2s;background:var(--white)}.email-box input:focus{border-color:var(--accent)}
+.email-box button{width:100%;padding:12px;background:var(--black);color:var(--white);font-size:14px;font-weight:600;border:none;border-radius:100px;cursor:pointer;font-family:var(--font-body);transition:background .2s}.email-box button:hover{background:var(--gray-700)}
+.sidebar-card{background:var(--gray-50);border-radius:var(--radius);padding:28px}
+.sidebar-card__label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--accent);margin-bottom:10px}
+.sidebar-card__title{font-family:var(--font-display);font-size:20px;margin-bottom:8px;letter-spacing:-0.01em}
+.sidebar-card__desc{font-size:14px;color:var(--gray-500);margin-bottom:16px;line-height:1.55;font-weight:300}
+.sidebar-card__btn{display:inline-block;background:var(--black);color:var(--white);font-size:13px;font-weight:600;padding:10px 24px;border-radius:100px;text-decoration:none;transition:background .2s}.sidebar-card__btn:hover{background:var(--gray-700)}
+.load-more{text-align:center;padding:20px 0 60px}
+footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--gray-100)}
+.footer-brand .logo{font-size:22px;display:inline-block;margin-bottom:12px}.footer-brand p{font-size:13px;color:var(--gray-500);line-height:1.55;max-width:260px;font-weight:300}
+.footer-col h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:16px;color:var(--gray-400)}.footer-col a{display:block;font-size:14px;color:var(--gray-500);text-decoration:none;margin-bottom:10px;font-weight:400;transition:color .2s}.footer-col a:hover{color:var(--black)}
+.footer-bottom{display:flex;justify-content:space-between;padding-top:24px;font-size:12px;color:var(--gray-400)}
+.footer-disclaimer{max-width:700px;font-size:11px;color:var(--gray-400);line-height:1.55;margin-top:16px}
+@media(max-width:960px){.blog-layout{grid-template-columns:1fr}.blog-sidebar{position:static;order:2}.featured{grid-template-columns:1fr}.featured .post-card__img{min-height:180px}.posts-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:640px){.nav-links{display:none}.burger{display:flex}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:8px}}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+  <a href="index.html" class="logo">understand<em>GLP1</em></a>
+  <ul class="nav-links">
+    <li><a href="blog.html">News</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="food.html" class="active">Food &amp; Nutrition</a></li>
+    <li><a href="index.html#medications">Medications</a></li>
+    <li><a href="blog.html" class="nav-cta">Read the Blog</a></li>
+  </ul>
+  <button class="burger" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="mobile-menu" id="mob">
+  <a href="index.html">Home</a><a href="blog.html">News &amp; Blog</a><a href="stories.html">Real Stories</a><a href="food.html">Food &amp; Nutrition</a><a href="index.html#medications">Medications</a>
+  <a href="semaglutide.html">Semaglutide</a><a href="tirzepatide.html">Tirzepatide</a><a href="liraglutide.html">Liraglutide</a><a href="dulaglutide.html">Dulaglutide</a>
+</div>
+
+<div class="blog-wrap">
+  <header class="blog-hero">
+    <h1>Food &amp; Nutrition</h1>
+    <p>Recipes, meal plans, and practical guides designed for life on GLP-1 and GLP-2 medications — when eating well matters more than ever.</p>
+  </header>
+
+  <div class="categories">
+    <span class="cat-tag active">All</span>
+    <span class="cat-tag">High Protein</span>
+    <span class="cat-tag">Meal Plans</span>
+    <span class="cat-tag">Recipes</span>
+    <span class="cat-tag">What to Avoid</span>
+    <span class="cat-tag">Supplements</span>
+    <span class="cat-tag">Hydration</span>
+    <span class="cat-tag">Low Volume Meals</span>
+  </div>
+
+  <div class="blog-layout">
+    <div>
+      <div class="posts-grid">
+
+        <a href="food-glp1-diet-guide.html" class="post-card featured">
+          <div class="post-card__img">🥗</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Featured Guide</div>
+            <div class="post-card__title">The GLP-1 Diet: What to Eat (and Avoid) for Best Results</div>
+            <div class="post-card__excerpt">Your appetite is down, but what you eat still matters more than ever. A practical, comprehensive guide to maximizing nutrition, preserving lean muscle, and avoiding common dietary mistakes on GLP-1 medications.</div>
+            <div class="post-card__meta"><span>Feb 20, 2026</span><span>·</span><span>14 min read</span></div>
+          </div>
+        </a>
+
+        <a href="food-high-protein-breakfasts.html" class="post-card">
+          <div class="post-card__img">🥚</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">High Protein</div>
+            <div class="post-card__title">10 Quick High-Protein Breakfasts for Low Appetite Days</div>
+            <div class="post-card__excerpt">When eating feels like a chore, these 200–400 calorie breakfasts pack maximum nutrition into minimum volume. Each one has 25g+ protein.</div>
+            <div class="post-card__meta"><span>Feb 17, 2026</span><span>·</span><span>8 min read</span></div>
+          </div>
+        </a>
+
+        <a href="food-weekly-meal-plan.html" class="post-card">
+          <div class="post-card__img">🍲</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Meal Plan</div>
+            <div class="post-card__title">The 1,200–1,500 Calorie GLP-1 Weekly Meal Plan</div>
+            <div class="post-card__excerpt">A complete week of balanced meals designed around the reduced appetite and heightened nutritional needs of GLP-1 patients. Includes a shopping list.</div>
+            <div class="post-card__meta"><span>Feb 13, 2026</span><span>·</span><span>12 min read</span></div>
+          </div>
+        </a>
+
+        <a href="food-what-makes-side-effects-worse.html" class="post-card">
+          <div class="post-card__img">🚫</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">What to Avoid</div>
+            <div class="post-card__title">Foods That Make GLP-1 Side Effects Worse</div>
+            <div class="post-card__excerpt">Greasy, fried, and high-sugar foods can dramatically amplify nausea, bloating, and GI issues. Here's what to skip and what to eat instead.</div>
+            <div class="post-card__meta"><span>Feb 9, 2026</span><span>·</span><span>7 min read</span></div>
+          </div>
+        </a>
+
+        <a href="food-protein-shakes-ranked.html" class="post-card">
+          <div class="post-card__img">🥤</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">High Protein</div>
+            <div class="post-card__title">The 8 Best Protein Shakes for GLP-1 Patients, Ranked</div>
+            <div class="post-card__excerpt">Not all protein shakes are created equal when your stomach is sensitive. We tested dozens and ranked the best by taste, digestibility, protein content, and price.</div>
+            <div class="post-card__meta"><span>Feb 5, 2026</span><span>·</span><span>10 min read</span></div>
+          </div>
+        </a>
+
+        <a href="food-supplements-glp1.html" class="post-card">
+          <div class="post-card__img">💊</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Supplements</div>
+            <div class="post-card__title">Essential Supplements on GLP-1: What You Actually Need</div>
+            <div class="post-card__excerpt">When you're eating less, nutritional gaps are inevitable. A doctor-informed guide to which supplements matter, which are overhyped, and when to get bloodwork.</div>
+            <div class="post-card__meta"><span>Jan 30, 2026</span><span>·</span><span>9 min read</span></div>
+          </div>
+        </a>
+
+        <a href="food-hydration-guide.html" class="post-card">
+          <div class="post-card__img">💧</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Hydration</div>
+            <div class="post-card__title">The GLP-1 Hydration Guide: Why You're Probably Not Drinking Enough</div>
+            <div class="post-card__excerpt">Dehydration is one of the most underrated side effects of GLP-1 medications. How much you really need, signs you're falling short, and electrolyte strategies that work.</div>
+            <div class="post-card__meta"><span>Jan 24, 2026</span><span>·</span><span>7 min read</span></div>
+          </div>
+        </a>
+
+        <a href="food-small-meals-big-nutrition.html" class="post-card">
+          <div class="post-card__img">🍱</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Low Volume Meals</div>
+            <div class="post-card__title">Small Meals, Big Nutrition: 15 Calorie-Dense Recipes Under 300 Calories</div>
+            <div class="post-card__excerpt">When you can only manage a few bites, every calorie needs to count. These nutrient-dense mini-meals pack maximum value into minimum volume.</div>
+            <div class="post-card__meta"><span>Jan 18, 2026</span><span>·</span><span>11 min read</span></div>
+          </div>
+        </a>
+
+        <a href="food-eating-out-glp1.html" class="post-card">
+          <div class="post-card__img">🍽️</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Practical Guide</div>
+            <div class="post-card__title">Eating Out on GLP-1: A Restaurant Survival Guide</div>
+            <div class="post-card__excerpt">How to navigate menus, manage portions, and avoid triggering nausea when dining out — with specific tips for Italian, Mexican, Asian, and fast casual restaurants.</div>
+            <div class="post-card__meta"><span>Jan 12, 2026</span><span>·</span><span>9 min read</span></div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="load-more"><span class="cat-tag" style="padding:12px 32px;font-size:14px;">Load More Guides</span></div>
+    </div>
+
+    <div class="blog-sidebar">
+      <div class="email-box">
+        <div class="email-box__title">Weekly meal ideas</div>
+        <div class="email-box__desc">Get GLP-1 friendly recipes and nutrition tips delivered to your inbox every week.</div>
+        <input type="email" placeholder="you@email.com">
+        <button onclick="this.textContent='✓ Subscribed!';this.disabled=true">Subscribe Free</button>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__label">Quick Links</div>
+        <div class="sidebar-card__title">Most popular guides</div>
+        <div style="margin-top:12px">
+          <a href="food-glp1-diet-guide.html" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">The GLP-1 Diet Guide →</a>
+          <a href="food-high-protein-breakfasts.html" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">High-Protein Breakfasts →</a>
+          <a href="food-weekly-meal-plan.html" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">Weekly Meal Plan →</a>
+          <a href="food-protein-shakes-ranked.html" style="display:block;color:var(--accent);font-size:14px;font-weight:600;text-decoration:none;">Protein Shakes Ranked →</a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__label">Partner</div>
+        <div class="sidebar-card__title">Ready to start?</div>
+        <div class="sidebar-card__desc">Get evaluated by a licensed provider from home.</div>
+        <a href="#" class="sidebar-card__btn" rel="nofollow sponsored">Check Eligibility →</a>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__label">Explore</div>
+        <div class="sidebar-card__title">More from us</div>
+        <div style="margin-top:12px">
+          <a href="blog.html" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">News &amp; Blog →</a>
+          <a href="stories.html" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">Real Stories →</a>
+          <a href="index.html#medications" style="display:block;color:var(--accent);font-size:14px;font-weight:600;text-decoration:none;">Medication Guides →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><a href="index.html" class="logo">understand<em>GLP1</em></a><p>Your independent, evidence-based guide to GLP-1 and GLP-2 medications. Not affiliated with any pharmaceutical company.</p></div>
+    <div class="footer-col"><h4>Content</h4><a href="blog.html">News &amp; Blog</a><a href="stories.html">Real Stories</a><a href="food.html">Food &amp; Nutrition</a><a href="#">Tools</a></div>
+    <div class="footer-col"><h4>Medications</h4><a href="semaglutide.html">Semaglutide</a><a href="tirzepatide.html">Tirzepatide</a><a href="liraglutide.html">Liraglutide</a><a href="dulaglutide.html">Dulaglutide</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Advertise</a><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2026 UnderstandGLP1.com</span><span>Built with care in Northern Ireland 🍀</span></div>
+  <div class="footer-disclaimer">This website is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare provider before starting any medication. This site may contain affiliate links.</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Understand GLP-1 — your independent guide to GLP-1 and GLP-2 medications. News, real stories, nutrition guides, and deep-dive references for Ozempic, Wegovy, Mounjaro, and more.">
+<title>Understand GLP-1 — News, Stories &amp; Guides for GLP-1 Medications</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --off-white: #FAFAF9;
+    --gray-50: #F5F5F3;
+    --gray-100: #EDEDEB;
+    --gray-200: #DDDDD9;
+    --gray-400: #A3A39E;
+    --gray-500: #787872;
+    --gray-700: #404040;
+    --gray-900: #1A1A1A;
+    --black: #0D0D0D;
+    --accent: #0D6E4F;
+    --accent-light: #E8F5EE;
+    --accent-hover: #0A5A40;
+    --warm: #F7F3EE;
+    --blue: #1565C0;
+    --blue-hover: #0D47A1;
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'Outfit', -apple-system, sans-serif;
+    --page-max: 1200px;
+    --page-px: 28px;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font-body); background: var(--white); color: var(--gray-900); line-height: 1.6; font-size: 16px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .anim-up { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) both; }
+  .anim-up-d1 { animation-delay: 0.08s; } .anim-up-d2 { animation-delay: 0.16s; } .anim-up-d3 { animation-delay: 0.24s; }
+  .anim-up-d4 { animation-delay: 0.32s; } .anim-up-d5 { animation-delay: 0.4s; } .anim-up-d6 { animation-delay: 0.48s; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid var(--gray-100); }
+  .nav-inner { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-px); display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo { font-family: var(--font-display); font-size: 24px; color: var(--black); text-decoration: none; letter-spacing: -0.01em; }
+  .logo em { font-style: italic; color: var(--accent); }
+  .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--gray-500); font-size: 14px; font-weight: 500; transition: color 0.2s; letter-spacing: 0.01em; }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta { background: var(--black); color: var(--white) !important; padding: 8px 20px; border-radius: 100px; font-size: 13px !important; font-weight: 600 !important; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--gray-700) !important; }
+
+  /* MOBILE NAV */
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+  .burger span{display:block;width:22px;height:2px;background:var(--black);transition:all .3s}
+  .mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:var(--white);z-index:99;padding:32px var(--page-px);flex-direction:column;gap:0}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{display:block;padding:16px 0;font-size:18px;font-weight:500;color:var(--gray-900);text-decoration:none;border-bottom:1px solid var(--gray-100);font-family:var(--font-body)}
+  .mobile-menu a:last-child{border-bottom:none}
+
+  /* HERO */
+  .hero { max-width: var(--page-max); margin: 0 auto; padding: 80px var(--page-px) 72px; }
+  .hero-label { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 24px; }
+  .hero-label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(44px, 6.5vw, 80px); line-height: 1.05; letter-spacing: -0.025em; color: var(--black); max-width: 900px; margin-bottom: 28px; font-weight: 400; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub { font-size: 18px; color: var(--gray-500); max-width: 560px; line-height: 1.65; font-weight: 300; margin-bottom: 36px; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: var(--white); padding: 14px 28px; border-radius: 100px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s; font-family: var(--font-body); }
+  .btn-primary:hover { background: var(--gray-700); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--gray-700); padding: 14px 28px; border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none; border: 1px solid var(--gray-200); transition: all 0.2s; font-family: var(--font-body); }
+  .btn-secondary:hover { border-color: var(--gray-400); color: var(--black); }
+
+  .section-wrap { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-px); }
+
+  /* PILLAR GRID */
+  .pillars { padding: 72px 0; }
+  .pillars-header { margin-bottom: 48px; }
+  .pillars-header h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .pillars-header p { font-size: 16px; color: var(--gray-500); font-weight: 300; max-width: 480px; }
+  .pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .pillar-card { background: var(--gray-50); border-radius: var(--radius); padding: 32px 28px; text-decoration: none; color: inherit; transition: all 0.3s cubic-bezier(0.22,1,0.36,1); position: relative; overflow: hidden; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; }
+  .pillar-card:hover { background: var(--gray-100); transform: translateY(-3px); }
+  .pillar-card__icon { font-size: 32px; margin-bottom: 20px; display: block; }
+  .pillar-card__title { font-family: var(--font-display); font-size: 22px; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .pillar-card__desc { font-size: 13px; color: var(--gray-500); line-height: 1.55; font-weight: 400; }
+  .pillar-card__arrow { position: absolute; top: 28px; right: 28px; font-size: 18px; color: var(--gray-400); transition: all 0.3s; }
+  .pillar-card:hover .pillar-card__arrow { color: var(--black); transform: translate(3px, -3px); }
+
+  /* LATEST NEWS */
+  .latest { padding: 80px 0; background: var(--off-white); }
+  .latest-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+  .latest-header h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); font-weight: 400; letter-spacing: -0.02em; }
+  .latest-header a { font-size: 14px; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .news-feature { grid-row: span 2; background: var(--white); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: box-shadow 0.3s; border: 1px solid var(--gray-100); }
+  .news-feature:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+  .news-feature__img { height: 260px; background: linear-gradient(135deg, var(--accent-light), var(--warm)); display: flex; align-items: center; justify-content: center; font-size: 56px; }
+  .news-feature__body { padding: 32px; flex: 1; display: flex; flex-direction: column; }
+  .news-feature__cat { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+  .news-feature__title { font-family: var(--font-display); font-size: 28px; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 12px; }
+  .news-feature__excerpt { font-size: 15px; color: var(--gray-500); line-height: 1.6; flex: 1; font-weight: 300; }
+  .news-feature__meta { font-size: 12px; color: var(--gray-400); margin-top: 20px; }
+  .news-card { background: var(--white); border-radius: var(--radius); padding: 28px; text-decoration: none; color: inherit; transition: box-shadow 0.3s; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--gray-100); }
+  .news-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.05); }
+  .news-card__cat { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+  .news-card__title { font-family: var(--font-display); font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; margin-bottom: 10px; }
+  .news-card__excerpt { font-size: 14px; color: var(--gray-500); line-height: 1.55; font-weight: 300; flex: 1; }
+  .news-card__meta { font-size: 12px; color: var(--gray-400); margin-top: 16px; }
+
+  /* AFFILIATE CTA */
+  .inline-cta-strip { padding: 48px 0; border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
+  .inline-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+  .inline-cta-inner h3 { font-family: var(--font-display); font-size: 24px; font-weight: 400; letter-spacing: -0.01em; }
+  .inline-cta-inner p { font-size: 14px; color: var(--gray-500); font-weight: 300; max-width: 400px; }
+
+  /* STORIES */
+  .stories { padding: 80px 0; }
+  .stories-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+  .stories-header h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); font-weight: 400; letter-spacing: -0.02em; }
+  .stories-header p { font-size: 14px; color: var(--gray-500); max-width: 400px; text-align: right; font-weight: 300; line-height: 1.55; }
+  .story-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .story-card { background: var(--warm); border-radius: var(--radius); padding: 32px 28px; text-decoration: none; color: inherit; transition: all 0.3s; }
+  .story-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+  .story-card__quote { font-family: var(--font-display); font-size: 56px; color: var(--accent); line-height: 1; margin-bottom: 8px; opacity: 0.3; }
+  .story-card__text { font-family: var(--font-display); font-size: 19px; line-height: 1.45; color: var(--gray-700); margin-bottom: 20px; font-style: italic; }
+  .story-card__author { font-size: 13px; font-weight: 600; color: var(--gray-900); }
+  .story-card__detail { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+
+  /* FOOD */
+  .food { padding: 80px 0; background: var(--off-white); }
+  .food-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+  .food-header h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); font-weight: 400; letter-spacing: -0.02em; }
+  .food-header a { font-size: 14px; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .food-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .food-card { background: var(--white); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; transition: box-shadow 0.3s, transform 0.3s; border: 1px solid var(--gray-100); }
+  .food-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.05); transform: translateY(-2px); }
+  .food-card__img { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 48px; background: linear-gradient(135deg, #fef9f0, #f0f7f4); }
+  .food-card__body { padding: 24px; }
+  .food-card__tag { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+  .food-card__title { font-family: var(--font-display); font-size: 19px; line-height: 1.3; margin-bottom: 8px; }
+  .food-card__desc { font-size: 13px; color: var(--gray-500); line-height: 1.55; }
+
+  /* MEDICATIONS */
+  .meds-strip { padding: 80px 0; }
+  .meds-strip-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+  .meds-strip-header h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); font-weight: 400; letter-spacing: -0.02em; }
+  .meds-strip-header p { font-size: 14px; color: var(--gray-500); max-width: 360px; text-align: right; font-weight: 300; line-height: 1.55; }
+  .med-row { display: grid; grid-template-columns: 200px 1fr auto; align-items: center; gap: 32px; padding: 24px 0; border-top: 1px solid var(--gray-100); text-decoration: none; color: inherit; transition: background 0.2s; }
+  .med-row:last-child { border-bottom: 1px solid var(--gray-100); }
+  .med-row:hover { background: var(--gray-50); margin: 0 -16px; padding: 24px 16px; border-radius: var(--radius-sm); }
+  .med-row__name { font-family: var(--font-display); font-size: 24px; letter-spacing: -0.01em; }
+  .med-row__brands { font-size: 14px; color: var(--gray-500); font-weight: 300; }
+  .med-row__arrow { font-size: 20px; color: var(--gray-400); transition: transform 0.2s; }
+  .med-row:hover .med-row__arrow { transform: translateX(4px); color: var(--black); }
+
+  /* NEWSLETTER */
+  .newsletter { padding: 80px 0; background: var(--black); color: var(--white); }
+  .newsletter-inner { max-width: 600px; margin: 0 auto; text-align: center; padding: 0 var(--page-px); }
+  .newsletter h2 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--white); }
+  .newsletter p { font-size: 16px; color: var(--gray-400); font-weight: 300; margin-bottom: 32px; line-height: 1.6; }
+  .newsletter-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
+  .newsletter-form input { flex: 1; padding: 14px 18px; border: 1px solid var(--gray-700); border-radius: 100px; background: transparent; color: var(--white); font-size: 14px; font-family: var(--font-body); outline: none; transition: border-color 0.2s; }
+  .newsletter-form input::placeholder { color: var(--gray-500); }
+  .newsletter-form input:focus { border-color: var(--accent); }
+  .newsletter-form button { padding: 14px 28px; background: var(--white); color: var(--black); border: none; border-radius: 100px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: var(--font-body); transition: background 0.2s; white-space: nowrap; }
+  .newsletter-form button:hover { background: var(--gray-100); }
+  .newsletter-trust { margin-top: 20px; font-size: 12px; color: var(--gray-500); }
+
+  /* FOOTER */
+  footer { padding: 56px var(--page-px) 40px; max-width: var(--page-max); margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--gray-100); }
+  .footer-brand .logo { font-size: 22px; display: inline-block; margin-bottom: 12px; }
+  .footer-brand p { font-size: 13px; color: var(--gray-500); line-height: 1.55; max-width: 260px; font-weight: 300; }
+  .footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 16px; color: var(--gray-400); }
+  .footer-col a { display: block; font-size: 14px; color: var(--gray-500); text-decoration: none; margin-bottom: 10px; font-weight: 400; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--black); }
+  .footer-bottom { display: flex; justify-content: space-between; padding-top: 24px; font-size: 12px; color: var(--gray-400); }
+  .footer-disclaimer { max-width: 700px; font-size: 11px; color: var(--gray-400); line-height: 1.55; margin-top: 16px; }
+
+  @media (max-width: 960px) {
+    .pillar-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links{display:none}
+    .burger{display:flex}
+    .news-grid { grid-template-columns: 1fr; } .news-feature { grid-row: auto; }
+    .story-grid { grid-template-columns: 1fr; } .food-grid { grid-template-columns: 1fr; }
+    .med-row { grid-template-columns: 140px 1fr auto; gap: 16px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .stories-header, .meds-strip-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .stories-header p, .meds-strip-header p { text-align: left; }
+  }
+  @media (max-width: 640px) {
+    .pillar-grid { grid-template-columns: 1fr; }
+    .hero { padding: 48px var(--page-px) 40px; } .hero h1 { font-size: 38px; }
+    .newsletter-form { flex-direction: column; } .inline-cta-inner { flex-direction: column; align-items: flex-start; }
+    .footer-top { grid-template-columns: 1fr; } .med-row { grid-template-columns: 1fr auto; } .med-row__brands { display: none; }
+    .footer-bottom { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+  <a href="index.html" class="logo">understand<em>GLP1</em></a>
+  <ul class="nav-links">
+    <li><a href="blog.html">News</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="food.html">Food &amp; Nutrition</a></li>
+    <li><a href="#medications">Medications</a></li>
+    <li><a href="blog.html" class="nav-cta">Read the Blog</a></li>
+  </ul>
+  <button class="burger" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div></nav>
+<div class="mobile-menu" id="mob">
+  <a href="index.html">Home</a>
+  <a href="blog.html">News &amp; Blog</a>
+  <a href="stories.html">Stories</a>
+  <a href="food.html">Food &amp; Nutrition</a>
+  <a href="index.html#medications">Medications</a>
+  <a href="semaglutide.html">Semaglutide</a>
+  <a href="tirzepatide.html">Tirzepatide</a>
+  <a href="liraglutide.html">Liraglutide</a>
+  <a href="dulaglutide.html">Dulaglutide</a>
+</div>
+
+<section class="hero">
+  <div class="hero-label anim-up">Independent &amp; Evidence-Based</div>
+  <h1 class="anim-up anim-up-d1">The smarter way to<br>understand <em>GLP-1</em></h1>
+  <p class="hero-sub anim-up anim-up-d2">News, real stories, nutrition guides, and deep-dive references for everyone navigating GLP-1 and GLP-2 medications.</p>
+  <div class="hero-actions anim-up anim-up-d3">
+    <a href="blog.html" class="btn-primary">Read Latest News →</a>
+    <a href="#medications" class="btn-secondary">Explore Medications</a>
+  </div>
+</section>
+
+<section class="pillars"><div class="section-wrap">
+  <div class="pillars-header anim-up anim-up-d4">
+    <h2>Everything in one place</h2>
+    <p>From breaking research to what's for dinner tonight — we cover the full GLP-1 journey.</p>
+  </div>
+  <div class="pillar-grid">
+    <a href="blog.html" class="pillar-card anim-up anim-up-d3"><div><span class="pillar-card__icon">📰</span><div class="pillar-card__title">News &amp; Industry</div><div class="pillar-card__desc">FDA decisions, clinical trials, pricing changes, and the latest research — as it happens.</div></div><span class="pillar-card__arrow">↗</span></a>
+    <a href="stories.html" class="pillar-card anim-up anim-up-d4"><div><span class="pillar-card__icon">💬</span><div class="pillar-card__title">Real Stories</div><div class="pillar-card__desc">First-hand experiences from real people on their GLP-1 journey — the highs, the lows, and everything in between.</div></div><span class="pillar-card__arrow">↗</span></a>
+    <a href="food.html" class="pillar-card anim-up anim-up-d5"><div><span class="pillar-card__icon">🥗</span><div class="pillar-card__title">Food &amp; Nutrition</div><div class="pillar-card__desc">Recipes, meal plans, and practical eating guides designed for life on GLP-1 and GLP-2 medications.</div></div><span class="pillar-card__arrow">↗</span></a>
+    <a href="#medications" class="pillar-card anim-up anim-up-d6"><div><span class="pillar-card__icon">📖</span><div class="pillar-card__title">Reference Wiki</div><div class="pillar-card__desc">Deep-dive guides on every medication — how they work, dosing, side effects, cost, and comparisons.</div></div><span class="pillar-card__arrow">↗</span></a>
+  </div>
+</div></section>
+
+<section class="latest"><div class="section-wrap">
+  <div class="latest-header"><h2>Latest news</h2><a href="blog.html">View all articles →</a></div>
+  <div class="news-grid">
+    <a href="glp1-brain-addiction-alzheimers.html" class="news-feature">
+      <div class="news-feature__img">💊</div>
+      <div class="news-feature__body">
+        <div class="news-feature__cat">Research</div>
+        <div class="news-feature__title">GLP-1 medications show promise for Alzheimer's prevention in new Phase 3 trial</div>
+        <div class="news-feature__excerpt">A landmark study of over 12,000 participants suggests semaglutide may reduce cognitive decline by 43% in patients with early-stage Alzheimer's — the most significant GLP-1 finding beyond metabolic health to date.</div>
+        <div class="news-feature__meta">Feb 26, 2026 · 8 min read</div>
+      </div>
+    </a>
+    <a href="glp1-medications-under-300.html" class="news-card">
+      <div><div class="news-card__cat">Pricing</div><div class="news-card__title">Eli Lilly launches Zepbound direct-to-consumer at $399/month</div><div class="news-card__excerpt">The new LillyDirect program undercuts traditional pharmacy pricing by 60%, putting pressure on Novo Nordisk to respond.</div></div>
+      <div class="news-card__meta">Feb 24, 2026 · 5 min read</div>
+    </a>
+    <a href="compounded-vs-brand-semaglutide.html" class="news-card">
+      <div><div class="news-card__cat">FDA</div><div class="news-card__title">FDA advisory committee votes to restrict compounded semaglutide</div><div class="news-card__excerpt">The committee voted 14-3 to recommend new safety requirements for compounding pharmacies producing semaglutide, citing quality concerns.</div></div>
+      <div class="news-card__meta">Feb 21, 2026 · 6 min read</div>
+    </a>
+  </div>
+</div></section>
+
+<section class="inline-cta-strip"><div class="section-wrap"><div class="inline-cta-inner">
+  <div><h3>Ready to explore your options?</h3><p>Connect with a licensed provider to discuss whether a GLP-1 medication is right for you — from home.</p></div>
+  <a href="#" class="btn-primary" rel="nofollow sponsored">Check Eligibility →</a>
+</div></div></section>
+
+<section class="stories"><div class="section-wrap">
+  <div class="stories-header"><h2>Real stories, real people</h2><p>First-hand accounts from people navigating GLP-1 medications. Unfiltered and honest.</p></div>
+  <div class="story-grid">
+    <a href="story-sarah-wegovy-8-months.html" class="story-card"><div class="story-card__quote">"</div><div class="story-card__text">The food noise disappearing was the biggest shock. For the first time in 30 years, I wasn't thinking about my next meal constantly.</div><div class="story-card__author">Sarah M.</div><div class="story-card__detail">On Wegovy · 8 months · Lost 47 lbs</div></a>
+    <a href="story-james-ozempic-to-mounjaro.html" class="story-card"><div class="story-card__quote">"</div><div class="story-card__text">I was skeptical about Mounjaro after Ozempic made me so nauseous. The switch was night and day — way fewer side effects for me.</div><div class="story-card__author">James R.</div><div class="story-card__detail">Switched from Ozempic to Mounjaro · 6 months</div></a>
+    <a href="story-priya-zepbound-protein.html" class="story-card"><div class="story-card__quote">"</div><div class="story-card__text">Nobody tells you how hard it is to eat enough protein when your appetite is this low. I wish I'd started tracking macros from day one.</div><div class="story-card__author">Priya K.</div><div class="story-card__detail">On Zepbound · 4 months · Lost 32 lbs</div></a>
+  </div>
+</div></section>
+
+<section class="food"><div class="section-wrap">
+  <div class="food-header"><h2>Food &amp; nutrition</h2><a href="food.html">See all guides →</a></div>
+  <div class="food-grid">
+    <a href="food-high-protein-breakfasts.html" class="food-card"><div class="food-card__img">🥚</div><div class="food-card__body"><div class="food-card__tag">High Protein</div><div class="food-card__title">10 Quick High-Protein Breakfasts for Low Appetite Days</div><div class="food-card__desc">When eating feels like a chore, these 200–400 calorie breakfasts pack maximum nutrition into minimum volume.</div></div></a>
+    <a href="food-weekly-meal-plan.html" class="food-card"><div class="food-card__img">🍲</div><div class="food-card__body"><div class="food-card__tag">Meal Plan</div><div class="food-card__title">The 1,200–1,500 Calorie GLP-1 Meal Plan</div><div class="food-card__desc">A week of balanced meals designed around the reduced appetite and nutritional needs of GLP-1 patients.</div></div></a>
+    <a href="food-what-makes-side-effects-worse.html" class="food-card"><div class="food-card__img">🚫</div><div class="food-card__body"><div class="food-card__tag">What to Avoid</div><div class="food-card__title">Foods That Make GLP-1 Side Effects Worse</div><div class="food-card__desc">Greasy, fried, and high-sugar foods can amplify nausea and GI issues. Here's what to skip and what to eat instead.</div></div></a>
+  </div>
+</div></section>
+
+<section class="meds-strip" id="medications"><div class="section-wrap">
+  <div class="meds-strip-header"><h2>Medication reference</h2><p>Deep-dive guides on every GLP-1 and GLP-2 medication — how they work, dosing, cost, and side effects.</p></div>
+  <a href="semaglutide.html" class="med-row"><div class="med-row__name">Semaglutide</div><div class="med-row__brands">Ozempic · Wegovy · Rybelsus</div><span class="med-row__arrow">→</span></a>
+  <a href="tirzepatide.html" class="med-row"><div class="med-row__name">Tirzepatide</div><div class="med-row__brands">Mounjaro · Zepbound</div><span class="med-row__arrow">→</span></a>
+  <a href="liraglutide.html" class="med-row"><div class="med-row__name">Liraglutide</div><div class="med-row__brands">Victoza · Saxenda</div><span class="med-row__arrow">→</span></a>
+  <a href="dulaglutide.html" class="med-row"><div class="med-row__name">Dulaglutide</div><div class="med-row__brands">Trulicity</div><span class="med-row__arrow">→</span></a>
+  <a href="#" class="med-row"><div class="med-row__name">GLP-2</div><div class="med-row__brands">Teduglutide · Gattex</div><span class="med-row__arrow">→</span></a>
+</div></section>
+
+<section class="newsletter"><div class="newsletter-inner">
+  <h2>Stay in the loop</h2>
+  <p>A weekly digest of GLP-1 news, stories, and nutrition tips — written for real people, not medical journals.</p>
+  <div class="newsletter-form"><input type="email" placeholder="Your email address"><button onclick="this.textContent='✓ Subscribed!';this.disabled=true">Subscribe</button></div>
+  <div class="newsletter-trust">No spam, ever. Unsubscribe anytime.</div>
+</div></section>
+
+<section class="inline-cta-strip"><div class="section-wrap"><div class="inline-cta-inner">
+  <div><h3>Compare GLP-1 providers &amp; pricing</h3><p>Find the most affordable route to your medication — telehealth, pharmacy, or direct-to-consumer.</p></div>
+  <a href="#" class="btn-primary" rel="nofollow sponsored">Compare Options →</a>
+</div></div></section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><a href="index.html" class="logo">understand<em>GLP1</em></a><p>Your independent, evidence-based guide to GLP-1 and GLP-2 medications. Not affiliated with any pharmaceutical company.</p></div>
+    <div class="footer-col"><h4>Content</h4><a href="blog.html">News &amp; Blog</a><a href="stories.html">Real Stories</a><a href="food.html">Food &amp; Nutrition</a><a href="#">Tools</a></div>
+    <div class="footer-col"><h4>Medications</h4><a href="semaglutide.html">Semaglutide</a><a href="tirzepatide.html">Tirzepatide</a><a href="liraglutide.html">Liraglutide</a><a href="dulaglutide.html">Dulaglutide</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Advertise</a><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2026 UnderstandGLP1.com</span><span>Built with care in Northern Ireland 🍀</span></div>
+  <div class="footer-disclaimer">This website is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare provider before starting any medication. This site may contain affiliate links — we may earn a commission at no extra cost to you.</div>
+</footer>
+
+</body>
+</html>
