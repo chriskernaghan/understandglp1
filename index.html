@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Understand GLP-1 — your independent guide to GLP-1 and GLP-2 medications. News, real stories, nutrition guides, and deep-dive references for Ozempic, Wegovy, Mounjaro, and more.">
-<title>Understand GLP-1 — News, Stories &amp; Guides for GLP-1 Medications</title>
+<meta name="description" content="Understand GLP-1 — real news, honest stories, and practical food guides for people on Ozempic, Wegovy, Mounjaro, Zepbound and more. Built for your GLP-1 life.">
+<title>Understand GLP-1 — Real Life on GLP-1 Medications</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -62,16 +62,52 @@
 
   /* HERO */
   .hero { max-width: var(--page-max); margin: 0 auto; padding: 80px var(--page-px) 72px; }
-  .hero-label { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 24px; }
-  .hero-label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+  /* ── CHANGED: badge is now lifestyle-first, not credentialing ── */
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+  }
+  .hero-label::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+  }
+
   .hero h1 { font-family: var(--font-display); font-size: clamp(44px, 6.5vw, 80px); line-height: 1.05; letter-spacing: -0.025em; color: var(--black); max-width: 900px; margin-bottom: 28px; font-weight: 400; }
   .hero h1 em { font-style: italic; color: var(--accent); }
   .hero-sub { font-size: 18px; color: var(--gray-500); max-width: 560px; line-height: 1.65; font-weight: 300; margin-bottom: 36px; }
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
   .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: var(--white); padding: 14px 28px; border-radius: 100px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s; font-family: var(--font-body); }
   .btn-primary:hover { background: var(--gray-700); }
   .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--gray-700); padding: 14px 28px; border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none; border: 1px solid var(--gray-200); transition: all 0.2s; font-family: var(--font-body); }
   .btn-secondary:hover { border-color: var(--gray-400); color: var(--black); }
+
+  /* ── NEW: trust note — evidence-based positioning moved here, below the fold-above-the-line ── */
+  .hero-trust {
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--gray-400);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-trust::before {
+    content: '✓';
+    color: var(--accent);
+    font-weight: 700;
+  }
 
   .section-wrap { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-px); }
 
@@ -228,13 +264,25 @@
 </div>
 
 <section class="hero">
-  <div class="hero-label anim-up">Independent &amp; Evidence-Based</div>
-  <h1 class="anim-up anim-up-d1">The smarter way to<br>understand <em>GLP-1</em></h1>
-  <p class="hero-sub anim-up anim-up-d2">News, real stories, nutrition guides, and deep-dive references for everyone navigating GLP-1 and GLP-2 medications.</p>
+
+  <!-- CHANGED: Badge — lifestyle signal, not credentialing -->
+  <div class="hero-label anim-up">Real life on GLP-1</div>
+
+  <!-- CHANGED: Headline — signals who this is for and what they'll find -->
+  <h1 class="anim-up anim-up-d1">News, stories &amp; food<br>for your <em>GLP-1 journey</em></h1>
+
+  <!-- CHANGED: Subtext — specific, human, action-oriented -->
+  <p class="hero-sub anim-up anim-up-d2">From breaking research to what's for dinner tonight — honest, practical coverage built for people actually on Ozempic, Wegovy, Mounjaro, and more.</p>
+
   <div class="hero-actions anim-up anim-up-d3">
-    <a href="blog.html" class="btn-primary">Read Latest News →</a>
-    <a href="#medications" class="btn-secondary">Explore Medications</a>
+    <!-- CHANGED: Primary CTA — meets the most common user intent first -->
+    <a href="stories.html" class="btn-primary">Read Real Stories →</a>
+    <a href="blog.html" class="btn-secondary">Latest News</a>
   </div>
+
+  <!-- NEW: Trust note — evidence-based claim moved here, below the hook -->
+  <div class="hero-trust anim-up anim-up-d4">Independent &amp; evidence-based. Not affiliated with any pharmaceutical company.</div>
+
 </section>
 
 <section class="pillars"><div class="section-wrap">
