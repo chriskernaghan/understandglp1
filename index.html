@@ -62,8 +62,6 @@
 
   /* HERO */
   .hero { max-width: var(--page-max); margin: 0 auto; padding: 80px var(--page-px) 72px; }
-
-  /* ── CHANGED: badge is now lifestyle-first, not credentialing ── */
   .hero-label {
     display: inline-flex;
     align-items: center;
@@ -83,7 +81,6 @@
     background: var(--accent);
     display: inline-block;
   }
-
   .hero h1 { font-family: var(--font-display); font-size: clamp(44px, 6.5vw, 80px); line-height: 1.05; letter-spacing: -0.025em; color: var(--black); max-width: 900px; margin-bottom: 28px; font-weight: 400; }
   .hero h1 em { font-style: italic; color: var(--accent); }
   .hero-sub { font-size: 18px; color: var(--gray-500); max-width: 560px; line-height: 1.65; font-weight: 300; margin-bottom: 36px; }
@@ -92,8 +89,6 @@
   .btn-primary:hover { background: var(--gray-700); }
   .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--gray-700); padding: 14px 28px; border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none; border: 1px solid var(--gray-200); transition: all 0.2s; font-family: var(--font-body); }
   .btn-secondary:hover { border-color: var(--gray-400); color: var(--black); }
-
-  /* ── NEW: trust note — evidence-based positioning moved here, below the fold-above-the-line ── */
   .hero-trust {
     margin-top: 24px;
     font-size: 13px;
@@ -264,25 +259,14 @@
 </div>
 
 <section class="hero">
-
-  <!-- CHANGED: Badge — lifestyle signal, not credentialing -->
   <div class="hero-label anim-up">Real life on GLP-1</div>
-
-  <!-- CHANGED: Headline — signals who this is for and what they'll find -->
   <h1 class="anim-up anim-up-d1">News, stories &amp; food<br>for your <em>GLP-1 journey</em></h1>
-
-  <!-- CHANGED: Subtext — specific, human, action-oriented -->
   <p class="hero-sub anim-up anim-up-d2">From breaking research to what's for dinner tonight — honest, practical coverage built for people actually on Ozempic, Wegovy, Mounjaro, and more.</p>
-
   <div class="hero-actions anim-up anim-up-d3">
-    <!-- CHANGED: Primary CTA — meets the most common user intent first -->
     <a href="stories.html" class="btn-primary">Read Real Stories →</a>
     <a href="blog.html" class="btn-secondary">Latest News</a>
   </div>
-
-  <!-- NEW: Trust note — evidence-based claim moved here, below the hook -->
   <div class="hero-trust anim-up anim-up-d4">Independent &amp; evidence-based. Not affiliated with any pharmaceutical company.</div>
-
 </section>
 
 <section class="pillars"><div class="section-wrap">
@@ -311,12 +295,13 @@
       </div>
     </a>
     <a href="glp1-medications-under-300.html" class="news-card">
-      <div><div class="news-card__cat">Cost and Insurance</div><div class="news-card__title">How to Get GLP-1 Medications for Under $300/Month</div><div class="news-card__excerpt">Avoid the overpriced clinics with these proven savings strategies.</div></div>
+      <div><div class="news-card__cat">Cost &amp; Insurance</div><div class="news-card__title">How to Get GLP-1 Medications for Under $300/Month</div><div class="news-card__excerpt">Avoid the overpriced clinics with these proven savings strategies.</div></div>
       <div class="news-card__meta">Feb 24, 2026 · 5 min read</div>
     </a>
-    <a href="compounded-vs-brand-semaglutide.html" class="news-card">
-      <div><div class="news-card__cat">FDA</div><div class="news-card__title">FDA advisory committee votes to restrict compounded semaglutide</div><div class="news-card__excerpt">The committee voted 14-3 to recommend new safety requirements for compounding pharmacies producing semaglutide, citing quality concerns.</div></div>
-      <div class="news-card__meta">Feb 21, 2026 · 6 min read</div>
+    <!-- UPDATED: replaced compounded FDA card with new telehealth comparison article -->
+    <a href="glp1-telehealth-platforms-compared.html" class="news-card">
+      <div><div class="news-card__cat">Comparisons</div><div class="news-card__title">GLP-1 Telehealth Platforms Compared — US &amp; UK</div><div class="news-card__excerpt">What the major platforms actually cost, which medications they offer, and how good their ongoing support really is.</div></div>
+      <div class="news-card__meta">Mar 16, 2026 · 14 min read</div>
     </a>
   </div>
 </div></section>
@@ -360,9 +345,10 @@
   <div class="newsletter-trust">No spam, ever. Unsubscribe anytime.</div>
 </div></section>
 
+<!-- UPDATED: CTA now links directly to the new telehealth comparison article -->
 <section class="inline-cta-strip"><div class="section-wrap"><div class="inline-cta-inner">
-  <div><h3>Compare GLP-1 providers &amp; pricing</h3><p>Find the most affordable route to your medication — telehealth, pharmacy, or direct-to-consumer.</p></div>
-  <a href="#" class="btn-primary" rel="nofollow sponsored">Compare Options →</a>
+  <div><h3>Compare GLP-1 telehealth platforms</h3><p>US and UK platforms compared side-by-side — cost, medications, and app support, so you can choose the right service.</p></div>
+  <a href="glp1-telehealth-platforms-compared.html" class="btn-primary">Compare Platforms →</a>
 </div></div></section>
 
 <footer>
