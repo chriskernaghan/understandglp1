@@ -41,6 +41,12 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop
 .featured .post-card__img{height:100%;min-height:260px}
 .featured .post-card__body{padding:32px;justify-content:center}
 .featured .post-card__title{font-size:26px}
+/* Hidden state */
+.post-card.hidden{display:none}
+.featured.hidden{display:none}
+/* No results */
+.no-results{display:none;grid-column:1/-1;padding:48px 0;text-align:center;color:var(--gray-400);font-size:15px}
+.no-results.visible{display:block}
 .email-box{background:var(--gray-50);border-radius:var(--radius);padding:28px}
 .email-box__title{font-family:var(--font-display);font-size:20px;margin-bottom:8px;letter-spacing:-0.01em}
 .email-box__desc{font-size:13px;color:var(--gray-500);margin-bottom:16px;line-height:1.55;font-weight:300}
@@ -86,22 +92,24 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
     <p>Recipes, meal plans, and practical guides designed for life on GLP-1 and GLP-2 medications — when eating well matters more than ever.</p>
   </header>
 
-  <div class="categories">
-    <span class="cat-tag active">All</span>
-    <span class="cat-tag">High Protein</span>
-    <span class="cat-tag">Meal Plans</span>
-    <span class="cat-tag">Recipes</span>
-    <span class="cat-tag">What to Avoid</span>
-    <span class="cat-tag">Supplements</span>
-    <span class="cat-tag">Hydration</span>
-    <span class="cat-tag">Low Volume Meals</span>
+  <!-- FIX 1: data-filter attributes added to every button -->
+  <div class="categories" id="category-filters">
+    <span class="cat-tag active" data-filter="all">All</span>
+    <span class="cat-tag" data-filter="high-protein">High Protein</span>
+    <span class="cat-tag" data-filter="meal-plans">Meal Plans</span>
+    <span class="cat-tag" data-filter="recipes">Recipes</span>
+    <span class="cat-tag" data-filter="what-to-avoid">What to Avoid</span>
+    <span class="cat-tag" data-filter="supplements">Supplements</span>
+    <span class="cat-tag" data-filter="hydration">Hydration</span>
+    <span class="cat-tag" data-filter="low-volume">Low Volume Meals</span>
   </div>
 
   <div class="blog-layout">
     <div>
-      <div class="posts-grid">
+      <!-- FIX 2: data-category attributes added to every post card -->
+      <div class="posts-grid" id="posts-grid">
 
-        <a href="food-glp1-diet-guide.html" class="post-card featured">
+        <a href="food-glp1-diet-guide.html" class="post-card featured" data-category="what-to-avoid">
           <div class="post-card__img">🥗</div>
           <div class="post-card__body">
             <div class="post-card__cat">Featured Guide</div>
@@ -111,7 +119,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="food-high-protein-breakfasts.html" class="post-card">
+        <a href="food-high-protein-breakfasts.html" class="post-card" data-category="high-protein">
           <div class="post-card__img">🥚</div>
           <div class="post-card__body">
             <div class="post-card__cat">High Protein</div>
@@ -121,7 +129,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="food-weekly-meal-plan.html" class="post-card">
+        <a href="food-weekly-meal-plan.html" class="post-card" data-category="meal-plans">
           <div class="post-card__img">🍲</div>
           <div class="post-card__body">
             <div class="post-card__cat">Meal Plan</div>
@@ -131,7 +139,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="food-what-makes-side-effects-worse.html" class="post-card">
+        <a href="food-what-makes-side-effects-worse.html" class="post-card" data-category="what-to-avoid">
           <div class="post-card__img">🚫</div>
           <div class="post-card__body">
             <div class="post-card__cat">What to Avoid</div>
@@ -141,7 +149,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="food-protein-shakes-ranked.html" class="post-card">
+        <a href="food-protein-shakes-ranked.html" class="post-card" data-category="high-protein">
           <div class="post-card__img">🥤</div>
           <div class="post-card__body">
             <div class="post-card__cat">High Protein</div>
@@ -151,7 +159,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="food-supplements-glp1.html" class="post-card">
+        <a href="food-supplements-glp1.html" class="post-card" data-category="supplements">
           <div class="post-card__img">💊</div>
           <div class="post-card__body">
             <div class="post-card__cat">Supplements</div>
@@ -161,7 +169,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="food-hydration-guide.html" class="post-card">
+        <a href="food-hydration-guide.html" class="post-card" data-category="hydration">
           <div class="post-card__img">💧</div>
           <div class="post-card__body">
             <div class="post-card__cat">Hydration</div>
@@ -171,7 +179,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="food-small-meals-big-nutrition.html" class="post-card">
+        <a href="food-small-meals-big-nutrition.html" class="post-card" data-category="low-volume">
           <div class="post-card__img">🍱</div>
           <div class="post-card__body">
             <div class="post-card__cat">Low Volume Meals</div>
@@ -181,7 +189,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="food-eating-out-glp1.html" class="post-card">
+        <a href="food-eating-out-glp1.html" class="post-card" data-category="recipes">
           <div class="post-card__img">🍽️</div>
           <div class="post-card__body">
             <div class="post-card__cat">Practical Guide</div>
@@ -190,6 +198,8 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
             <div class="post-card__meta"><span>Jan 12, 2026</span><span>·</span><span>9 min read</span></div>
           </div>
         </a>
+
+        <div class="no-results" id="no-results">No guides found in this category yet.</div>
 
       </div>
 
@@ -245,6 +255,37 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
   <div class="footer-bottom"><span>&copy; 2026 UnderstandGLP1.com</span><span>Built with care in Northern Ireland 🍀</span></div>
   <div class="footer-disclaimer">This website is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare provider before starting any medication. This site may contain affiliate links.</div>
 </footer>
+
+<!-- FIX 3: Filter logic — previously missing entirely -->
+<script>
+(function () {
+  var filters   = document.querySelectorAll('#category-filters .cat-tag');
+  var cards     = document.querySelectorAll('#posts-grid .post-card');
+  var noResults = document.getElementById('no-results');
+
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filters.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var selected = btn.getAttribute('data-filter');
+      var visible  = 0;
+
+      cards.forEach(function (card) {
+        var cat = card.getAttribute('data-category');
+        if (selected === 'all' || cat === selected) {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      noResults.classList.toggle('visible', visible === 0);
+    });
+  });
+}());
+</script>
 
 </body>
 </html>
