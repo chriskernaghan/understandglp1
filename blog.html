@@ -59,11 +59,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop
 .post-card__excerpt{font-size:14px;color:var(--gray-500);line-height:1.55;flex:1;margin-bottom:16px;font-weight:300}
 .post-card__meta{font-size:12px;color:var(--gray-400);display:flex;gap:12px;align-items:center}
 
+/* Hidden card state */
+.post-card.hidden{display:none}
+
+/* No results message */
+.no-results{display:none;grid-column:1/-1;padding:48px 0;text-align:center;color:var(--gray-400);font-size:15px}
+.no-results.visible{display:block}
+
 /* Featured */
 .featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--black)}
 .featured .post-card__img{height:100%;min-height:260px}
 .featured .post-card__body{padding:32px;justify-content:center}
 .featured .post-card__title{font-size:26px}
+/* Hide featured card's grid-column span when it's hidden */
+.featured.hidden{display:none}
 
 /* SIDEBAR COMPONENTS */
 .email-box{background:var(--gray-50);border-radius:var(--radius);padding:28px}
@@ -157,22 +166,24 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
     <p>Research updates, practical guides, and everything you need to navigate the world of GLP-1 medications.</p>
   </header>
 
-  <div class="categories">
-    <span class="cat-tag active">All</span>
-    <span class="cat-tag">Getting Started</span>
-    <span class="cat-tag">Research &amp; News</span>
-    <span class="cat-tag">Side Effects</span>
-    <span class="cat-tag">Diet &amp; Nutrition</span>
-    <span class="cat-tag">Exercise</span>
-    <span class="cat-tag">Cost &amp; Insurance</span>
-    <span class="cat-tag">Comparisons</span>
+  <!-- FIX 1: data-filter attributes added to every button, matching card data-category values exactly -->
+  <div class="categories" id="category-filters">
+    <span class="cat-tag active" data-filter="all">All</span>
+    <span class="cat-tag" data-filter="getting-started">Getting Started</span>
+    <span class="cat-tag" data-filter="research-news">Research &amp; News</span>
+    <span class="cat-tag" data-filter="side-effects">Side Effects</span>
+    <span class="cat-tag" data-filter="diet-nutrition">Diet &amp; Nutrition</span>
+    <span class="cat-tag" data-filter="exercise">Exercise</span>
+    <span class="cat-tag" data-filter="cost-insurance">Cost &amp; Insurance</span>
+    <span class="cat-tag" data-filter="comparisons">Comparisons</span>
   </div>
 
   <div class="blog-layout">
     <div>
-      <div class="posts-grid">
+      <!-- FIX 2: data-category attributes added to every post card, matching filter values exactly -->
+      <div class="posts-grid" id="posts-grid">
 
-        <a href="ozempic-vs-mounjaro-2026.html" class="post-card featured" href="ozempic-vs-mounjaro-2026.html">
+        <a href="ozempic-vs-mounjaro-2026.html" class="post-card featured" data-category="comparisons">
           <div class="post-card__img">💉</div>
           <div class="post-card__body">
             <div class="post-card__cat">Featured</div>
@@ -182,7 +193,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="glp1-diet-what-to-eat.html" class="post-card">
+        <a href="glp1-diet-what-to-eat.html" class="post-card" data-category="diet-nutrition">
           <div class="post-card__img">🍽️</div>
           <div class="post-card__body">
             <div class="post-card__cat">Diet &amp; Nutrition</div>
@@ -192,7 +203,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="strength-training-glp1.html" class="post-card">
+        <a href="strength-training-glp1.html" class="post-card" data-category="exercise">
           <div class="post-card__img">🏋️</div>
           <div class="post-card__body">
             <div class="post-card__cat">Exercise</div>
@@ -202,7 +213,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="glp1-medications-under-300.html" class="post-card">
+        <a href="glp1-medications-under-300.html" class="post-card" data-category="cost-insurance">
           <div class="post-card__img">💰</div>
           <div class="post-card__body">
             <div class="post-card__cat">Cost &amp; Insurance</div>
@@ -212,7 +223,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="glp1-brain-addiction-alzheimers.html" class="post-card">
+        <a href="glp1-brain-addiction-alzheimers.html" class="post-card" data-category="research-news">
           <div class="post-card__img">🔬</div>
           <div class="post-card__body">
             <div class="post-card__cat">Research &amp; News</div>
@@ -222,7 +233,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="managing-glp1-nausea.html" class="post-card">
+        <a href="managing-glp1-nausea.html" class="post-card" data-category="side-effects">
           <div class="post-card__img">⚠️</div>
           <div class="post-card__body">
             <div class="post-card__cat">Side Effects</div>
@@ -232,7 +243,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="first-month-glp1-guide.html" class="post-card">
+        <a href="first-month-glp1-guide.html" class="post-card" data-category="getting-started">
           <div class="post-card__img">📋</div>
           <div class="post-card__body">
             <div class="post-card__cat">Getting Started</div>
@@ -242,7 +253,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="compounded-vs-brand-semaglutide.html" class="post-card">
+        <a href="compounded-vs-brand-semaglutide.html" class="post-card" data-category="comparisons">
           <div class="post-card__img">⚖️</div>
           <div class="post-card__body">
             <div class="post-card__cat">Comparisons</div>
@@ -252,7 +263,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="food-noise-explained.html" class="post-card">
+        <a href="food-noise-explained.html" class="post-card" data-category="research-news">
           <div class="post-card__img">🧠</div>
           <div class="post-card__body">
             <div class="post-card__cat">Research &amp; News</div>
@@ -261,6 +272,9 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
             <div class="post-card__meta"><span>Jan 22, 2026</span><span>·</span><span>9 min read</span></div>
           </div>
         </a>
+
+        <!-- FIX 3: No-results message sitting inside the grid -->
+        <div class="no-results" id="no-results">No articles found in this category yet.</div>
 
       </div>
 
@@ -320,6 +334,39 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
   <div class="footer-bottom"><span>&copy; 2026 UnderstandGLP1.com</span><span>Built with care in Northern Ireland 🍀</span></div>
   <div class="footer-disclaimer">This website is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare provider before starting any medication. This site may contain affiliate links.</div>
 </footer>
+
+<!-- FIX 4: Filter logic — previously missing entirely -->
+<script>
+(function () {
+  const filters = document.querySelectorAll('#category-filters .cat-tag');
+  const cards   = document.querySelectorAll('#posts-grid .post-card');
+  const noResults = document.getElementById('no-results');
+
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      // Update active state on buttons
+      filters.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var selected = btn.getAttribute('data-filter');
+      var visible  = 0;
+
+      cards.forEach(function (card) {
+        var cat = card.getAttribute('data-category');
+        if (selected === 'all' || cat === selected) {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Show/hide empty state
+      noResults.classList.toggle('visible', visible === 0);
+    });
+  });
+}());
+</script>
 
 </body>
 </html>
