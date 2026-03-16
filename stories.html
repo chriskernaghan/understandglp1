@@ -41,6 +41,12 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop
 .featured .post-card__img{height:100%;min-height:260px}
 .featured .post-card__body{padding:32px;justify-content:center}
 .featured .post-card__title{font-size:26px}
+/* Hidden state */
+.post-card.hidden{display:none}
+.featured.hidden{display:none}
+/* No results */
+.no-results{display:none;grid-column:1/-1;padding:48px 0;text-align:center;color:var(--gray-400);font-size:15px}
+.no-results.visible{display:block}
 .email-box{background:var(--gray-50);border-radius:var(--radius);padding:28px}
 .email-box__title{font-family:var(--font-display);font-size:20px;margin-bottom:8px;letter-spacing:-0.01em}
 .email-box__desc{font-size:13px;color:var(--gray-500);margin-bottom:16px;line-height:1.55;font-weight:300}
@@ -91,22 +97,24 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
     <p>First-hand accounts from people navigating GLP-1 medications. Unfiltered, honest, and deeply personal.</p>
   </header>
 
-  <div class="categories">
-    <span class="cat-tag active">All Stories</span>
-    <span class="cat-tag">Ozempic / Wegovy</span>
-    <span class="cat-tag">Mounjaro / Zepbound</span>
-    <span class="cat-tag">Saxenda</span>
-    <span class="cat-tag">Switching Medications</span>
-    <span class="cat-tag">Side Effects</span>
-    <span class="cat-tag">Mental Health</span>
-    <span class="cat-tag">Long-Term (1yr+)</span>
+  <!-- FIX 1: data-filter attributes added to every button -->
+  <div class="categories" id="category-filters">
+    <span class="cat-tag active" data-filter="all">All Stories</span>
+    <span class="cat-tag" data-filter="ozempic-wegovy">Ozempic / Wegovy</span>
+    <span class="cat-tag" data-filter="mounjaro-zepbound">Mounjaro / Zepbound</span>
+    <span class="cat-tag" data-filter="saxenda">Saxenda</span>
+    <span class="cat-tag" data-filter="switching">Switching Medications</span>
+    <span class="cat-tag" data-filter="side-effects">Side Effects</span>
+    <span class="cat-tag" data-filter="mental-health">Mental Health</span>
+    <span class="cat-tag" data-filter="long-term">Long-Term (1yr+)</span>
   </div>
 
   <div class="blog-layout">
     <div>
-      <div class="posts-grid">
+      <!-- FIX 2: data-category attributes added to every post card -->
+      <div class="posts-grid" id="posts-grid">
 
-        <a href="story-sarah-wegovy-8-months.html" class="post-card featured">
+        <a href="story-sarah-wegovy-8-months.html" class="post-card featured" data-category="ozempic-wegovy">
           <div class="post-card__img">💬</div>
           <div class="post-card__body">
             <div class="post-card__cat">Featured Story</div>
@@ -116,7 +124,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="story-james-ozempic-to-mounjaro.html" class="post-card">
+        <a href="story-james-ozempic-to-mounjaro.html" class="post-card" data-category="switching">
           <div class="post-card__img">🔄</div>
           <div class="post-card__body">
             <div class="post-card__cat">Switching Medications</div>
@@ -126,7 +134,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="story-priya-zepbound-protein.html" class="post-card">
+        <a href="story-priya-zepbound-protein.html" class="post-card" data-category="mounjaro-zepbound">
           <div class="post-card__img">🥩</div>
           <div class="post-card__body">
             <div class="post-card__cat">Diet &amp; Nutrition</div>
@@ -136,7 +144,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="story-david-type2-trulicity.html" class="post-card">
+        <a href="story-david-type2-trulicity.html" class="post-card" data-category="long-term">
           <div class="post-card__img">📊</div>
           <div class="post-card__body">
             <div class="post-card__cat">Type 2 Diabetes</div>
@@ -146,7 +154,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="story-maria-saxenda-journey.html" class="post-card">
+        <a href="story-maria-saxenda-journey.html" class="post-card" data-category="saxenda">
           <div class="post-card__img">📈</div>
           <div class="post-card__body">
             <div class="post-card__cat">Long-Term</div>
@@ -156,7 +164,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="story-tom-mental-health-glp1.html" class="post-card">
+        <a href="story-tom-mental-health-glp1.html" class="post-card" data-category="mental-health">
           <div class="post-card__img">🧠</div>
           <div class="post-card__body">
             <div class="post-card__cat">Mental Health</div>
@@ -166,7 +174,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="story-rachel-ozempic-pcos.html" class="post-card">
+        <a href="story-rachel-ozempic-pcos.html" class="post-card" data-category="ozempic-wegovy">
           <div class="post-card__img">💊</div>
           <div class="post-card__body">
             <div class="post-card__cat">Ozempic / Wegovy</div>
@@ -176,7 +184,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="story-carlos-mounjaro-couple.html" class="post-card">
+        <a href="story-carlos-mounjaro-couple.html" class="post-card" data-category="mounjaro-zepbound">
           <div class="post-card__img">👫</div>
           <div class="post-card__body">
             <div class="post-card__cat">Mounjaro / Zepbound</div>
@@ -186,7 +194,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <a href="story-nina-stopping-glp1.html" class="post-card">
+        <a href="story-nina-stopping-glp1.html" class="post-card" data-category="ozempic-wegovy">
           <div class="post-card__img">⏸️</div>
           <div class="post-card__body">
             <div class="post-card__cat">Stopping Medication</div>
@@ -195,6 +203,8 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
             <div class="post-card__meta"><span>Jan 8, 2026</span><span>·</span><span>10 min read</span></div>
           </div>
         </a>
+
+        <div class="no-results" id="no-results">No stories found in this category yet.</div>
 
       </div>
 
@@ -245,6 +255,37 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
   <div class="footer-bottom"><span>&copy; 2026 UnderstandGLP1.com</span><span>Built with care in Northern Ireland 🍀</span></div>
   <div class="footer-disclaimer">This website is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare provider before starting any medication. This site may contain affiliate links.</div>
 </footer>
+
+<!-- FIX 3: Filter logic — previously missing entirely -->
+<script>
+(function () {
+  var filters = document.querySelectorAll('#category-filters .cat-tag');
+  var cards   = document.querySelectorAll('#posts-grid .post-card');
+  var noResults = document.getElementById('no-results');
+
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filters.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var selected = btn.getAttribute('data-filter');
+      var visible  = 0;
+
+      cards.forEach(function (card) {
+        var cat = card.getAttribute('data-category');
+        if (selected === 'all' || cat === selected) {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      noResults.classList.toggle('visible', visible === 0);
+    });
+  });
+}());
+</script>
 
 </body>
 </html>
