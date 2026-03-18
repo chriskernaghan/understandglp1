@@ -166,11 +166,12 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
     <p>Research updates, practical guides, and everything you need to navigate the world of GLP-1 medications.</p>
   </header>
 
-  <!-- FIX 1: data-filter attributes added to every button, matching card data-category values exactly -->
+  <!-- Category filters with new Reference category -->
   <div class="categories" id="category-filters">
     <span class="cat-tag active" data-filter="all">All</span>
     <span class="cat-tag" data-filter="getting-started">Getting Started</span>
     <span class="cat-tag" data-filter="research-news">Research &amp; News</span>
+    <span class="cat-tag" data-filter="reference">Reference</span>
     <span class="cat-tag" data-filter="side-effects">Side Effects</span>
     <span class="cat-tag" data-filter="diet-nutrition">Diet &amp; Nutrition</span>
     <span class="cat-tag" data-filter="exercise">Exercise</span>
@@ -180,7 +181,6 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
 
   <div class="blog-layout">
     <div>
-      <!-- FIX 2: data-category attributes added to every post card, matching filter values exactly -->
       <div class="posts-grid" id="posts-grid">
 
         <a href="ozempic-vs-mounjaro-2026.html" class="post-card featured" data-category="comparisons">
@@ -193,7 +193,18 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <!-- NEW: Telehealth comparison article -->
+        <!-- NEW: Golden Dose article -->
+        <a href="glp1-golden-dose-leftover-medication.html" class="post-card" data-category="reference">
+          <div class="post-card__img">💊</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Reference</div>
+            <div class="post-card__title">The "Golden Dose": What's Really Left in Your GLP-1 Pen</div>
+            <div class="post-card__excerpt">Why there's leftover medication after your final dose, the contradiction with multi-pen starter kits, and Eli Lilly's upcoming pen redesign.</div>
+            <div class="post-card__meta"><span>Mar 18, 2026</span><span>·</span><span>10 min read</span></div>
+          </div>
+        </a>
+
+        <!-- Telehealth comparison article -->
         <a href="glp1-telehealth-platforms-compared.html" class="post-card" data-category="comparisons">
           <div class="post-card__img">🖥️</div>
           <div class="post-card__body">
@@ -284,7 +295,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <!-- FIX 3: No-results message sitting inside the grid -->
+        <!-- No-results message -->
         <div class="no-results" id="no-results">No articles found in this category yet.</div>
 
       </div>
@@ -309,7 +320,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
         <a href="glp1-telehealth-platforms-compared.html" class="popular-post"><span class="popular-post__num">02</span><span class="popular-post__name">GLP-1 Telehealth Platforms Compared — US &amp; UK</span></a>
         <a href="glp1-medications-under-300.html" class="popular-post"><span class="popular-post__num">03</span><span class="popular-post__name">How to Get GLP-1 Medications for Under $300/Month</span></a>
         <a href="managing-glp1-nausea.html" class="popular-post"><span class="popular-post__num">04</span><span class="popular-post__name">Managing GLP-1 Nausea: 12 Tips That Work</span></a>
-        <a href="first-month-glp1-guide.html" class="popular-post"><span class="popular-post__num">05</span><span class="popular-post__name">Your First Month: Week-by-Week Guide</span></a>
+        <a href="glp1-golden-dose-leftover-medication.html" class="popular-post"><span class="popular-post__num">05</span><span class="popular-post__name">The "Golden Dose": What's Left in Your Pen</span></a>
       </div>
 
       <div class="sidebar-card">
@@ -346,7 +357,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
   <div class="footer-disclaimer">This website is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare provider before starting any medication. This site may contain affiliate links.</div>
 </footer>
 
-<!-- FIX 4: Filter logic — previously missing entirely -->
+<!-- Filter logic -->
 <script>
 (function () {
   const filters = document.querySelectorAll('#category-filters .cat-tag');
