@@ -166,7 +166,6 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
     <p>Research updates, practical guides, and everything you need to navigate the world of GLP-1 medications.</p>
   </header>
 
-  <!-- Category filters with new Reference category -->
   <div class="categories" id="category-filters">
     <span class="cat-tag active" data-filter="all">All</span>
     <span class="cat-tag" data-filter="getting-started">Getting Started</span>
@@ -193,7 +192,6 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <!-- NEW: Golden Dose article -->
         <a href="glp1-golden-dose-leftover-medication.html" class="post-card" data-category="reference">
           <div class="post-card__img">💊</div>
           <div class="post-card__body">
@@ -204,7 +202,17 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
           </div>
         </a>
 
-        <!-- Telehealth comparison article -->
+        <!-- NEW: Alzheimer's prevention spin-out -->
+        <a href="glp1-alzheimers-prevention.html" class="post-card" data-category="research-news">
+          <div class="post-card__img">🧠</div>
+          <div class="post-card__body">
+            <div class="post-card__cat">Research &amp; News</div>
+            <div class="post-card__title">GLP-1 Medications and Alzheimer's: Why Prevention Is the Real Story</div>
+            <div class="post-card__excerpt">Semaglutide failed to treat Alzheimer's in the EVOKE trials — but real-world data shows GLP-1 users have up to 70% lower dementia risk. What it means if you're already on Ozempic or Wegovy.</div>
+            <div class="post-card__meta"><span>Mar 30, 2026</span><span>·</span><span>11 min read</span></div>
+          </div>
+        </a>
+
         <a href="glp1-telehealth-platforms-compared.html" class="post-card" data-category="comparisons">
           <div class="post-card__img">🖥️</div>
           <div class="post-card__body">
@@ -241,7 +249,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
             <div class="post-card__cat">Cost &amp; Insurance</div>
             <div class="post-card__title">How to Get GLP-1 Medications for Under $300/Month</div>
             <div class="post-card__excerpt">From manufacturer savings cards to compounding pharmacies and telehealth platforms — every legitimate way to reduce the cost of your prescription.</div>
-            <div class="post-card__meta"><span>Feb 13, 2026</span><span>·</span><span>12 min read</span></div>
+            <div class="post-card__meta"><span>Feb 13, 2026</span><span>·</span><span>8 min read</span></div>
           </div>
         </a>
 
@@ -261,7 +269,7 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
             <div class="post-card__cat">Side Effects</div>
             <div class="post-card__title">Managing GLP-1 Nausea: 12 Tips That Actually Work</div>
             <div class="post-card__excerpt">Nausea is the #1 side effect. Here are evidence-based strategies from doctors and patients to minimize it during dose escalation.</div>
-            <div class="post-card__meta"><span>Feb 6, 2026</span><span>·</span><span>7 min read</span></div>
+            <div class="post-card__meta"><span>Feb 6, 2026</span><span>·</span><span>8 min read</span></div>
           </div>
         </a>
 
@@ -366,7 +374,6 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
 
   filters.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      // Update active state on buttons
       filters.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
 
@@ -383,7 +390,6 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
         }
       });
 
-      // Show/hide empty state
       noResults.classList.toggle('visible', visible === 0);
     });
   });
