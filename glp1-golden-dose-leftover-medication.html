@@ -8,7 +8,11 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* Page-specific: outer wrapper is just a width constraint, not a grid */
+.article-outer{max-width:var(--page-max);margin:0 auto;padding:0 var(--page-px)}
+</style>
 </head>
 <body>
 
@@ -37,7 +41,7 @@
   <a href="dulaglutide.html">Dulaglutide</a>
 </div>
 
-<div class="article-wrap">
+<div class="article-outer">
 
   <header class="article-hero">
     <a href="blog.html" class="article-hero__back">← Back to Blog</a>
@@ -56,7 +60,6 @@
   <div class="article-layout">
     <div>
 
-      <!-- TL;DR -->
       <div class="tldr">
         <div class="tldr__label">TL;DR</div>
         <ul class="tldr__list">
@@ -75,15 +78,11 @@
       <div class="article-body">
 
         <h2 id="what-is-golden-dose">What is the "golden dose"?</h2>
-
         <p>If you've finished your weekly injections and noticed there's still liquid visible in your pen, you've encountered what the GLP-1 community calls the "golden dose" — also referred to as the "fifth dose."</p>
-
         <p>The term has spread through social media and patient forums, with some users attempting to extract this leftover medication using syringes to get an extra injection out of each pen. The motivation is understandable: these medications are expensive, and waste feels frustrating.</p>
-
         <p>But what's actually going on? Is this leftover medication a design flaw, a hidden bonus, or something else entirely?</p>
 
         <h2 id="why-overfill-exists">Why your pen contains more medication than you need</h2>
-
         <p>Every GLP-1 injection pen is deliberately overfilled. This isn't a secret — it's standard pharmaceutical practice for injectable devices. The extra liquid serves two purposes:</p>
 
         <h3>1. Flow checks (priming)</h3>
@@ -100,7 +99,6 @@
         <p>The key point: this residual liquid was never designed to be used as an extra dose. It's not measured, not calibrated, and extracting it requires breaking the pen's intended use pattern.</p>
 
         <h2 id="manufacturer-guidance">What the manufacturers say</h2>
-
         <p>Official guidance from both Novo Nordisk (Ozempic, Wegovy) and Eli Lilly (Mounjaro, Zepbound) is unambiguous: do not attempt to use leftover medication.</p>
 
         <div class="callout warning">
@@ -110,31 +108,20 @@
         </div>
 
         <p>The reasoning comes down to three concerns:</p>
-
         <p><strong>Sterility.</strong> Once a pen has been in use (multiple needle punctures, exposure to skin bacteria, temperature fluctuations), it's no longer considered sterile. Using leftover liquid days or weeks after the pen was first opened increases the risk of introducing bacteria — which can cause injection site infections, abscesses, or in severe cases, sepsis.</p>
-
         <p><strong>Dosing accuracy.</strong> The residual liquid isn't a measured dose. You can't know exactly how much you're injecting, which undermines the careful titration that makes these medications effective.</p>
-
         <p><strong>Device integrity.</strong> Extracting liquid with a syringe requires "hacking" the pen — breaking into a device designed for a specific use pattern. This isn't how the device was tested or approved.</p>
 
         <h2 id="the-contradiction">The contradiction nobody talks about</h2>
-
         <p>Here's where things get interesting.</p>
-
         <p>Manufacturers are clear that you shouldn't use medication from a pen that's been open for more than 28–30 days (depending on the product). The concern is stability, sterility, and potency degradation over time.</p>
-
         <p><strong>But consider how these medications are actually sold.</strong></p>
-
         <p>Many patients receive titration packs — multiple pens bundled together so you can step up through doses. For Mounjaro, you might receive a 2.5mg pen and a 5mg pen in the same shipment. You use the 2.5mg pen for four weeks, then move to the 5mg pen.</p>
-
         <p>That second pen has been sitting in your fridge — or at room temperature — for a month before you even open it.</p>
-
         <p>The manufacturers would likely argue that an <em>unopened, properly stored</em> pen is fundamentally different from an <em>in-use</em> pen. An unopened pen maintains its sterile seal. An in-use pen has been punctured, handled, potentially exposed to temperature variations, and so on.</p>
-
         <p>This is technically true. But it does raise questions about how rigid the expiration and stability guidance really needs to be — and whether the caution around leftover medication is partly about liability rather than chemistry.</p>
 
         <h2 id="pen-comparison">How each GLP-1 pen works: a comparison</h2>
-
         <p>Not all GLP-1 pens are the same. Here's how the major medications differ in their design and storage requirements:</p>
 
         <div class="table-wrap">
@@ -182,17 +169,12 @@
         </div>
 
         <p>The key distinction is between <strong>multi-dose pens</strong> (Ozempic, Mounjaro) where you use the same pen for multiple weeks, and <strong>single-dose pens</strong> (Wegovy, Zepbound) where each injection comes from a fresh pen.</p>
-
         <p>The "golden dose" phenomenon primarily affects multi-dose pens, where you can see liquid remaining after your fourth injection. Single-dose pens may have minimal residual medication, but since you're disposing of them immediately anyway, it's less visible and less tempting to try to extract.</p>
 
         <h2 id="risks">The real risks of using leftover medication</h2>
-
         <p>Medical professionals consistently advise against extracting the golden dose. The risks aren't theoretical:</p>
-
         <p><strong>Infection.</strong> Breaking into a pen with a syringe introduces contamination risk. The pens aren't designed to be accessed this way, and you're bypassing the sterile delivery mechanism. Skin bacteria can enter the vial, and injecting contaminated liquid can cause abscesses or systemic infection.</p>
-
         <p><strong>Inaccurate dosing.</strong> GLP-1 medications work through careful titration. An unmeasured dose could be too little (reducing effectiveness) or too much (increasing side effects like nausea, vomiting, or hypoglycemia in diabetic patients).</p>
-
         <p><strong>Unknown potency.</strong> Medication that's been in an opened pen beyond its rated shelf life may have degraded. You could be injecting a less potent solution — meaning reduced therapeutic benefit.</p>
 
         <div class="callout warning">
@@ -201,37 +183,22 @@
         </div>
 
         <h2 id="eli-lilly-redesign">Eli Lilly's response: redesigning the pen</h2>
-
         <p>The golden dose phenomenon hasn't gone unnoticed by manufacturers.</p>
-
         <p>In late 2025, Eli Lilly announced that they would be modifying the Mounjaro KwikPen design to reduce the amount of leftover medication after four doses. The redesigned pen includes an extended internal plunger that pushes further into the cartridge, leaving less residual liquid visible.</p>
-
         <p>According to Eli Lilly's communication to UK pharmacies, the modified KwikPen is expected to become available from <strong>April 2026</strong>. The company states that the new design "makes it easier to track that the final dose has been administered, indicating that the pen is ready to be discarded."</p>
-
         <p>The medication itself isn't changing — same active ingredient, same dosing schedule, same mechanism. It's purely a device modification.</p>
-
         <p>This change comes alongside significant price increases. In September 2025, Eli Lilly raised the UK private wholesale price of Mounjaro by up to 170% — with the highest dose increasing from around £122 to £330 per month. The combination of higher prices and reduced leftover medication has frustrated some users, who see it as a double hit.</p>
 
         <h2 id="what-to-do">What you should actually do</h2>
-
-        <p>The safest approach is straightforward:</p>
-
         <p><strong>Follow the prescribed schedule.</strong> Take your weekly dose as directed. Don't skip doses to "save up" medication, and don't try to stretch a pen beyond its intended use.</p>
-
         <p><strong>Dispose of pens correctly.</strong> After completing your doses (or when the in-use period expires, whichever comes first), discard the pen — even if liquid is visible. Use a sharps container for needles.</p>
-
         <p><strong>Talk to your prescriber if cost is a concern.</strong> If the expense of GLP-1 medications is pushing you toward risky workarounds, discuss this with your healthcare provider. There may be alternatives, patient assistance programs, or dosing strategies that can help.</p>
-
         <p><strong>Don't trust social media hacks.</strong> The golden dose trend spread through TikTok and Reddit, not medical journals. Community tips can be helpful for managing side effects or finding practical advice, but extracting unmeasured medication from expired pens is in a different category.</p>
 
         <h2 id="bottom-line">The bottom line</h2>
-
         <p>The golden dose exists because of standard pharmaceutical manufacturing — not because drug companies are hiding free medication from you. The overfill ensures that every prescribed dose can be delivered fully and accurately.</p>
-
         <p>At the same time, the rigid guidance about in-use periods does sit awkwardly alongside the reality of how these medications are packaged and sold. A second pen in a titration pack, sitting unopened for a month, isn't fundamentally different from the first pen — except that one has had its seal broken.</p>
-
         <p>What's clear is that attempting to extract and inject leftover medication carries real risks, and the potential savings (one extra dose every four weeks) probably aren't worth an abscess or a trip to A&E.</p>
-
         <p>The redesigned Mounjaro pens rolling out in 2026 will largely eliminate the golden dose temptation — whether you see that as a safety improvement or a cynical move alongside price increases depends on your perspective.</p>
 
         <div class="callout info">
@@ -240,13 +207,10 @@
           <p style="margin-top:8px"><a href="glp1-brain-addiction-alzheimers.html">GLP-1 and the Brain</a> — emerging research on neurological effects.</p>
         </div>
 
-      </div><!-- /article-body -->
+      </div>
+    </div>
 
-    </div><!-- /main column -->
-
-    <!-- SIDEBAR -->
     <aside class="article-sidebar">
-
       <div class="sidebar-toc">
         <div class="sidebar-toc__title">In This Article</div>
         <a href="#what-is-golden-dose">What is the golden dose?</a>
@@ -259,14 +223,12 @@
         <a href="#what-to-do">What you should do</a>
         <a href="#bottom-line">The bottom line</a>
       </div>
-
       <div class="sidebar-card">
         <div class="sidebar-card__label">Partner</div>
         <div class="sidebar-card__title">Need a GLP-1 prescription?</div>
         <div class="sidebar-card__desc">Compare telehealth platforms offering Ozempic, Wegovy, Mounjaro and Zepbound.</div>
         <a href="glp1-telehealth-platforms-compared.html" class="sidebar-card__btn">Compare Options →</a>
       </div>
-
       <div class="sidebar-related">
         <div class="sidebar-related__title">Related Articles</div>
         <a href="glp1-telehealth-platforms-compared.html" class="related-link">
@@ -286,18 +248,16 @@
           <div class="related-link__title">Managing GLP-1 Nausea: 12 Tips That Actually Work</div>
         </a>
       </div>
-
       <div class="sidebar-card">
         <div class="sidebar-card__label">Newsletter</div>
         <div class="sidebar-card__title">Stay informed</div>
         <div class="sidebar-card__desc">Weekly GLP-1 news, pricing updates, and practical tips — straight to your inbox.</div>
         <a href="#" class="sidebar-card__btn">Subscribe Free</a>
       </div>
-
     </aside>
 
-  </div><!-- /article-layout -->
-</div><!-- /article-wrap -->
+  </div>
+</div>
 
 <footer>
   <div class="footer-top">
@@ -307,7 +267,7 @@
     <div class="footer-col"><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Advertise</a><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
   </div>
   <div class="footer-bottom"><span>&copy; 2026 UnderstandGLP1.com</span><span>Built with care in Northern Ireland 🍀</span></div>
-  <div class="footer-disclaimer">This website is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare provider before starting, changing, or stopping any medication. Some links on this page may be affiliate or sponsored links — see our <a href="#" style="color:inherit">disclosure policy</a> for details.</div>
+  <div class="footer-disclaimer">This website is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare provider before starting, changing, or stopping any medication. Some links on this page may be affiliate or sponsored links.</div>
 </footer>
 
 </body>
