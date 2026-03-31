@@ -331,12 +331,11 @@ footer{padding:56px var(--page-px) 40px;max-width:var(--page-max);margin:0 auto}
     const warn  = document.getElementById('stale-warning');
     el.classList.remove('loading');
 
-    if (!isoString) {
-      el.classList.add('stale');
-      text.textContent = 'Prices: estimated (live data unavailable)';
-      warn.classList.add('visible');
-      return;
-    }
+if (!isoString) {
+  el.classList.remove('stale');
+  text.textContent = 'Prices: estimated March 2026';
+  return;
+}
 
     const updated = new Date(isoString);
     const hoursAgo = Math.round((Date.now() - updated) / 36e5);
