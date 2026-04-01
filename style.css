@@ -878,8 +878,8 @@ footer {
 @media (max-width: 960px) {
   /* Article layouts */
   .article-wrap { grid-template-columns: 1fr; }
-  .article-sidebar { position: static; order: 2; padding-top: 0; }
   .article-layout { grid-template-columns: 1fr; }
+  .article-sidebar { position: static; order: 2; padding-top: 0; }
 
   /* Homepage grids */
   .pillar-grid { grid-template-columns: 1fr 1fr; }
@@ -937,12 +937,60 @@ footer {
     word-break: break-word;
   }
 
-  /* Tables — scrollable container */
+  /* Tables — card-per-row on mobile */
   .table-wrap {
     margin-left: 0;
     margin-right: 0;
     border-radius: var(--radius-sm);
+    overflow-x: visible; /* let cards stack rather than scroll */
+    border: none;
   }
+  .comparison-table { font-size: 14px; }
+  .comparison-table thead { display: none; } /* hide column headers */
+  .comparison-table, .comparison-table tbody,
+  .comparison-table tr, .comparison-table td {
+    display: block;
+    width: 100%;
+  }
+  .comparison-table tr {
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .comparison-table tr:last-child { margin-bottom: 0; }
+  .comparison-table td {
+    display: flex;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gray-100);
+    white-space: normal;
+  }
+  .comparison-table td:last-child { border-bottom: none; }
+  .comparison-table td:first-child {
+    background: var(--gray-50);
+    font-weight: 700;
+    color: var(--gray-900);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    white-space: normal;
+  }
+  /* Label injected via data-label attribute */
+  .comparison-table td::before {
+    content: attr(data-label);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    min-width: 100px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  /* Hide the ::before on the first cell (row header) */
+  .comparison-table td:first-child::before { display: none; }
+  .comparison-table .highlight { background: var(--accent-light); }
 
   /* Blog */
   .posts-grid { grid-template-columns: 1fr; }
