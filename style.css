@@ -1160,3 +1160,423 @@ footer {
     gap: 16px;
   }
 }
+
+/* ============================================================
+   Price Comparison Tool — UK GLP-1 pricing page
+   Adds styling for .comparison-layout, .drug-tabs, .dose-filter,
+   .sort-bar, .price-table, .last-updated, .stale-warning, etc.
+   ============================================================ */
+
+/* Two-column layout wrapper (main + sidebar) */
+.comparison-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 56px;
+  align-items: start;
+  padding-bottom: 80px;
+}
+.comparison-main { min-width: 0; }
+.comparison-sidebar {
+  position: sticky;
+  top: 76px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+/* Last-updated pill (sits inside .page-hero) */
+.last-updated {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 6px 14px;
+  background: var(--accent-light);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+}
+.last-updated .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+.last-updated.stale {
+  background: #FEF3C7;
+  color: #92400E;
+}
+.last-updated.stale .dot { background: #F59E0B; animation: none; }
+.last-updated.loading .dot { animation: pulse 1s ease-in-out infinite; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Stale warning banner (hidden by default, shown via .visible) */
+.stale-warning {
+  display: none;
+  background: #FEF3C7;
+  border: 1px solid #F59E0B;
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #78350F;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.stale-warning.visible { display: block; }
+.stale-warning strong { color: #78350F; }
+
+/* Drug tabs — pill-shaped row */
+.drug-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 32px 0 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--gray-100);
+}
+.drug-tab {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  color: var(--gray-500);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.drug-tab:hover {
+  border-color: var(--gray-400);
+  color: var(--gray-900);
+}
+.drug-tab.active {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+/* Dose filter — smaller secondary row */
+.dose-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.dose-filter-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--gray-400);
+  margin-right: 4px;
+}
+.dose-btn {
+  background: var(--gray-50);
+  border: 1px solid transparent;
+  color: var(--gray-500);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.dose-btn:hover {
+  background: var(--gray-100);
+  color: var(--gray-900);
+}
+.dose-btn.active {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Sort bar */
+.sort-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.sort-bar select {
+  padding: 6px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--gray-900);
+  background: var(--white);
+  cursor: pointer;
+  outline: none;
+}
+.sort-bar select:focus { border-color: var(--accent); }
+.sort-bar .result-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--gray-400);
+  font-weight: 500;
+}
+
+/* Skeleton loading rows */
+.skeleton-row {
+  height: 64px;
+  background: linear-gradient(90deg, var(--gray-50) 0%, var(--gray-100) 50%, var(--gray-50) 100%);
+  background-size: 200% 100%;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Price table */
+.price-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+.price-table thead th {
+  background: var(--gray-50);
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-weight: 700;
+  color: var(--gray-400);
+  border-bottom: 1px solid var(--gray-100);
+  white-space: nowrap;
+}
+.price-table thead th:first-child { border-top-left-radius: var(--radius-sm); }
+.price-table thead th:last-child { border-top-right-radius: var(--radius-sm); }
+.price-table th.sortable { cursor: pointer; user-select: none; }
+.price-table th.sortable:hover { color: var(--gray-700); }
+.price-table tbody tr {
+  background: var(--white);
+  transition: background .15s;
+}
+.price-table tbody tr:hover { background: var(--gray-50); }
+.price-table tbody tr.cheapest { background: var(--accent-light); }
+.price-table tbody tr.cheapest:hover { background: #DCF0E4; }
+.price-table tbody td {
+  padding: 14px;
+  border-bottom: 1px solid var(--gray-100);
+  vertical-align: middle;
+  color: var(--gray-700);
+}
+.price-table tbody tr:last-child td { border-bottom: none; }
+
+/* Provider cell */
+.provider-name {
+  font-weight: 600;
+  color: var(--gray-900);
+  font-size: 14px;
+}
+
+/* Dose badge */
+.dose-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Discount code chip */
+.discount-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: var(--warm);
+  border: 1px dashed var(--gray-400);
+  border-radius: var(--radius-sm);
+  font-family: 'SF Mono', Menlo, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-900);
+  cursor: pointer;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.discount-code:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.discount-code.copied {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+  border-style: solid;
+}
+
+/* Trustpilot rating */
+.trustpilot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+.trustpilot .stars {
+  color: #00B67A;
+  letter-spacing: -1px;
+  font-size: 13px;
+}
+
+/* Price cell */
+.price-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--gray-900);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.price-cell .per-month {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--gray-400);
+  font-weight: 400;
+  letter-spacing: 0;
+  margin-top: 2px;
+  text-transform: uppercase;
+}
+.cheapest-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 2px 8px;
+  border-radius: 100px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* Visit deal button */
+.visit-btn {
+  display: inline-block;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background .2s;
+  white-space: nowrap;
+}
+.visit-btn:hover { background: var(--gray-700); }
+
+/* Empty state */
+.table-empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--gray-400);
+  font-size: 14px;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+}
+
+/* Mobile — stack columns, convert price-table to cards */
+@media (max-width: 960px) {
+  .comparison-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .comparison-sidebar {
+    position: static;
+    order: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .drug-tabs { gap: 6px; }
+  .drug-tab { padding: 8px 16px; font-size: 13px; }
+
+  /* Convert price table to card-per-row layout on mobile */
+  .price-table {
+    border: none;
+    background: transparent;
+  }
+  .price-table thead { display: none; }
+  .price-table,
+  .price-table tbody,
+  .price-table tr,
+  .price-table td {
+    display: block;
+    width: 100%;
+  }
+  .price-table tbody tr {
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    padding: 16px;
+  }
+  .price-table tbody tr.cheapest {
+    border-color: var(--accent);
+    border-width: 2px;
+  }
+  .price-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-100);
+    white-space: normal;
+  }
+  .price-table tbody td:last-child { border-bottom: none; padding-top: 12px; }
+  .price-table tbody td:first-child { border-top: none; padding-top: 0; }
+  .price-table tbody td::before {
+    content: attr(data-label);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    flex-shrink: 0;
+  }
+  .price-table tbody td:first-child::before,
+  .price-table tbody td:last-child::before { display: none; }
+  .price-cell {
+    align-items: flex-end;
+    flex-direction: row;
+    gap: 8px;
+  }
+  .visit-btn { width: 100%; text-align: center; }
+  .sort-bar { font-size: 13px; }
+}
