@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Compare UK prices for Wegovy, Mounjaro, Saxenda and Ozempic across every major provider. Updated twice daily. Find the cheapest GLP-1 medication in the UK right now.">
+<meta name="description" content="Compare UK prices for Wegovy, Mounjaro, Saxenda and Ozempic across every major provider. Live updates coming soon. Find the cheapest GLP-1 medication in the UK right now.">
 <title>UK GLP-1 Price Comparison 2026 — Wegovy, Mounjaro, Saxenda, Ozempic — Understand GLP-1</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +42,7 @@
   <div class="page-hero">
     <div style="display:inline-block;background:var(--accent-light);color:var(--accent);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:6px 14px;border-radius:100px;margin-bottom:16px">UK Prices</div>
     <h1>GLP-1 Price Comparison UK</h1>
-    <p>Compare prices for Wegovy, Mounjaro, Saxenda, and Ozempic across every major UK provider — updated twice daily.</p>
+    <p>Compare prices for Wegovy, Mounjaro, Saxenda, and Ozempic across every major UK provider. Live price feeds coming soon — the prices below are checked and refreshed manually.</p>
     <div class="last-updated loading" id="last-updated">
       <span class="dot"></span>
       <span id="last-updated-text">Checking prices…</span>
@@ -57,7 +57,7 @@
     <div class="comparison-main">
 
       <div class="callout">
-        <strong>How this works:</strong> Prices are fetched automatically from UK provider and aggregator sites twice daily and shown as a 4-week (monthly) supply equivalent. Always check what's included — some providers bundle the clinical assessment and delivery; others add these at checkout. Prices are for guidance only. <strong>Prescription-only medicine — eligibility is determined by a clinician.</strong>
+        <strong>How this works:</strong> Prices are shown as a 4-week (monthly) supply equivalent, with the best available discount applied where applicable. Some providers bundle the clinical assessment and delivery; others add these at checkout. <strong>All medications on this page are prescription-only. Eligibility is determined by a clinician, and this page does not constitute medical advice.</strong> Prices are for guidance only — always confirm with the provider before purchasing. Some links on this page are affiliate links; we may earn a small commission at no extra cost to you.
       </div>
 
       <!-- Drug tabs -->
@@ -93,10 +93,6 @@
         <div class="skeleton-row" style="opacity:.7"></div>
         <div class="skeleton-row" style="opacity:.5"></div>
         <div class="skeleton-row" style="opacity:.3"></div>
-      </div>
-
-      <div class="disclaimer">
-        <strong>Important:</strong> All medications listed are prescription-only medicines. Prices shown are indicative and may change. This page does not constitute medical advice and does not encourage the purchase of any prescription medicine. Always complete a clinical assessment with a qualified healthcare professional before starting treatment. Eligibility is determined by the prescriber. Some links on this page may be affiliate links — we may earn a small commission if you click through and make a purchase, at no extra cost to you.
       </div>
 
     </div>
@@ -174,7 +170,6 @@
 
   async function init() {
     bindTabs();
-    bindDoseFilter();
     bindSort();
     await loadData();
   }
@@ -192,28 +187,32 @@
       }
 
       allData = payload.data || {};
-      updateTimestamp(payload.last_updated, payload.last_error);
+      updateTimestamp(payload.last_updated, payload.seed_checked_on);
       renderTable();
     } catch (e) {
       console.warn('Price API unavailable, using seed data:', e.message);
-      allData = getSeedData().data;
-      updateTimestamp(null, 'Could not reach price API');
+      const seed = getSeedData();
+      allData = seed.data;
+      updateTimestamp(null, seed.seed_checked_on);
       renderTable();
     }
   }
 
   // ── Timestamp display ─────────────────────────────────────────────────────
-  function updateTimestamp(isoString, error) {
+  function updateTimestamp(isoString, seedCheckedOn) {
     const el    = document.getElementById('last-updated');
     const text  = document.getElementById('last-updated-text');
     const warn  = document.getElementById('stale-warning');
     el.classList.remove('loading');
 
-if (!isoString) {
-  el.classList.remove('stale');
-  text.textContent = 'Prices: estimated March 2026';
-  return;
-}
+    // No live feed yet — show the last manual check date instead
+    if (!isoString) {
+      el.classList.remove('stale');
+      text.textContent = seedCheckedOn
+        ? 'Prices checked ' + seedCheckedOn + ' · Live updates coming soon'
+        : 'Live updates coming soon';
+      return;
+    }
 
     const updated = new Date(isoString);
     const hoursAgo = Math.round((Date.now() - updated) / 36e5);
@@ -304,7 +303,7 @@ if (!isoString) {
 
     // Empty state
     if (rows.length === 0) {
-      container.innerHTML = '<div class="table-empty">No prices available for this selection yet. Check back soon.</div>';
+      container.innerHTML = '<div class="table-empty">No prices available for this selection yet. Check back soon, or try a different dose.</div>';
       renderDoseFilter();
       return;
     }
@@ -323,7 +322,7 @@ if (!isoString) {
           <th>Includes</th>
           <th>Discount</th>
           <th>Rating</th>
-          <th class="sortable sort-asc" data-col="price">Price / month</th>
+          <th class="sortable" data-col="price">Price / month</th>
           <th></th>
         </tr>
       </thead>
@@ -337,18 +336,16 @@ if (!isoString) {
       if (isCheapest) tr.classList.add('cheapest');
 
       tr.innerHTML = `
-        <td>
-          <div class="provider-cell">
-            <span class="provider-name">${esc(row.provider)}</span>
-          </div>
+        <td data-label="Provider">
+          <span class="provider-name">${esc(row.provider)}</span>
         </td>
-        <td><span class="dose-badge">${esc(row.dose || '—')}</span></td>
-        <td><span style="font-size:13px;color:var(--gray-500);font-weight:300">${esc(row.includes || '—')}</span></td>
-        <td>${renderDiscountCode(row.discount_code)}</td>
-        <td>${renderTrustpilot(row.trustpilot)}</td>
-        <td>
+        <td data-label="Dose"><span class="dose-badge">${esc(row.dose || '—')}</span></td>
+        <td data-label="Includes"><span style="font-size:13px;color:var(--gray-500);font-weight:300">${esc(row.includes || '—')}</span></td>
+        <td data-label="Discount">${renderDiscountCode(row.discount_code)}</td>
+        <td data-label="Rating">${renderTrustpilot(row.trustpilot)}</td>
+        <td data-label="Price / month">
           <div class="price-cell">
-            £${row.price}${isCheapest ? '<span class="cheapest-badge">Cheapest</span>' : ''}
+            <span>£${row.price}${isCheapest ? '<span class="cheapest-badge">Cheapest</span>' : ''}</span>
             <span class="per-month">per month</span>
           </div>
         </td>
@@ -381,14 +378,14 @@ if (!isoString) {
   }
 
   function renderDiscountCode(code) {
-    if (!code) return '<span style="color:var(--gray-300);font-size:13px">—</span>';
+    if (!code) return '<span style="color:var(--gray-400);font-size:13px">—</span>';
     return `<span class="discount-code" onclick="copyCode(this,'${esc(code)}')" title="Click to copy">
       🏷 ${esc(code)}
     </span>`;
   }
 
   function renderTrustpilot(score) {
-    if (!score) return '<span style="color:var(--gray-300);font-size:13px">—</span>';
+    if (!score) return '<span style="color:var(--gray-400);font-size:13px">—</span>';
     const stars = '★'.repeat(Math.round(score)) + '☆'.repeat(5 - Math.round(score));
     return `<div class="trustpilot"><span class="stars">${stars}</span> ${score}</div>`;
   }
@@ -411,45 +408,51 @@ if (!isoString) {
     });
   };
 
-  // ── Bind dose filter on first load ────────────────────────────────────────
-  function bindDoseFilter() {
-    // Populated dynamically after data loads — handled in renderDoseFilter()
-  }
-
-  // ── Inline seed data (fallback if API is down) ────────────────────────────
+  // ── Inline seed data (fallback while API worker is pending) ───────────────
+  // Source: comparewg.co.uk / comparemj.co.uk — checked 20 April 2026
+  // Saxenda + Ozempic held at March 2026 figures pending next manual refresh
   function getSeedData() {
     return {
       last_updated: null,
+      seed_checked_on: '20 April 2026',
       data: {
         wegovy: [
-          { provider: 'Pharmacy2U',             dose: '0.25mg', price: 87,  currency: 'GBP', includes: 'Medication + delivery',      discount_code: '',       url: '#', trustpilot: 4.6 },
-          { provider: 'Simple Online Pharmacy', dose: '0.25mg', price: 92,  currency: 'GBP', includes: 'Medication + delivery',      discount_code: '',       url: '#', trustpilot: 4.5 },
-          { provider: 'MedExpress',             dose: '0.25mg', price: 99,  currency: 'GBP', includes: 'Medication + delivery',      discount_code: 'MED30', url: '#', trustpilot: 4.5 },
-          { provider: 'ZAVA',                   dose: '0.25mg', price: 104, currency: 'GBP', includes: 'Consultation + medication',  discount_code: '',       url: '#', trustpilot: 4.4 },
-          { provider: 'Superdrug Online',        dose: '0.25mg', price: 109, currency: 'GBP', includes: 'Medication + delivery',      discount_code: '',       url: '#', trustpilot: 4.3 },
-          { provider: 'Boots Online Pharmacy',  dose: '0.25mg', price: 119, currency: 'GBP', includes: 'Medication + delivery',      discount_code: '',       url: '#', trustpilot: 4.4 },
+          { provider: 'SheMed',                 dose: '0.25mg', price: 75,     currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',         url: 'https://www.shemed.co.uk/',                 trustpilot: 4.4 },
+          { provider: 'Numan',                  dose: '0.25mg', price: 79,     currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.numan.com/',                    trustpilot: 4.5 },
+          { provider: 'Juniper',                dose: '0.25mg', price: 85,     currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.myjuniper.co.uk/',              trustpilot: 4.5 },
+          { provider: 'Medicspot',              dose: '0.25mg', price: 89,     currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.medicspot.co.uk/',              trustpilot: 4.4 },
+          { provider: 'Asda Online Doctor',     dose: '0.25mg', price: 88.98,  currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'START25',  url: 'https://onlinedoctor.asda.com/uk/',         trustpilot: 4.3 },
+          { provider: 'The Independent Pharmacy', dose: '0.25mg', price: 89.24, currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'NEW15',    url: 'https://www.theindependentpharmacy.co.uk/', trustpilot: 4.7 },
+          { provider: 'Second Nature',          dose: '0.25mg', price: 99,     currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.secondnature.io/',              trustpilot: 4.5 },
+          { provider: 'Voy',                    dose: '0.25mg', price: 104,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.joinvoy.com/',                  trustpilot: 4.7 },
+          { provider: 'Boots Online Doctor',    dose: '0.25mg', price: 112.59, currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'WELCOME10',url: 'https://onlinedoctor.boots.com/',           trustpilot: 4.4 },
+          { provider: 'Fella Health',           dose: '0.25mg', price: 119,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.fellahealth.co.uk/',            trustpilot: 4.5 },
+          { provider: 'Habitual',               dose: '0.25mg', price: 160,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.tryhabitual.com/',              trustpilot: 4.5 },
         ],
         mounjaro: [
-          { provider: 'Live Well Weight Loss',  dose: '2.5mg', price: 124, currency: 'GBP', includes: 'Medication + delivery',      discount_code: '',       url: '#', trustpilot: 4.7 },
-          { provider: 'WePrescribe',            dose: '2.5mg', price: 134, currency: 'GBP', includes: 'Medication + delivery',      discount_code: '',       url: '#', trustpilot: 4.5 },
-          { provider: 'MedExpress',             dose: '2.5mg', price: 139, currency: 'GBP', includes: 'Medication + delivery',      discount_code: 'MED30', url: '#', trustpilot: 4.5 },
-          { provider: 'Pharmacy2U',             dose: '2.5mg', price: 149, currency: 'GBP', includes: 'Medication + delivery',      discount_code: 'P2U62', url: '#', trustpilot: 4.6 },
-          { provider: 'Medicspot',              dose: '2.5mg', price: 155, currency: 'GBP', includes: 'Consultation + medication',  discount_code: '',       url: '#', trustpilot: 4.6 },
-          { provider: 'Boots Online Pharmacy',  dose: '2.5mg', price: 219, currency: 'GBP', includes: 'Medication + delivery',      discount_code: '',       url: '#', trustpilot: 4.4 },
+          { provider: 'Numan',                  dose: '2.5mg', price: 149,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.numan.com/',                    trustpilot: 4.5 },
+          { provider: 'Medicspot',              dose: '2.5mg', price: 149,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.medicspot.co.uk/',              trustpilot: 4.4 },
+          { provider: 'Juniper',                dose: '2.5mg', price: 149,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.myjuniper.co.uk/',              trustpilot: 4.5 },
+          { provider: 'The Independent Pharmacy', dose: '2.5mg', price: 149.59, currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'NEW15',    url: 'https://www.theindependentpharmacy.co.uk/', trustpilot: 4.7 },
+          { provider: 'Boots Online Doctor',    dose: '2.5mg', price: 159.57, currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'WELCOME10',url: 'https://onlinedoctor.boots.com/',           trustpilot: 4.4 },
+          { provider: 'SheMed',                 dose: '2.5mg', price: 164,    currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',         url: 'https://www.shemed.co.uk/',                 trustpilot: 4.4 },
+          { provider: 'Voy',                    dose: '2.5mg', price: 164,    currency: 'GBP', includes: 'Programme + medication',    discount_code: 'EMAIL',    url: 'https://www.joinvoy.com/',                  trustpilot: 4.7 },
+          { provider: 'Fella Health',           dose: '2.5mg', price: 169,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.fellahealth.co.uk/',            trustpilot: 4.5 },
+          { provider: 'Second Nature',          dose: '2.5mg', price: 179,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.secondnature.io/',              trustpilot: 4.5 },
         ],
         saxenda: [
-          { provider: 'MedExpress',             dose: '6mg',   price: 159, currency: 'GBP', includes: 'Medication + delivery',      discount_code: 'MED30', url: '#', trustpilot: 4.5 },
-          { provider: 'ZAVA',                   dose: '6mg',   price: 169, currency: 'GBP', includes: 'Consultation + medication',  discount_code: '',       url: '#', trustpilot: 4.4 },
-          { provider: 'LloydsPharmacy Online',  dose: '6mg',   price: 179, currency: 'GBP', includes: 'Medication + delivery',      discount_code: '',       url: '#', trustpilot: 4.3 },
-          { provider: 'Superdrug Online',        dose: '6mg',   price: 189, currency: 'GBP', includes: 'Medication + delivery',      discount_code: '',       url: '#', trustpilot: 4.3 },
-          { provider: 'Boots Online Pharmacy',  dose: '6mg',   price: 199, currency: 'GBP', includes: 'Medication + delivery',      discount_code: '',       url: '#', trustpilot: 4.4 },
+          { provider: 'MedExpress',             dose: '6mg', price: 159, currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'MED30', url: '#', trustpilot: 4.5 },
+          { provider: 'ZAVA',                   dose: '6mg', price: 169, currency: 'GBP', includes: 'Consultation + medication', discount_code: '',      url: '#', trustpilot: 4.4 },
+          { provider: 'LloydsPharmacy Online',  dose: '6mg', price: 179, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',      url: '#', trustpilot: 4.3 },
+          { provider: 'Superdrug Online',       dose: '6mg', price: 189, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',      url: '#', trustpilot: 4.3 },
+          { provider: 'Boots Online Doctor',    dose: '6mg', price: 199, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',      url: '#', trustpilot: 4.4 },
         ],
         ozempic: [
-          { provider: 'LloydsPharmacy Online',  dose: '0.25mg', price: 79,  currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',       url: '#', trustpilot: 4.3 },
-          { provider: 'Simple Online Pharmacy', dose: '0.25mg', price: 82,  currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',       url: '#', trustpilot: 4.5 },
-          { provider: 'ZAVA',                   dose: '0.25mg', price: 84,  currency: 'GBP', includes: 'Consultation + medication', discount_code: '',       url: '#', trustpilot: 4.4 },
-          { provider: 'Boots Online Pharmacy',  dose: '0.25mg', price: 89,  currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',       url: '#', trustpilot: 4.4 },
-          { provider: 'Superdrug Online',        dose: '0.25mg', price: 94,  currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',       url: '#', trustpilot: 4.3 },
+          { provider: 'LloydsPharmacy Online',  dose: '0.25mg', price: 79, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '', url: '#', trustpilot: 4.3 },
+          { provider: 'Simple Online Pharmacy', dose: '0.25mg', price: 82, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '', url: '#', trustpilot: 4.5 },
+          { provider: 'ZAVA',                   dose: '0.25mg', price: 84, currency: 'GBP', includes: 'Consultation + medication', discount_code: '', url: '#', trustpilot: 4.4 },
+          { provider: 'Boots Online Doctor',    dose: '0.25mg', price: 89, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '', url: '#', trustpilot: 4.4 },
+          { provider: 'Superdrug Online',       dose: '0.25mg', price: 94, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '', url: '#', trustpilot: 4.3 },
         ],
       },
     };
