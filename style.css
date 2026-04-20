@@ -1009,3 +1009,154 @@ footer {
   margin: 0 auto;
   padding: 0 var(--page-px);
 }
+
+/* ============================================================
+   Platform cards — for comparison pages (telehealth, etc.)
+   Slim hybrid: 2-stat grid + pros/cons. Detailed comparison
+   belongs in .comparison-table further down the page.
+   ============================================================ */
+
+.platform-card {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 20px 0 28px;
+}
+
+/* Header: name left, region badge right */
+.platform-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+.platform-card__name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--gray-900);
+}
+.platform-card__region {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.platform-card__region.uk {
+  color: var(--blue);
+  background: #EFF6FF;
+}
+
+/* Tagline — one short sentence under the header */
+.platform-card__tagline {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.55;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+/* 2-stat grid (slim hybrid) */
+.platform-card__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: var(--gray-50);
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.platform-card__stat {
+  padding: 14px 18px;
+  border-right: 1px solid var(--gray-100);
+}
+.platform-card__stat:last-child {
+  border-right: none;
+}
+.platform-card__stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 700;
+  color: var(--gray-400);
+  margin-bottom: 4px;
+}
+.platform-card__stat-value {
+  font-size: 14px;
+  color: var(--gray-900);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Pros / Cons — two columns */
+.platform-card__pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.pros-cons__title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.pros-cons__title.pros { color: var(--accent); }
+.pros-cons__title.cons { color: #B45309; }
+
+.pros-cons__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pros-cons__list li {
+  font-size: 13px;
+  color: var(--gray-700);
+  line-height: 1.5;
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 6px;
+  font-weight: 300;
+}
+.pros-cons__list.pros li::before {
+  content: '+';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+.pros-cons__list.cons li::before {
+  content: '−';
+  position: absolute;
+  left: 0;
+  color: #B45309;
+  font-weight: 700;
+}
+
+/* Responsive: stack stat grid and pros/cons on narrow screens */
+@media (max-width: 640px) {
+  .platform-card { padding: 20px 20px; }
+  .platform-card__grid {
+    grid-template-columns: 1fr;
+  }
+  .platform-card__stat {
+    border-right: none;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .platform-card__stat:last-child {
+    border-bottom: none;
+  }
+  .platform-card__pros-cons {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
