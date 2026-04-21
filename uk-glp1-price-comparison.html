@@ -53,91 +53,97 @@
     ⚠️ <strong>Prices may be outdated</strong> — our last successful update was more than 24 hours ago. Prices shown are the most recent we have. Always confirm the current price on the provider's website before purchasing.
   </div>
 
-  <div class="comparison-layout">
-    <div class="comparison-main">
+  <div class="comparison-main">
 
-      <div class="callout">
-        <strong>How this works:</strong> Prices are shown as a 4-week (monthly) supply equivalent, with the best available discount applied where applicable. Some providers bundle the clinical assessment and delivery; others add these at checkout. <strong>All medications on this page are prescription-only. Eligibility is determined by a clinician, and this page does not constitute medical advice.</strong> Prices are for guidance only — always confirm with the provider before purchasing. Some links on this page are affiliate links; we may earn a small commission at no extra cost to you.
-      </div>
-
-      <!-- Drug tabs -->
-      <div class="drug-tabs" role="tablist">
-        <button class="drug-tab active" data-drug="wegovy"   role="tab">Wegovy</button>
-        <button class="drug-tab"        data-drug="mounjaro" role="tab">Mounjaro</button>
-        <button class="drug-tab"        data-drug="saxenda"  role="tab">Saxenda</button>
-        <button class="drug-tab"        data-drug="ozempic"  role="tab">Ozempic</button>
-      </div>
-
-      <!-- Dose filter (populated dynamically) -->
-      <div class="dose-filter" id="dose-filter">
-        <span class="dose-filter-label">Dose:</span>
-        <button class="dose-btn active" data-dose="all">All doses</button>
-      </div>
-
-      <!-- Sort bar -->
-      <div class="sort-bar">
-        <span>Sort by:</span>
-        <select id="sort-select">
-          <option value="price-asc">Price: low to high</option>
-          <option value="price-desc">Price: high to low</option>
-          <option value="trustpilot-desc">Trustpilot rating</option>
-          <option value="provider-asc">Provider name</option>
-        </select>
-        <span class="result-count" id="result-count"></span>
-      </div>
-
-      <!-- Table container -->
-      <div id="table-container">
-        <!-- Skeleton loading state -->
-        <div class="skeleton-row"></div>
-        <div class="skeleton-row" style="opacity:.7"></div>
-        <div class="skeleton-row" style="opacity:.5"></div>
-        <div class="skeleton-row" style="opacity:.3"></div>
-      </div>
-
+    <div class="callout">
+      <strong>How this works:</strong> Prices are shown as a 4-week (monthly) supply equivalent, with the best available discount applied where applicable. Some providers bundle the clinical assessment and delivery; others add these at checkout. <strong>All medications on this page are prescription-only. Eligibility is determined by a clinician, and this page does not constitute medical advice.</strong> Prices are for guidance only — always confirm with the provider before purchasing. Some links on this page are affiliate links; we may earn a small commission at no extra cost to you.
     </div>
 
-    <div class="comparison-sidebar">
-
-      <div class="email-box">
-        <div class="email-box__title">Price alerts</div>
-        <div class="email-box__desc">Get notified when prices drop for your medication and dose.</div>
-        <input type="email" placeholder="you@email.com">
-        <button onclick="this.textContent='✓ You\'re on the list!';this.disabled=true">Notify Me</button>
-      </div>
-
-      <div class="sidebar-card">
-        <div class="sidebar-card__label">Partner</div>
-        <div class="sidebar-card__title">Ready to start?</div>
-        <div class="sidebar-card__desc">Get evaluated by a licensed UK provider from home.</div>
-        <a href="#" class="sidebar-card__btn" rel="nofollow sponsored">Check Eligibility →</a>
-      </div>
-
-      <div class="sidebar-card">
-        <div class="sidebar-card__label">Guides</div>
-        <div class="sidebar-card__title">Medication guides</div>
-        <div class="sidebar-card__desc" style="margin-bottom:12px">Deep dives on every GLP-1:</div>
-        <div class="med-links">
-          <a href="semaglutide.html">Semaglutide (Wegovy/Ozempic) →</a>
-          <a href="tirzepatide.html">Tirzepatide (Mounjaro) →</a>
-          <a href="liraglutide.html">Liraglutide (Saxenda) →</a>
-          <a href="dulaglutide.html">Dulaglutide (Trulicity) →</a>
-        </div>
-      </div>
-
-      <div class="sidebar-card">
-        <div class="sidebar-card__label">Related</div>
-        <div class="sidebar-card__title">Useful reads</div>
-        <div style="margin-top:12px">
-          <a href="glp1-telehealth-platforms-compared.html" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none">Telehealth platforms compared →</a>
-          <a href="compounded-vs-brand-semaglutide.html" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none">Compounded vs brand name →</a>
-          <a href="glp1-medications-under-300.html" style="display:block;color:var(--accent);font-size:14px;font-weight:600;text-decoration:none">Getting GLP-1 under £200/month →</a>
-        </div>
-      </div>
-
+    <!-- Drug tabs -->
+    <div class="drug-tabs" role="tablist">
+      <button class="drug-tab active" data-drug="wegovy"   role="tab">Wegovy</button>
+      <button class="drug-tab"        data-drug="mounjaro" role="tab">Mounjaro</button>
+      <button class="drug-tab"        data-drug="saxenda"  role="tab">Saxenda</button>
+      <button class="drug-tab"        data-drug="ozempic"  role="tab">Ozempic</button>
     </div>
+
+    <!-- Dose filter (populated dynamically) -->
+    <div class="dose-filter" id="dose-filter">
+      <span class="dose-filter-label">Dose:</span>
+      <button class="dose-btn active" data-dose="all">All doses</button>
+    </div>
+
+    <!-- Sort bar -->
+    <div class="sort-bar">
+      <span>Sort by:</span>
+      <select id="sort-select">
+        <option value="price-asc">Price: low to high</option>
+        <option value="price-desc">Price: high to low</option>
+        <option value="trustpilot-desc">Trustpilot rating</option>
+        <option value="provider-asc">Provider name</option>
+      </select>
+      <span class="result-count" id="result-count"></span>
+    </div>
+
+    <!-- Table container -->
+    <div id="table-container">
+      <div class="skeleton-row"></div>
+      <div class="skeleton-row" style="opacity:.7"></div>
+      <div class="skeleton-row" style="opacity:.5"></div>
+      <div class="skeleton-row" style="opacity:.3"></div>
+    </div>
+
   </div>
 </div>
+
+<!-- Related strip -->
+<section class="related-strip">
+  <div class="related-strip__label">Related</div>
+  <div class="related-strip__title">Keep reading</div>
+  <div class="related-strip__grid">
+    <a href="glp1-telehealth-platforms-compared.html" class="related-strip__card">
+      <div>
+        <div class="related-strip__card-cat">Comparisons</div>
+        <div class="related-strip__card-title">Telehealth platforms compared — US &amp; UK</div>
+      </div>
+      <div class="related-strip__card-arrow">Read →</div>
+    </a>
+    <a href="compounded-vs-brand-semaglutide.html" class="related-strip__card">
+      <div>
+        <div class="related-strip__card-cat">Reference</div>
+        <div class="related-strip__card-title">Compounded vs. brand-name semaglutide</div>
+      </div>
+      <div class="related-strip__card-arrow">Read →</div>
+    </a>
+    <a href="glp1-medications-under-300.html" class="related-strip__card">
+      <div>
+        <div class="related-strip__card-cat">Cost &amp; Access</div>
+        <div class="related-strip__card-title">Getting GLP-1 for under £200/month</div>
+      </div>
+      <div class="related-strip__card-arrow">Read →</div>
+    </a>
+    <a href="semaglutide.html" class="related-strip__card">
+      <div>
+        <div class="related-strip__card-cat">Medication Guide</div>
+        <div class="related-strip__card-title">Semaglutide — Wegovy &amp; Ozempic</div>
+      </div>
+      <div class="related-strip__card-arrow">Read →</div>
+    </a>
+  </div>
+</section>
+
+<!-- Price alerts newsletter strip -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <h2>Get price alerts</h2>
+    <p>We'll email you when prices drop for your medication and dose. No spam, unsubscribe anytime.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ You\'re on the list';this.querySelector('button').disabled=true;">
+      <input type="email" placeholder="you@email.com" required>
+      <button type="submit">Notify Me</button>
+    </form>
+    <div class="newsletter-trust">We only email when there's a genuine price change — usually less than twice a month.</div>
+  </div>
+</section>
 
 <footer>
   <div class="footer-top">
@@ -156,7 +162,6 @@
   // Replace with your actual API worker URL once deployed
   const API_URL = 'https://api.understandglp1.com/prices';
   // Fallback: set to true to use inline seed data without hitting the API
-  // (useful for testing before the worker is deployed)
   const USE_SEED_FALLBACK = true;
 
   // ── State ─────────────────────────────────────────────────────────────────
@@ -436,7 +441,7 @@
           { provider: 'The Independent Pharmacy', dose: '2.5mg', price: 149.59, currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'NEW15',    url: 'https://www.theindependentpharmacy.co.uk/', trustpilot: 4.7 },
           { provider: 'Boots Online Doctor',    dose: '2.5mg', price: 159.57, currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'WELCOME10',url: 'https://onlinedoctor.boots.com/',           trustpilot: 4.4 },
           { provider: 'SheMed',                 dose: '2.5mg', price: 164,    currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',         url: 'https://www.shemed.co.uk/',                 trustpilot: 4.4 },
-          { provider: 'Voy',                    dose: '2.5mg', price: 164,    currency: 'GBP', includes: 'Programme + medication',    discount_code: 'EMAIL',    url: 'https://www.joinvoy.com/',                  trustpilot: 4.7 },
+          { provider: 'Voy',                    dose: '2.5mg', price: 164,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.joinvoy.com/',                  trustpilot: 4.7 },
           { provider: 'Fella Health',           dose: '2.5mg', price: 169,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.fellahealth.co.uk/',            trustpilot: 4.5 },
           { provider: 'Second Nature',          dose: '2.5mg', price: 179,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.secondnature.io/',              trustpilot: 4.5 },
         ],
