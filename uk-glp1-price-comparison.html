@@ -1,470 +1,479 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Compare UK prices for Wegovy, Mounjaro, Saxenda and Ozempic across every major provider. Live updates coming soon. Find the cheapest GLP-1 medication in the UK right now.">
-<title>UK GLP-1 Price Comparison 2026 — Wegovy, Mounjaro, Saxenda, Ozempic — Understand GLP-1</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N336R5797V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UK GLP-1 Price Comparison: Wegovy &amp; Mounjaro (June 2026) | UnderstandGLP1</title>
+  <meta name="description" content="Compare verified UK prices for Wegovy and Mounjaro across regulated online pharmacies and weight-loss programmes. Discount codes, Trustpilot scores and Northern Ireland delivery — updated regularly.">
+  <link rel="canonical" href="https://understandglp1.com/uk-glp1-price-comparison">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
-  gtag('config', 'G-N336R5797V');
-</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N336R5797V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N336R5797V');
+  </script>
+
+  <!-- Page-specific styles for the comparison tool (scoped, no dependency on style.css internals) -->
+  <style>
+    .pc-toolbar { margin: 1.5rem 0 1rem; }
+    .pc-badge {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: #eaf4f0; color: #0D6E4F; border: 1px solid #cde5db;
+      border-radius: 999px; padding: 0.35rem 0.9rem;
+      font-size: 0.85rem; font-weight: 600; margin-bottom: 1.1rem;
+    }
+    .pc-badge::before {
+      content: ""; width: 8px; height: 8px; border-radius: 50%;
+      background: #0D6E4F; display: inline-block;
+    }
+    .pc-tabs { display: flex; gap: 0.5rem; margin-bottom: 0.9rem; flex-wrap: wrap; }
+    .pc-tab {
+      font-family: inherit; font-size: 1rem; font-weight: 600;
+      padding: 0.6rem 1.4rem; border-radius: 999px; cursor: pointer;
+      border: 1.5px solid #0D6E4F; background: #fff; color: #0D6E4F;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .pc-tab:hover { background: #eaf4f0; }
+    .pc-tab[aria-selected="true"] { background: #0D6E4F; color: #fff; }
+    .pc-tab:focus-visible { outline: 3px solid #8fc7b2; outline-offset: 2px; }
+    .pc-filters { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; margin-bottom: 0.4rem; }
+    .pc-filters-label { font-size: 0.85rem; font-weight: 600; color: #555; margin-right: 0.2rem; }
+    .pc-pill {
+      font-family: inherit; font-size: 0.85rem; font-weight: 500;
+      padding: 0.35rem 0.95rem; border-radius: 999px; cursor: pointer;
+      border: 1px solid #ccc; background: #fff; color: #333;
+      transition: all 0.15s ease;
+    }
+    .pc-pill:hover { border-color: #0D6E4F; color: #0D6E4F; }
+    .pc-pill[aria-pressed="true"] { background: #0D6E4F; border-color: #0D6E4F; color: #fff; }
+    .pc-pill:focus-visible { outline: 3px solid #8fc7b2; outline-offset: 2px; }
+    .pc-provider-name { font-weight: 600; }
+    .pc-provider-note { display: block; font-size: 0.78rem; color: #777; font-weight: 400; margin-top: 0.15rem; }
+    .pc-type {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      padding: 0.18rem 0.55rem; border-radius: 4px;
+    }
+    .pc-type--pharmacy { background: #eaf4f0; color: #0D6E4F; }
+    .pc-type--programme { background: #f0eefa; color: #4b3f8f; }
+    .pc-price { font-weight: 600; white-space: nowrap; }
+    .pc-price--na { color: #999; font-weight: 400; }
+    .pc-best { color: #0D6E4F; }
+    .pc-best-tag {
+      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      background: #0D6E4F; color: #fff; border-radius: 3px;
+      padding: 0.12rem 0.4rem; margin-left: 0.4rem; vertical-align: middle;
+    }
+    .pc-code {
+      font-family: 'Courier New', monospace; font-size: 0.85rem; font-weight: 700;
+      background: #f5f5f2; border: 1px dashed #b9b9b2; border-radius: 5px;
+      padding: 0.3rem 0.65rem; cursor: pointer; color: #333;
+      transition: all 0.15s ease; white-space: nowrap;
+    }
+    .pc-code:hover { border-color: #0D6E4F; color: #0D6E4F; }
+    .pc-code:focus-visible { outline: 3px solid #8fc7b2; outline-offset: 2px; }
+    .pc-code--copied { background: #0D6E4F; border-color: #0D6E4F; color: #fff; }
+    .pc-discount-note { display: block; font-size: 0.74rem; color: #777; margin-top: 0.25rem; }
+    .pc-ni { font-size: 0.85rem; white-space: nowrap; }
+    .pc-ni--yes { color: #0D6E4F; font-weight: 600; }
+    .pc-ni--no { color: #b03a2e; font-weight: 600; }
+    .pc-ni--unknown { color: #888; }
+    .pc-visit {
+      display: inline-block; font-size: 0.85rem; font-weight: 600;
+      color: #0D6E4F; text-decoration: none; border: 1.5px solid #0D6E4F;
+      border-radius: 999px; padding: 0.32rem 0.95rem; white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .pc-visit:hover { background: #0D6E4F; color: #fff; }
+    .pc-visit--pending {
+      border-color: #ccc; color: #999; cursor: default; pointer-events: none;
+    }
+    .pc-empty {
+      text-align: center; padding: 2.5rem 1rem; color: #777;
+      background: #fafaf8; border: 1px dashed #ddd; border-radius: 8px;
+      margin: 1rem 0;
+    }
+    .pc-count { font-size: 0.85rem; color: #777; margin: 0.4rem 0 0.8rem; }
+    @media (prefers-reduced-motion: reduce) {
+      .pc-tab, .pc-pill, .pc-code, .pc-visit { transition: none; }
+    }
+  </style>
 </head>
 <body>
 
-<nav><div class="nav-inner">
-  <a href="index.html" class="logo">understand<em>GLP1</em></a>
-  <ul class="nav-links">
-    <li><a href="blog.html">News</a></li>
-    <li><a href="stories.html">Stories</a></li>
-    <li><a href="food.html">Food &amp; Nutrition</a></li>
-    <li><a href="index.html#medications">Medications</a></li>
-    <li><a href="blog.html" class="nav-cta">Read the Blog</a></li>
-  </ul>
-  <button class="burger" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
-</div></nav>
-<div class="mobile-menu" id="mob">
-  <a href="index.html">Home</a><a href="blog.html">News &amp; Blog</a><a href="stories.html">Real Stories</a><a href="food.html">Food &amp; Nutrition</a><a href="index.html#medications">Medications</a>
-  <a href="semaglutide.html">Semaglutide</a><a href="tirzepatide.html">Tirzepatide</a><a href="liraglutide.html">Liraglutide</a><a href="dulaglutide.html">Dulaglutide</a>
-</div>
+  <!-- ===== Site header (standard pattern) ===== -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">Understand<span>GLP1</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">News</a></li>
+        <li><a href="stories.html">Real Stories</a></li>
+        <li><a href="food.html">Food &amp; Nutrition</a></li>
+        <li><a href="semaglutide.html">Medications</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<div class="page-wrap">
+  <!-- ===== Article ===== -->
+  <div class="article-outer">
 
-  <div class="page-hero">
-    <div style="display:inline-block;background:var(--accent-light);color:var(--accent);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:6px 14px;border-radius:100px;margin-bottom:16px">UK Prices</div>
-    <h1>GLP-1 Price Comparison UK</h1>
-    <p>Compare prices for Wegovy, Mounjaro, Saxenda, and Ozempic across every major UK provider. Live price feeds coming soon — the prices below are checked and refreshed manually.</p>
-    <div class="last-updated loading" id="last-updated">
-      <span class="dot"></span>
-      <span id="last-updated-text">Checking prices…</span>
-    </div>
-  </div>
-
-  <div class="stale-warning" id="stale-warning">
-    ⚠️ <strong>Prices may be outdated</strong> — our last successful update was more than 24 hours ago. Prices shown are the most recent we have. Always confirm the current price on the provider's website before purchasing.
-  </div>
-
-  <div class="comparison-main">
-
-    <div class="callout">
-      <strong>How this works:</strong> Prices are shown as a 4-week (monthly) supply equivalent, with the best available discount applied where applicable. Some providers bundle the clinical assessment and delivery; others add these at checkout. <strong>All medications on this page are prescription-only. Eligibility is determined by a clinician, and this page does not constitute medical advice.</strong> Prices are for guidance only — always confirm with the provider before purchasing. Some links on this page are affiliate links; we may earn a small commission at no extra cost to you.
-    </div>
-
-    <!-- Drug tabs -->
-    <div class="drug-tabs" role="tablist">
-      <button class="drug-tab active" data-drug="wegovy"   role="tab">Wegovy</button>
-      <button class="drug-tab"        data-drug="mounjaro" role="tab">Mounjaro</button>
-      <button class="drug-tab"        data-drug="saxenda"  role="tab">Saxenda</button>
-      <button class="drug-tab"        data-drug="ozempic"  role="tab">Ozempic</button>
-    </div>
-
-    <!-- Dose filter (populated dynamically) -->
-    <div class="dose-filter" id="dose-filter">
-      <span class="dose-filter-label">Dose:</span>
-      <button class="dose-btn active" data-dose="all">All doses</button>
-    </div>
-
-    <!-- Sort bar -->
-    <div class="sort-bar">
-      <span>Sort by:</span>
-      <select id="sort-select">
-        <option value="price-asc">Price: low to high</option>
-        <option value="price-desc">Price: high to low</option>
-        <option value="trustpilot-desc">Trustpilot rating</option>
-        <option value="provider-asc">Provider name</option>
-      </select>
-      <span class="result-count" id="result-count"></span>
-    </div>
-
-    <!-- Table container -->
-    <div id="table-container">
-      <div class="skeleton-row"></div>
-      <div class="skeleton-row" style="opacity:.7"></div>
-      <div class="skeleton-row" style="opacity:.5"></div>
-      <div class="skeleton-row" style="opacity:.3"></div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Related strip -->
-<section class="related-strip">
-  <div class="related-strip__label">Related</div>
-  <div class="related-strip__title">Keep reading</div>
-  <div class="related-strip__grid">
-    <a href="glp1-telehealth-platforms-compared.html" class="related-strip__card">
-      <div>
-        <div class="related-strip__card-cat">Comparisons</div>
-        <div class="related-strip__card-title">Telehealth platforms compared — US &amp; UK</div>
+    <header class="article-hero">
+      <p class="article-kicker">Price Comparison · Updated Regularly</p>
+      <h1>UK GLP-1 Price Comparison: Wegovy &amp; Mounjaro</h1>
+      <p class="article-deck">Verified monthly prices from regulated UK online pharmacies and weight-loss programmes — with the best new-patient discounts applied, so the number you see is closer to the number you'd actually pay.</p>
+      <div class="article-meta">
+        <span>UnderstandGLP1 Editorial</span>
+        <span id="pc-meta-date">Prices verified 10 June 2026</span>
       </div>
-      <div class="related-strip__card-arrow">Read →</div>
-    </a>
-    <a href="compounded-vs-brand-semaglutide.html" class="related-strip__card">
-      <div>
-        <div class="related-strip__card-cat">Reference</div>
-        <div class="related-strip__card-title">Compounded vs. brand-name semaglutide</div>
-      </div>
-      <div class="related-strip__card-arrow">Read →</div>
-    </a>
-    <a href="glp1-medications-under-300.html" class="related-strip__card">
-      <div>
-        <div class="related-strip__card-cat">Cost &amp; Access</div>
-        <div class="related-strip__card-title">Getting GLP-1 for under £200/month</div>
-      </div>
-      <div class="related-strip__card-arrow">Read →</div>
-    </a>
-    <a href="semaglutide.html" class="related-strip__card">
-      <div>
-        <div class="related-strip__card-cat">Medication Guide</div>
-        <div class="related-strip__card-title">Semaglutide — Wegovy &amp; Ozempic</div>
-      </div>
-      <div class="related-strip__card-arrow">Read →</div>
-    </a>
-  </div>
-</section>
+    </header>
 
-<!-- Price alerts newsletter strip -->
-<section class="newsletter">
-  <div class="newsletter-inner">
-    <h2>Get price alerts</h2>
-    <p>We'll email you when prices drop for your medication and dose. No spam, unsubscribe anytime.</p>
-    <form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ You\'re on the list';this.querySelector('button').disabled=true;">
-      <input type="email" placeholder="you@email.com" required>
-      <button type="submit">Notify Me</button>
-    </form>
-    <div class="newsletter-trust">We only email when there's a genuine price change — usually less than twice a month.</div>
-  </div>
-</section>
+    <div class="article-layout">
 
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand"><a href="index.html" class="logo">understand<em>GLP1</em></a><p>Your independent, evidence-based guide to GLP-1 and GLP-2 medications.</p></div>
-    <div class="footer-col"><h4>Content</h4><a href="blog.html">News &amp; Blog</a><a href="stories.html">Real Stories</a><a href="food.html">Food &amp; Nutrition</a></div>
-    <div class="footer-col"><h4>Medications</h4><a href="semaglutide.html">Semaglutide</a><a href="tirzepatide.html">Tirzepatide</a><a href="liraglutide.html">Liraglutide</a><a href="dulaglutide.html">Dulaglutide</a></div>
-    <div class="footer-col"><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Privacy Policy</a></div>
-  </div>
-  <div class="footer-bottom"><span>&copy; 2026 UnderstandGLP1.com</span><span>Built with care in Northern Ireland 🍀</span></div>
-  <div class="footer-disclaimer">This website is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare provider before starting any medication. This site may contain affiliate links. Prices shown are indicative and should be confirmed with the provider before purchase.</div>
-</footer>
+      <article class="article-body">
 
-<script>
-(function () {
-  // ── Config ────────────────────────────────────────────────────────────────
-  // Replace with your actual API worker URL once deployed
-  const API_URL = 'https://api.understandglp1.com/prices';
-  // Fallback: set to true to use inline seed data without hitting the API
-  const USE_SEED_FALLBACK = true;
+        <div class="callout">
+          <strong>TL;DR:</strong> Mounjaro starts from around £135/month (2.5mg) and Wegovy from around £79/month (0.25mg) with new-patient offers applied. Prices vary by as much as £100/month between providers for the same dose — and most headline discounts only apply to your first order, so check the ongoing price before committing.
+        </div>
 
-  // ── State ─────────────────────────────────────────────────────────────────
-  let allData    = {};
-  let activeDrug = 'wegovy';
-  let activeDose = 'all';
-  let sortMode   = 'price-asc';
+        <p>Every provider in this comparison is an online service operating in the UK private market. Prices shown include the mandatory online consultation and standard delivery, with the best publicly available discount already applied. We show the <strong>starting dose</strong> and the <strong>highest (or maintenance) dose</strong> for each medication so you can see both your month-one cost and where pricing ends up later in treatment — the gap between the two is often where providers make their margin.</p>
 
-  // ── Boot ──────────────────────────────────────────────────────────────────
-  init();
+        <!-- ===== Comparison tool ===== -->
+        <section class="pc-toolbar" aria-label="Price comparison tool">
+          <div class="pc-badge" id="pc-verified-badge">Prices verified: 10 June 2026</div>
 
-  async function init() {
-    bindTabs();
-    bindSort();
-    await loadData();
-  }
-
-  // ── Data loading ──────────────────────────────────────────────────────────
-  async function loadData() {
-    try {
-      let payload;
-      if (USE_SEED_FALLBACK) {
-        payload = getSeedData();
-      } else {
-        const res = await fetch(API_URL);
-        if (!res.ok) throw new Error('API returned ' + res.status);
-        payload = await res.json();
-      }
-
-      allData = payload.data || {};
-      updateTimestamp(payload.last_updated, payload.seed_checked_on);
-      renderTable();
-    } catch (e) {
-      console.warn('Price API unavailable, using seed data:', e.message);
-      const seed = getSeedData();
-      allData = seed.data;
-      updateTimestamp(null, seed.seed_checked_on);
-      renderTable();
-    }
-  }
-
-  // ── Timestamp display ─────────────────────────────────────────────────────
-  function updateTimestamp(isoString, seedCheckedOn) {
-    const el    = document.getElementById('last-updated');
-    const text  = document.getElementById('last-updated-text');
-    const warn  = document.getElementById('stale-warning');
-    el.classList.remove('loading');
-
-    // No live feed yet — show the last manual check date instead
-    if (!isoString) {
-      el.classList.remove('stale');
-      text.textContent = seedCheckedOn
-        ? 'Prices checked ' + seedCheckedOn + ' · Live updates coming soon'
-        : 'Live updates coming soon';
-      return;
-    }
-
-    const updated = new Date(isoString);
-    const hoursAgo = Math.round((Date.now() - updated) / 36e5);
-    const label = hoursAgo < 1 ? 'just now'
-                : hoursAgo < 2 ? '1 hour ago'
-                : hoursAgo + ' hours ago';
-
-    if (hoursAgo > 25) {
-      el.classList.add('stale');
-      warn.classList.add('visible');
-      text.textContent = 'Last updated ' + label + ' — prices may have changed';
-    } else {
-      text.textContent = 'Prices updated ' + label;
-    }
-  }
-
-  // ── Tab binding ───────────────────────────────────────────────────────────
-  function bindTabs() {
-    document.querySelectorAll('.drug-tab').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        document.querySelectorAll('.drug-tab').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeDrug = btn.dataset.drug;
-        activeDose = 'all';
-        renderDoseFilter();
-        renderTable();
-      });
-    });
-  }
-
-  // ── Dose filter ───────────────────────────────────────────────────────────
-  function renderDoseFilter() {
-    const rows  = (allData[activeDrug] || []);
-    const doses = ['all', ...new Set(rows.map(r => r.dose).filter(Boolean).sort(sortDose))];
-    const wrap  = document.getElementById('dose-filter');
-    wrap.innerHTML = '<span class="dose-filter-label">Dose:</span>';
-    doses.forEach(function (dose) {
-      const btn = document.createElement('button');
-      btn.className = 'dose-btn' + (dose === activeDose ? ' active' : '');
-      btn.dataset.dose = dose;
-      btn.textContent = dose === 'all' ? 'All doses' : dose;
-      btn.addEventListener('click', function () {
-        document.querySelectorAll('.dose-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeDose = dose;
-        renderTable();
-      });
-      wrap.appendChild(btn);
-    });
-  }
-
-  function sortDose(a, b) {
-    return parseFloat(a) - parseFloat(b);
-  }
-
-  // ── Sort binding ──────────────────────────────────────────────────────────
-  function bindSort() {
-    document.getElementById('sort-select').addEventListener('change', function (e) {
-      sortMode = e.target.value;
-      renderTable();
-    });
-  }
-
-  // ── Table render ──────────────────────────────────────────────────────────
-  function renderTable() {
-    const container = document.getElementById('table-container');
-    let rows = (allData[activeDrug] || []).slice();
-
-    // Dose filter
-    if (activeDose !== 'all') {
-      rows = rows.filter(r => r.dose === activeDose);
-    }
-
-    // Sort
-    rows.sort(function (a, b) {
-      switch (sortMode) {
-        case 'price-asc':       return a.price - b.price;
-        case 'price-desc':      return b.price - a.price;
-        case 'trustpilot-desc': return (b.trustpilot || 0) - (a.trustpilot || 0);
-        case 'provider-asc':    return a.provider.localeCompare(b.provider);
-        default:                return 0;
-      }
-    });
-
-    // Update count
-    document.getElementById('result-count').textContent =
-      rows.length + ' provider' + (rows.length !== 1 ? 's' : '');
-
-    // Empty state
-    if (rows.length === 0) {
-      container.innerHTML = '<div class="table-empty">No prices available for this selection yet. Check back soon, or try a different dose.</div>';
-      renderDoseFilter();
-      return;
-    }
-
-    // Find cheapest price for badge
-    const cheapestPrice = Math.min(...rows.map(r => r.price));
-
-    // Build table
-    const table = document.createElement('table');
-    table.className = 'price-table';
-    table.innerHTML = `
-      <thead>
-        <tr>
-          <th>Provider</th>
-          <th>Dose</th>
-          <th>Includes</th>
-          <th>Discount</th>
-          <th>Rating</th>
-          <th class="sortable" data-col="price">Price / month</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="price-tbody"></tbody>
-    `;
-
-    const tbody = table.querySelector('#price-tbody');
-    rows.forEach(function (row) {
-      const isCheapest = row.price === cheapestPrice;
-      const tr = document.createElement('tr');
-      if (isCheapest) tr.classList.add('cheapest');
-
-      tr.innerHTML = `
-        <td data-label="Provider">
-          <span class="provider-name">${esc(row.provider)}</span>
-        </td>
-        <td data-label="Dose"><span class="dose-badge">${esc(row.dose || '—')}</span></td>
-        <td data-label="Includes"><span style="font-size:13px;color:var(--gray-500);font-weight:300">${esc(row.includes || '—')}</span></td>
-        <td data-label="Discount">${renderDiscountCode(row.discount_code)}</td>
-        <td data-label="Rating">${renderTrustpilot(row.trustpilot)}</td>
-        <td data-label="Price / month">
-          <div class="price-cell">
-            <span>£${row.price}${isCheapest ? '<span class="cheapest-badge">Cheapest</span>' : ''}</span>
-            <span class="per-month">per month</span>
+          <div class="pc-tabs" role="tablist" aria-label="Choose medication">
+            <button class="pc-tab" role="tab" id="pc-tab-mounjaro" aria-selected="true" data-med="mounjaro">Mounjaro</button>
+            <button class="pc-tab" role="tab" id="pc-tab-wegovy" aria-selected="false" data-med="wegovy">Wegovy</button>
           </div>
-        </td>
-        <td>
-          <a href="${esc(row.url || '#')}" class="visit-btn" target="_blank" rel="nofollow sponsored noopener">
-            View deal →
-          </a>
-        </td>
-      `;
-      tbody.appendChild(tr);
+
+          <div class="pc-filters" role="group" aria-label="Filter providers">
+            <span class="pc-filters-label">Show:</span>
+            <button class="pc-pill" aria-pressed="true" data-filter="all">All providers</button>
+            <button class="pc-pill" aria-pressed="false" data-filter="pharmacy">Pharmacies</button>
+            <button class="pc-pill" aria-pressed="false" data-filter="programme">Programmes</button>
+            <button class="pc-pill" aria-pressed="false" data-filter="ni" id="pc-ni-filter" hidden>NI delivery verified</button>
+          </div>
+
+          <p class="pc-count" id="pc-count"></p>
+
+          <div class="table-wrap">
+            <table class="comparison-table" id="pc-table">
+              <thead id="pc-thead"></thead>
+              <tbody id="pc-tbody"></tbody>
+            </table>
+          </div>
+
+          <div class="pc-empty" id="pc-empty" hidden>
+            No providers match those filters yet. Try removing a filter — or if you're filtering by Northern Ireland delivery, we're still verifying providers one by one.
+          </div>
+        </section>
+
+        <p><em>How to read the table: prices are per month with each provider's best new-patient offer applied. A dash means we haven't verified that dose's price yet. Tap any discount code to copy it. "Check" in the NI column means delivery to Northern Ireland is unconfirmed — always check at checkout before paying.</em></p>
+
+        <h2>Programme or pharmacy: which should you choose?</h2>
+        <p>The providers above fall into two camps, and the right one depends on what you want beyond the pen itself.</p>
+        <p><strong>Online pharmacies</strong> (Pharmacy2U, Ashcroft, Boots Online Doctor and similar) sell you the medication with a clinical consultation attached. They're usually the cheapest route, the process is transactional, and you're free to switch to whoever is cheapest next month. What you don't get is structured support — no coaching, no app, no community.</p>
+        <p><strong>Weight-loss programmes</strong> (Numan, Juniper, Voy, Second Nature and similar) wrap the medication in a subscription: health coaching, progress tracking, dietitian content, sometimes anti-sickness medication included. They cost more — often substantially more at higher doses — and the headline price is typically an intro offer for month one. For some people the accountability is genuinely worth it; for others it's an expensive app they stop opening by week three.</p>
+        <p>A pattern worth noticing in the table: programmes are aggressive on starting-dose pricing and expensive at the top end, while pharmacies are steadier across the range. If you expect to titrate up to higher doses, compare the <em>right-hand</em> column, not the headline.</p>
+
+        <h2>The discount code small print</h2>
+        <p>Almost every discount in this table is a <strong>first-order offer</strong>. Your second month reverts to the standard price, so the question that matters isn't "what's the cheapest first month?" but "what's the cheapest ongoing price from a provider I trust?" One quirk worth knowing: Voy's discount is delivered by email after you sign up to their mailing list — there's no public code to copy, which is why their entry says so.</p>
+
+        <div class="callout warning">
+          <strong>Buy safely:</strong> Only ever buy GLP-1 medication from a pharmacy registered with the General Pharmaceutical Council (GPhC). You can check any pharmacy's registration free at <a href="https://www.pharmacyregulation.org/registers/pharmacy" rel="noopener" target="_blank">pharmacyregulation.org</a>. The MHRA has repeatedly warned about counterfeit weight-loss injections sold through social media and unregistered websites — a price that looks too good to be true is the biggest red flag there is.
+        </div>
+
+        <h2>Switching providers is easier than you'd think</h2>
+        <p>If you're already on treatment and your provider has crept up in price, you are not locked in. Most providers will accept a switch if you can show evidence of your current prescription — typically a photo of your medication box or a screenshot of a recent order. You'll still complete their consultation, and some providers apply minimum BMI rules to switchers, but the process usually takes days, not weeks. Cancel any subscription with your old provider before your next billing date.</p>
+
+        <h2>How we verify these prices</h2>
+        <p>UK GLP-1 pricing changes constantly — codes expire, intro offers rotate, and providers reprice around each other. We check prices against provider listings and update this page regularly; the verification date at the top of the table tells you exactly how fresh the data is. If you spot a price that's changed, <a href="contact.html">tell us</a> and we'll fix it.</p>
+
+        <p class="article-disclaimer"><em>This page is for information only and is not medical advice. Wegovy and Mounjaro are prescription-only medicines — eligibility is always determined by a clinician. Speak to your GP or pharmacist before starting, switching or stopping treatment. Some links on this page may be affiliate links; this never affects how prices are ordered or displayed.</em></p>
+
+      </article>
+
+      <!-- ===== Sidebar ===== -->
+      <aside class="article-sidebar">
+
+        <div class="email-box">
+          <h3>Price drops, in your inbox</h3>
+          <p>We track UK GLP-1 prices so you don't have to. Get notified when providers cut prices or new codes appear.</p>
+          <form action="#" method="post">
+            <input type="email" placeholder="Your email address" aria-label="Email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Featured Partner</h3>
+          <p>We're selective about who we work with. Partner offers coming soon.</p>
+          <a href="#" class="sidebar-link">Learn more →</a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Related Reading</h3>
+          <ul>
+            <li><a href="tirzepatide.html">Mounjaro (tirzepatide): the complete guide</a></li>
+            <li><a href="semaglutide.html">Wegovy (semaglutide): the complete guide</a></li>
+            <li><a href="glp1-telehealth-platforms-compared.html">US telehealth platforms compared</a></li>
+            <li><a href="glp1-drinking-alcohol-guide.html">What drinking on a GLP-1 actually feels like</a></li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- ===== Footer (standard pattern) ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Understand<span>GLP1</span></p>
+      <p>Independent, lifestyle-first coverage of GLP-1 medications. Proudly made in Northern Ireland.</p>
+      <p class="footer-disclaimer">UnderstandGLP1.com does not provide medical advice. Content is for informational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. Some links may be affiliate links, which never influence our content or how comparisons are displayed.</p>
+      <p>&copy; 2026 UnderstandGLP1.com</p>
+    </div>
+  </footer>
+
+  <!-- Pricing data: the ONLY file to edit for price updates -->
+  <script src="pricing-data.js"></script>
+
+  <!-- Comparison tool renderer -->
+  <script>
+  (function () {
+    "use strict";
+
+    var state = { med: "mounjaro", filter: "all" };
+
+    var thead = document.getElementById("pc-thead");
+    var tbody = document.getElementById("pc-tbody");
+    var empty = document.getElementById("pc-empty");
+    var table = document.getElementById("pc-table");
+    var count = document.getElementById("pc-count");
+    var badge = document.getElementById("pc-verified-badge");
+    var metaDate = document.getElementById("pc-meta-date");
+    var niFilterBtn = document.getElementById("pc-ni-filter");
+
+    badge.textContent = "Prices verified: " + PRICING_DATA.lastVerified;
+    if (metaDate) metaDate.textContent = "Prices verified " + PRICING_DATA.lastVerified;
+
+    // Show the NI filter pill only once at least one provider is verified true
+    var anyNI = Object.keys(PRICING_DATA.medications).some(function (key) {
+      return PRICING_DATA.medications[key].providers.some(function (p) { return p.deliversNI === true; });
     });
+    if (anyNI) niFilterBtn.hidden = false;
 
-    container.innerHTML = '';
-    container.appendChild(table);
-    renderDoseFilter();
+    function gbp(n) {
+      return "£" + n.toFixed(2).replace(/\.00$/, "");
+    }
 
-    // Column sort click
-    table.querySelectorAll('th.sortable').forEach(function (th) {
-      th.addEventListener('click', function () {
-        const col = th.dataset.col;
-        if (sortMode === col + '-asc') {
-          sortMode = col + '-desc';
+    function lowestPrice(providers, doseKey) {
+      var min = null;
+      providers.forEach(function (p) {
+        var v = p.prices[doseKey];
+        if (typeof v === "number" && (min === null || v < min)) min = v;
+      });
+      return min;
+    }
+
+    function render() {
+      var med = PRICING_DATA.medications[state.med];
+      var cols = med.doseColumns;
+
+      // --- header row ---
+      var headHtml = "<tr>" +
+        "<th scope=\"col\">Provider</th>" +
+        "<th scope=\"col\">Type</th>";
+      cols.forEach(function (c) {
+        headHtml += "<th scope=\"col\">" + c.label + "<br><small>" + c.sub + "</small></th>";
+      });
+      headHtml += "<th scope=\"col\">Trustpilot</th>" +
+        "<th scope=\"col\">Discount</th>" +
+        "<th scope=\"col\">NI delivery</th>" +
+        "<th scope=\"col\">Visit</th></tr>";
+      thead.innerHTML = headHtml;
+
+      // --- filter ---
+      var providers = med.providers.filter(function (p) {
+        if (state.filter === "pharmacy") return p.type === "pharmacy";
+        if (state.filter === "programme") return p.type === "programme";
+        if (state.filter === "ni") return p.deliversNI === true;
+        return true;
+      });
+
+      // --- sort by first dose column ascending, unverified last ---
+      var firstKey = cols[0].key;
+      providers = providers.slice().sort(function (a, b) {
+        var av = a.prices[firstKey], bv = b.prices[firstKey];
+        if (av == null && bv == null) return 0;
+        if (av == null) return 1;
+        if (bv == null) return -1;
+        return av - bv;
+      });
+
+      var best = {};
+      cols.forEach(function (c) { best[c.key] = lowestPrice(providers, c.key); });
+
+      // --- rows ---
+      tbody.innerHTML = "";
+      providers.forEach(function (p) {
+        var tr = document.createElement("tr");
+
+        // Provider
+        var tdName = document.createElement("td");
+        tdName.setAttribute("data-label", "Provider");
+        tdName.innerHTML = "<span class=\"pc-provider-name\">" + p.name + "</span>" +
+          (p.note ? "<span class=\"pc-provider-note\">" + p.note + "</span>" : "");
+        tr.appendChild(tdName);
+
+        // Type
+        var tdType = document.createElement("td");
+        tdType.setAttribute("data-label", "Type");
+        tdType.innerHTML = "<span class=\"pc-type pc-type--" + p.type + "\">" +
+          (p.type === "pharmacy" ? "Pharmacy" : "Programme") + "</span>";
+        tr.appendChild(tdType);
+
+        // Dose prices
+        cols.forEach(function (c) {
+          var td = document.createElement("td");
+          td.setAttribute("data-label", med.label + " " + c.label);
+          var v = p.prices[c.key];
+          if (typeof v === "number") {
+            var isBest = best[c.key] !== null && v === best[c.key];
+            td.innerHTML = "<span class=\"pc-price" + (isBest ? " pc-best" : "") + "\">" + gbp(v) + "</span>" +
+              (isBest ? "<span class=\"pc-best-tag\">Lowest</span>" : "");
+          } else {
+            td.innerHTML = "<span class=\"pc-price pc-price--na\" title=\"Not yet verified\">—</span>";
+          }
+          tr.appendChild(td);
+        });
+
+        // Trustpilot
+        var tdTp = document.createElement("td");
+        tdTp.setAttribute("data-label", "Trustpilot");
+        tdTp.textContent = p.trustpilot != null ? p.trustpilot.toFixed(1) + " / 5" : "—";
+        tr.appendChild(tdTp);
+
+        // Discount
+        var tdDisc = document.createElement("td");
+        tdDisc.setAttribute("data-label", "Discount");
+        if (p.discount && p.discount.code) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "pc-code";
+          btn.textContent = p.discount.code;
+          btn.setAttribute("aria-label", "Copy discount code " + p.discount.code);
+          btn.addEventListener("click", function () { copyCode(btn, p.discount.code); });
+          tdDisc.appendChild(btn);
+          if (p.discount.note) {
+            var note = document.createElement("span");
+            note.className = "pc-discount-note";
+            note.textContent = p.discount.note;
+            tdDisc.appendChild(note);
+          }
         } else {
-          sortMode = col + '-asc';
+          tdDisc.innerHTML = p.discount && p.discount.note
+            ? "<span class=\"pc-discount-note\">" + p.discount.note + "</span>"
+            : "—";
         }
-        document.getElementById('sort-select').value = sortMode;
-        renderTable();
+        tr.appendChild(tdDisc);
+
+        // NI delivery
+        var tdNI = document.createElement("td");
+        tdNI.setAttribute("data-label", "NI delivery");
+        if (p.deliversNI === true) {
+          tdNI.innerHTML = "<span class=\"pc-ni pc-ni--yes\">✓ Yes</span>";
+        } else if (p.deliversNI === false) {
+          tdNI.innerHTML = "<span class=\"pc-ni pc-ni--no\">✗ No</span>";
+        } else {
+          tdNI.innerHTML = "<span class=\"pc-ni pc-ni--unknown\" title=\"Not yet verified — check at checkout\">Check</span>";
+        }
+        tr.appendChild(tdNI);
+
+        // Visit
+        var tdVisit = document.createElement("td");
+        tdVisit.setAttribute("data-label", "Visit");
+        if (p.url && p.url !== "#") {
+          tdVisit.innerHTML = "<a class=\"pc-visit\" href=\"" + p.url + "\" rel=\"nofollow sponsored noopener\" target=\"_blank\">Visit site</a>";
+        } else {
+          tdVisit.innerHTML = "<span class=\"pc-visit pc-visit--pending\" title=\"Link coming soon\">Coming soon</span>";
+        }
+        tr.appendChild(tdVisit);
+
+        tbody.appendChild(tr);
+      });
+
+      // --- empty state + count ---
+      var none = providers.length === 0;
+      table.hidden = none;
+      empty.hidden = !none;
+      count.textContent = none ? "" :
+        "Showing " + providers.length + " " + med.label + " provider" + (providers.length === 1 ? "" : "s") +
+        ", sorted by " + cols[0].label + " price.";
+    }
+
+    function copyCode(btn, code) {
+      function done() {
+        var original = btn.textContent;
+        btn.textContent = "Copied!";
+        btn.classList.add("pc-code--copied");
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.classList.remove("pc-code--copied");
+        }, 1600);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(done).catch(function () { fallback(); });
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = code;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    }
+
+    // --- tabs ---
+    document.querySelectorAll(".pc-tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        state.med = tab.getAttribute("data-med");
+        document.querySelectorAll(".pc-tab").forEach(function (t) {
+          t.setAttribute("aria-selected", t === tab ? "true" : "false");
+        });
+        render();
       });
     });
-  }
 
-  function renderDiscountCode(code) {
-    if (!code) return '<span style="color:var(--gray-400);font-size:13px">—</span>';
-    return `<span class="discount-code" onclick="copyCode(this,'${esc(code)}')" title="Click to copy">
-      🏷 ${esc(code)}
-    </span>`;
-  }
-
-  function renderTrustpilot(score) {
-    if (!score) return '<span style="color:var(--gray-400);font-size:13px">—</span>';
-    const stars = '★'.repeat(Math.round(score)) + '☆'.repeat(5 - Math.round(score));
-    return `<div class="trustpilot"><span class="stars">${stars}</span> ${score}</div>`;
-  }
-
-  function esc(str) {
-    return String(str || '').replace(/[&<>"']/g, function (c) {
-      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    // --- filter pills ---
+    document.querySelectorAll(".pc-pill").forEach(function (pill) {
+      pill.addEventListener("click", function () {
+        state.filter = pill.getAttribute("data-filter");
+        document.querySelectorAll(".pc-pill").forEach(function (q) {
+          q.setAttribute("aria-pressed", q === pill ? "true" : "false");
+        });
+        render();
+      });
     });
-  }
 
-  // ── Copy discount code ────────────────────────────────────────────────────
-  window.copyCode = function (el, code) {
-    navigator.clipboard.writeText(code).then(function () {
-      el.classList.add('copied');
-      el.textContent = '✓ Copied!';
-      setTimeout(function () {
-        el.classList.remove('copied');
-        el.innerHTML = '🏷 ' + code;
-      }, 2000);
-    });
-  };
-
-  // ── Inline seed data (fallback while API worker is pending) ───────────────
-  // Source: comparewg.co.uk / comparemj.co.uk — checked 20 April 2026
-  // Saxenda + Ozempic held at March 2026 figures pending next manual refresh
-  function getSeedData() {
-    return {
-      last_updated: null,
-      seed_checked_on: '20 April 2026',
-      data: {
-        wegovy: [
-          { provider: 'SheMed',                 dose: '0.25mg', price: 75,     currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',         url: 'https://www.shemed.co.uk/',                 trustpilot: 4.4 },
-          { provider: 'Numan',                  dose: '0.25mg', price: 79,     currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.numan.com/',                    trustpilot: 4.5 },
-          { provider: 'Juniper',                dose: '0.25mg', price: 85,     currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.myjuniper.co.uk/',              trustpilot: 4.5 },
-          { provider: 'Medicspot',              dose: '0.25mg', price: 89,     currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.medicspot.co.uk/',              trustpilot: 4.4 },
-          { provider: 'Asda Online Doctor',     dose: '0.25mg', price: 88.98,  currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'START25',  url: 'https://onlinedoctor.asda.com/uk/',         trustpilot: 4.3 },
-          { provider: 'The Independent Pharmacy', dose: '0.25mg', price: 89.24, currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'NEW15',    url: 'https://www.theindependentpharmacy.co.uk/', trustpilot: 4.7 },
-          { provider: 'Second Nature',          dose: '0.25mg', price: 99,     currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.secondnature.io/',              trustpilot: 4.5 },
-          { provider: 'Voy',                    dose: '0.25mg', price: 104,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.joinvoy.com/',                  trustpilot: 4.7 },
-          { provider: 'Boots Online Doctor',    dose: '0.25mg', price: 112.59, currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'WELCOME10',url: 'https://onlinedoctor.boots.com/',           trustpilot: 4.4 },
-          { provider: 'Fella Health',           dose: '0.25mg', price: 119,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.fellahealth.co.uk/',            trustpilot: 4.5 },
-          { provider: 'Habitual',               dose: '0.25mg', price: 160,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.tryhabitual.com/',              trustpilot: 4.5 },
-        ],
-        mounjaro: [
-          { provider: 'Numan',                  dose: '2.5mg', price: 149,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.numan.com/',                    trustpilot: 4.5 },
-          { provider: 'Medicspot',              dose: '2.5mg', price: 149,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.medicspot.co.uk/',              trustpilot: 4.4 },
-          { provider: 'Juniper',                dose: '2.5mg', price: 149,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.myjuniper.co.uk/',              trustpilot: 4.5 },
-          { provider: 'The Independent Pharmacy', dose: '2.5mg', price: 149.59, currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'NEW15',    url: 'https://www.theindependentpharmacy.co.uk/', trustpilot: 4.7 },
-          { provider: 'Boots Online Doctor',    dose: '2.5mg', price: 159.57, currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'WELCOME10',url: 'https://onlinedoctor.boots.com/',           trustpilot: 4.4 },
-          { provider: 'SheMed',                 dose: '2.5mg', price: 164,    currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',         url: 'https://www.shemed.co.uk/',                 trustpilot: 4.4 },
-          { provider: 'Voy',                    dose: '2.5mg', price: 164,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.joinvoy.com/',                  trustpilot: 4.7 },
-          { provider: 'Fella Health',           dose: '2.5mg', price: 169,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.fellahealth.co.uk/',            trustpilot: 4.5 },
-          { provider: 'Second Nature',          dose: '2.5mg', price: 179,    currency: 'GBP', includes: 'Programme + medication',    discount_code: '',         url: 'https://www.secondnature.io/',              trustpilot: 4.5 },
-        ],
-        saxenda: [
-          { provider: 'MedExpress',             dose: '6mg', price: 159, currency: 'GBP', includes: 'Medication + delivery',     discount_code: 'MED30', url: '#', trustpilot: 4.5 },
-          { provider: 'ZAVA',                   dose: '6mg', price: 169, currency: 'GBP', includes: 'Consultation + medication', discount_code: '',      url: '#', trustpilot: 4.4 },
-          { provider: 'LloydsPharmacy Online',  dose: '6mg', price: 179, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',      url: '#', trustpilot: 4.3 },
-          { provider: 'Superdrug Online',       dose: '6mg', price: 189, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',      url: '#', trustpilot: 4.3 },
-          { provider: 'Boots Online Doctor',    dose: '6mg', price: 199, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '',      url: '#', trustpilot: 4.4 },
-        ],
-        ozempic: [
-          { provider: 'LloydsPharmacy Online',  dose: '0.25mg', price: 79, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '', url: '#', trustpilot: 4.3 },
-          { provider: 'Simple Online Pharmacy', dose: '0.25mg', price: 82, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '', url: '#', trustpilot: 4.5 },
-          { provider: 'ZAVA',                   dose: '0.25mg', price: 84, currency: 'GBP', includes: 'Consultation + medication', discount_code: '', url: '#', trustpilot: 4.4 },
-          { provider: 'Boots Online Doctor',    dose: '0.25mg', price: 89, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '', url: '#', trustpilot: 4.4 },
-          { provider: 'Superdrug Online',       dose: '0.25mg', price: 94, currency: 'GBP', includes: 'Medication + delivery',     discount_code: '', url: '#', trustpilot: 4.3 },
-        ],
-      },
-    };
-  }
-
-}());
-</script>
+    render();
+  })();
+  </script>
 
 </body>
 </html>
