@@ -110,18 +110,30 @@
 <body>
 
   <!-- ===== Site header (standard pattern) ===== -->
-  <header class="site-header">
-    <nav class="nav">
-      <a href="index.html" class="nav-logo">Understand<span>GLP1</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="blog.html">News</a></li>
-        <li><a href="stories.html">Real Stories</a></li>
-        <li><a href="food.html">Food &amp; Nutrition</a></li>
-        <li><a href="semaglutide.html">Medications</a></li>
-      </ul>
-    </nav>
-  </header>
+<nav><div class="nav-inner">
+  <a href="index.html" class="logo">understand<em>GLP1</em></a>
+  <ul class="nav-links">
+    <li><a href="blog.html">News</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="food.html">Food &amp; Nutrition</a></li>
+    <li><a href="#medications">Medications</a></li>
+    <li><a href="blog.html" class="nav-cta">Read the Blog</a></li>
+  </ul>
+  <button class="burger" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div></nav>
+<div class="mobile-menu" id="mob">
+  <a href="index.html">Home</a>
+  <a href="blog.html">News &amp; Blog</a>
+  <a href="stories.html">Stories</a>
+  <a href="food.html">Food &amp; Nutrition</a>
+  <a href="index.html#medications">Medications</a>
+  <a href="semaglutide.html">Semaglutide</a>
+  <a href="tirzepatide.html">Tirzepatide</a>
+  <a href="liraglutide.html">Liraglutide</a>
+  <a href="dulaglutide.html">Dulaglutide</a>
+</div>
 
   <!-- ===== Article ===== -->
   <div class="article-outer">
