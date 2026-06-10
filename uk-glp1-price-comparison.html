@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-N336R5797V"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -20,8 +19,15 @@
     gtag('config', 'G-N336R5797V');
   </script> 
 
-  <!-- Page-specific styles for the comparison tool (scoped, no dependency on style.css internals) -->
   <style>
+    /* Layout overrides for full-width presentation */
+    .article-layout { display: block !important; grid-template-columns: none !important; max-width: 1200px; margin: 0 auto; }
+    .article-body { max-width: 100% !important; width: 100% !important; }
+    
+    /* Eliminate the double grey rule at the top */
+    .article-hero { border-top: none !important; padding-top: 2rem; }
+
+    /* Comparison tool custom styling */
     .pc-toolbar { margin: 1.5rem 0 1rem; }
     .pc-badge {
       display: inline-flex; align-items: center; gap: 0.45rem;
@@ -102,6 +108,13 @@
       margin: 1rem 0;
     }
     .pc-count { font-size: 0.85rem; color: #777; margin: 0.4rem 0 0.8rem; }
+    
+    /* Table scaffolding & container rules */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.5rem 0; padding-bottom: 0.5rem; }
+    .comparison-table { width: 100%; border-collapse: collapse; text-align: left; }
+    .comparison-table th, .comparison-table td { padding: 0.85rem 1rem; border-bottom: 1px solid #efefe8; }
+    .comparison-table th { background: #fafaf8; font-weight: 600; font-size: 0.9rem; color: #333; }
+
     @media (prefers-reduced-motion: reduce) {
       .pc-tab, .pc-pill, .pc-code, .pc-visit { transition: none; }
     }
@@ -109,8 +122,7 @@
 </head>
 <body>
 
-  <!-- ===== Site header (standard pattern) ===== -->
-<nav><div class="nav-inner">
+  <nav><div class="nav-inner">
   <a href="index.html" class="logo">understand<em>GLP1</em></a>
   <ul class="nav-links">
     <li><a href="blog.html">News</a></li>
@@ -135,7 +147,6 @@
   <a href="dulaglutide.html">Dulaglutide</a>
 </div>
 
-  <!-- ===== Article ===== -->
   <div class="article-outer">
 
     <header class="article-hero">
@@ -158,7 +169,6 @@
 
         <p>Every provider in this comparison is an online service operating in the UK private market. Prices shown include the mandatory online consultation and standard delivery, with the best publicly available discount already applied. We show the <strong>starting dose</strong> and the <strong>highest (or maintenance) dose</strong> for each medication so you can see both your month-one cost and where pricing ends up later in treatment — the gap between the two is often where providers make their margin.</p>
 
-        <!-- ===== Comparison tool ===== -->
         <section class="pc-toolbar" aria-label="Price comparison tool">
           <div class="pc-badge" id="pc-verified-badge">Prices verified: 10 June 2026</div>
 
@@ -214,40 +224,9 @@
 
       </article>
 
-      <!-- ===== Sidebar ===== -->
-      <aside class="article-sidebar">
-
-        <div class="email-box">
-          <h3>Price drops, in your inbox</h3>
-          <p>We track UK GLP-1 prices so you don't have to. Get notified when providers cut prices or new codes appear.</p>
-          <form action="#" method="post">
-            <input type="email" placeholder="Your email address" aria-label="Email address" required>
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-
-        <div class="sidebar-card">
-          <h3>Featured Partner</h3>
-          <p>We're selective about who we work with. Partner offers coming soon.</p>
-          <a href="#" class="sidebar-link">Learn more →</a>
-        </div>
-
-        <div class="sidebar-card">
-          <h3>Related Reading</h3>
-          <ul>
-            <li><a href="tirzepatide.html">Mounjaro (tirzepatide): the complete guide</a></li>
-            <li><a href="semaglutide.html">Wegovy (semaglutide): the complete guide</a></li>
-            <li><a href="glp1-telehealth-platforms-compared.html">US telehealth platforms compared</a></li>
-            <li><a href="glp1-drinking-alcohol-guide.html">What drinking on a GLP-1 actually feels like</a></li>
-          </ul>
-        </div>
-
-      </aside>
-
     </div>
   </div>
 
-  <!-- ===== Footer (standard pattern) ===== -->
   <footer class="site-footer">
     <div class="footer-inner">
       <p class="footer-brand">Understand<span>GLP1</span></p>
@@ -257,10 +236,8 @@
     </div>
   </footer>
 
-  <!-- Pricing data: the ONLY file to edit for price updates -->
   <script src="pricing-data.js"></script>
 
-  <!-- Comparison tool renderer -->
   <script>
   (function () {
     "use strict";
