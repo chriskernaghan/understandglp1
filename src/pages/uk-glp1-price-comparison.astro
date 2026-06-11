@@ -36,8 +36,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .pc-tab:hover { background: #eaf4f0; }
     .pc-tab[aria-selected="true"] { background: #0D6E4F; color: #fff; }
     .pc-tab:focus-visible { outline: 3px solid #8fc7b2; outline-offset: 2px; }
-    .pc-filters { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; margin-bottom: 0.4rem; }
+    /* Tidy toolbar: filters on the left, sort on the right */
+    .pc-controls { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+    .pc-filters { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; }
     .pc-filters-label { font-size: 0.85rem; font-weight: 600; color: #555; margin-right: 0.2rem; }
+    .pc-sort { display: flex; gap: 0.45rem; align-items: center; }
+    .pc-sort-label { font-size: 0.85rem; font-weight: 600; color: #555; }
+    .pc-sort-btn {
+      font-family: inherit; font-size: 0.85rem; font-weight: 500;
+      padding: 0.35rem 0.95rem; border-radius: 999px; cursor: pointer;
+      border: 1px solid #ccc; background: #fff; color: #333;
+      transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 0.35rem;
+    }
+    .pc-sort-btn:hover { border-color: #0D6E4F; color: #0D6E4F; }
+    .pc-sort-btn:focus-visible { outline: 3px solid #8fc7b2; outline-offset: 2px; }
+    .pc-sort-arrow { font-size: 0.75rem; line-height: 1; }
     .pc-pill {
       font-family: inherit; font-size: 0.85rem; font-weight: 500;
       padding: 0.35rem 0.95rem; border-radius: 999px; cursor: pointer;
@@ -134,12 +147,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <button class="pc-tab" role="tab" id="pc-tab-wegovy" aria-selected="false" data-med="wegovy">Wegovy</button>
           </div>
 
-          <div class="pc-filters" role="group" aria-label="Filter providers">
-            <span class="pc-filters-label">Show:</span>
-            <button class="pc-pill" aria-pressed="true" data-filter="all">All providers</button>
-            <button class="pc-pill" aria-pressed="false" data-filter="pharmacy">Pharmacies</button>
-            <button class="pc-pill" aria-pressed="false" data-filter="programme">Programmes</button>
-            <button class="pc-pill" aria-pressed="false" data-filter="ni" id="pc-ni-filter" hidden>NI delivery verified</button>
+          <div class="pc-controls">
+            <div class="pc-filters" role="group" aria-label="Filter providers">
+              <span class="pc-filters-label">Show:</span>
+              <button class="pc-pill" aria-pressed="true" data-filter="all">All providers</button>
+              <button class="pc-pill" aria-pressed="false" data-filter="pharmacy">Pharmacies</button>
+              <button class="pc-pill" aria-pressed="false" data-filter="programme">Programmes</button>
+              <button class="pc-pill" aria-pressed="false" data-filter="ni" id="pc-ni-filter" hidden>NI delivery verified</button>
+            </div>
+            <div class="pc-sort">
+              <span class="pc-sort-label">Sort by price:</span>
+              <button class="pc-sort-btn" id="pc-sort-btn" aria-label="Sort by price, currently lowest first">
+                <span id="pc-sort-text">Lowest first</span>
+                <span class="pc-sort-arrow" id="pc-sort-arrow" aria-hidden="true">↑</span>
+              </button>
+            </div>
           </div>
 
           <p class="pc-count" id="pc-count"></p>
@@ -193,7 +215,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   (function () {
     "use strict";
 
-    var state = { med: "mounjaro", filter: "all" };
+    var state = { med: "mounjaro", filter: "all", sortDir: "asc" };
 
     var thead = document.getElementById("pc-thead");
     var tbody = document.getElementById("pc-tbody");
@@ -251,14 +273,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         return true;
       });
 
-      // --- sort by first dose column ascending, unverified last ---
+      // --- sort by first dose column, direction from state, unverified always last ---
       var firstKey = cols[0].key;
+      var dir = state.sortDir === "desc" ? -1 : 1;
       providers = providers.slice().sort(function (a, b) {
         var av = a.prices[firstKey], bv = b.prices[firstKey];
         if (av == null && bv == null) return 0;
-        if (av == null) return 1;
+        if (av == null) return 1;   // unverified always sinks to the bottom
         if (bv == null) return -1;
-        return av - bv;
+        return (av - bv) * dir;
       });
 
       var best = {};
@@ -359,7 +382,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       empty.hidden = !none;
       count.textContent = none ? "" :
         "Showing " + providers.length + " " + med.label + " provider" + (providers.length === 1 ? "" : "s") +
-        ", sorted by " + cols[0].label + " price.";
+        ", sorted by " + cols[0].label + " price " + (state.sortDir === "desc" ? "(highest first)." : "(lowest first).");
     }
 
     function copyCode(btn, code) {
@@ -411,8 +434,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       });
     });
 
+    // --- sort toggle ---
+    var sortBtn = document.getElementById("pc-sort-btn");
+    var sortText = document.getElementById("pc-sort-text");
+    var sortArrow = document.getElementById("pc-sort-arrow");
+    sortBtn.addEventListener("click", function () {
+      state.sortDir = state.sortDir === "asc" ? "desc" : "asc";
+      var lowestFirst = state.sortDir === "asc";
+      sortText.textContent = lowestFirst ? "Lowest first" : "Highest first";
+      sortArrow.textContent = lowestFirst ? "↑" : "↓";
+      sortBtn.setAttribute("aria-label", "Sort by price, currently " + (lowestFirst ? "lowest" : "highest") + " first");
+      render();
+    });
+
     render();
-  })();
   
   </script>
 
