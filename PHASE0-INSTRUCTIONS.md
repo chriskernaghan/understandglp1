@@ -9,6 +9,7 @@ Switch to the `astro-migration` branch first (branch dropdown), THEN upload, so 
 Upload, preserving this structure:
 - `package.json`                → repo root
 - `astro.config.mjs`            → repo root
+- `wrangler.toml`               → repo root  (tells `wrangler deploy` to publish dist/)
 - `.gitignore`                  → repo root
 - `public/style.css`            → public/ (NOTE: moved out of root)
 - `public/favicon.svg`          → public/
@@ -33,6 +34,7 @@ Cloudflare needs the build command set. Two options:
   (a) Easiest for now: in Cloudflare → your project → Settings → Build, set
       Build command: `npm run build`
       Build output directory: `dist`
+      Deploy command: `npx wrangler deploy`  (UNCHANGED — leave as-is)
       This applies to all branches including previews. `main` keeps serving the
       OLD static files until we actually merge, because main has no Astro files yet —
       its build would just serve the existing HTML. (We confirm this is safe before merge.)
