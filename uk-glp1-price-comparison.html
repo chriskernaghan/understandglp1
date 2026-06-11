@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UK GLP-1 Price Comparison: Wegovy &amp; Mounjaro (June 2026) | UnderstandGLP1</title>
-  <meta name="description" content="Compare verified UK prices for Wegovy and Mounjaro across regulated online pharmacies and weight-loss programmes. Discount codes, Trustpilot scores and Northern Ireland delivery — updated regularly.">
-  <link rel="canonical" href="https://understandglp1.com/uk-glp1-price-comparison">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N336R5797V"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-N336R5797V');
-  </script> 
-
-  <style>
-    /* Layout overrides for full-width presentation */
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="UK GLP-1 Price Comparison: Wegovy &amp; Mounjaro (June 2026) | UnderstandGLP1"
+  description="Compare verified UK prices for Wegovy and Mounjaro across regulated online pharmacies and weight-loss programmes. Discount codes, Trustpilot scores and Northern Ireland delivery — updated regularly."
+  canonicalPath="/uk-glp1-price-comparison"
+>
+  <style slot="head" is:inline>
+/* Layout overrides for full-width presentation */
     .article-layout { display: block !important; grid-template-columns: none !important; max-width: 1200px; margin: 0 auto; }
     .article-body { max-width: 100% !important; width: 100% !important; }
     
@@ -50,8 +36,21 @@
     .pc-tab:hover { background: #eaf4f0; }
     .pc-tab[aria-selected="true"] { background: #0D6E4F; color: #fff; }
     .pc-tab:focus-visible { outline: 3px solid #8fc7b2; outline-offset: 2px; }
-    .pc-filters { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; margin-bottom: 0.4rem; }
+    /* Tidy toolbar: filters on the left, sort on the right */
+    .pc-controls { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+    .pc-filters { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; }
     .pc-filters-label { font-size: 0.85rem; font-weight: 600; color: #555; margin-right: 0.2rem; }
+    .pc-sort { display: flex; gap: 0.45rem; align-items: center; }
+    .pc-sort-label { font-size: 0.85rem; font-weight: 600; color: #555; }
+    .pc-sort-btn {
+      font-family: inherit; font-size: 0.85rem; font-weight: 500;
+      padding: 0.35rem 0.95rem; border-radius: 999px; cursor: pointer;
+      border: 1px solid #ccc; background: #fff; color: #333;
+      transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 0.35rem;
+    }
+    .pc-sort-btn:hover { border-color: #0D6E4F; color: #0D6E4F; }
+    .pc-sort-btn:focus-visible { outline: 3px solid #8fc7b2; outline-offset: 2px; }
+    .pc-sort-arrow { font-size: 0.75rem; line-height: 1; }
     .pc-pill {
       font-family: inherit; font-size: 0.85rem; font-weight: 500;
       padding: 0.35rem 0.95rem; border-radius: 999px; cursor: pointer;
@@ -120,35 +119,8 @@
       .pc-tab, .pc-pill, .pc-code, .pc-visit { transition: none; }
     }
   </style>
-</head>
-<body>
 
-  <nav><div class="nav-inner">
-  <a href="index.html" class="logo">understand<em>GLP1</em></a>
-  <ul class="nav-links">
-    <li><a href="blog.html">News</a></li>
-    <li><a href="stories.html">Stories</a></li>
-    <li><a href="food.html">Food &amp; Nutrition</a></li>
-    <li><a href="#medications">Medications</a></li>
-    <li><a href="blog.html" class="nav-cta">Read the Blog</a></li>
-  </ul>
-  <button class="burger" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</div></nav>
-<div class="mobile-menu" id="mob">
-  <a href="index.html">Home</a>
-  <a href="blog.html">News &amp; Blog</a>
-  <a href="stories.html">Stories</a>
-  <a href="food.html">Food &amp; Nutrition</a>
-  <a href="index.html#medications">Medications</a>
-  <a href="semaglutide.html">Semaglutide</a>
-  <a href="tirzepatide.html">Tirzepatide</a>
-  <a href="liraglutide.html">Liraglutide</a>
-  <a href="dulaglutide.html">Dulaglutide</a>
-</div>
-
-  <div class="article-outer">
+<div class="article-outer">
 
     <header class="article-hero">
       <h1>UK GLP-1 Price Comparison: Wegovy &amp; Mounjaro</h1>
@@ -175,12 +147,21 @@
             <button class="pc-tab" role="tab" id="pc-tab-wegovy" aria-selected="false" data-med="wegovy">Wegovy</button>
           </div>
 
-          <div class="pc-filters" role="group" aria-label="Filter providers">
-            <span class="pc-filters-label">Show:</span>
-            <button class="pc-pill" aria-pressed="true" data-filter="all">All providers</button>
-            <button class="pc-pill" aria-pressed="false" data-filter="pharmacy">Pharmacies</button>
-            <button class="pc-pill" aria-pressed="false" data-filter="programme">Programmes</button>
-            <button class="pc-pill" aria-pressed="false" data-filter="ni" id="pc-ni-filter" hidden>NI delivery verified</button>
+          <div class="pc-controls">
+            <div class="pc-filters" role="group" aria-label="Filter providers">
+              <span class="pc-filters-label">Show:</span>
+              <button class="pc-pill" aria-pressed="true" data-filter="all">All providers</button>
+              <button class="pc-pill" aria-pressed="false" data-filter="pharmacy">Pharmacies</button>
+              <button class="pc-pill" aria-pressed="false" data-filter="programme">Programmes</button>
+              <button class="pc-pill" aria-pressed="false" data-filter="ni" id="pc-ni-filter" hidden>NI delivery verified</button>
+            </div>
+            <div class="pc-sort">
+              <span class="pc-sort-label">Sort by price:</span>
+              <button class="pc-sort-btn" id="pc-sort-btn" aria-label="Sort by price, currently lowest first">
+                <span id="pc-sort-text">Lowest first</span>
+                <span class="pc-sort-arrow" id="pc-sort-arrow" aria-hidden="true">↑</span>
+              </button>
+            </div>
           </div>
 
           <p class="pc-count" id="pc-count"></p>
@@ -225,22 +206,16 @@
     </div>
   </div>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="footer-brand">Understand<span>GLP1</span></p>
-      <p>Independent, lifestyle-first coverage of GLP-1 medications. Proudly made in Northern Ireland.</p>
-      <p class="footer-disclaimer">UnderstandGLP1.com does not provide medical advice. Content is for informational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. Some links may be affiliate links, which never influence our content or how comparisons are displayed.</p>
-      <p>&copy; 2026 UnderstandGLP1.com</p>
-    </div>
-  </footer>
+  <!-- Pricing data: the ONLY file to edit for price updates -->
+  <script src="/pricing-data.js" is:inline></script>
 
-  <script src="pricing-data.js"></script>
+  <!-- Comparison tool renderer -->
+  <script is:inline>
 
-  <script>
   (function () {
     "use strict";
 
-    var state = { med: "mounjaro", filter: "all" };
+    var state = { med: "mounjaro", filter: "all", sortDir: "asc" };
 
     var thead = document.getElementById("pc-thead");
     var tbody = document.getElementById("pc-tbody");
@@ -298,14 +273,15 @@
         return true;
       });
 
-      // --- sort by first dose column ascending, unverified last ---
+      // --- sort by first dose column, direction from state, unverified always last ---
       var firstKey = cols[0].key;
+      var dir = state.sortDir === "desc" ? -1 : 1;
       providers = providers.slice().sort(function (a, b) {
         var av = a.prices[firstKey], bv = b.prices[firstKey];
         if (av == null && bv == null) return 0;
-        if (av == null) return 1;
+        if (av == null) return 1;   // unverified always sinks to the bottom
         if (bv == null) return -1;
-        return av - bv;
+        return (av - bv) * dir;
       });
 
       var best = {};
@@ -406,7 +382,7 @@
       empty.hidden = !none;
       count.textContent = none ? "" :
         "Showing " + providers.length + " " + med.label + " provider" + (providers.length === 1 ? "" : "s") +
-        ", sorted by " + cols[0].label + " price.";
+        ", sorted by " + cols[0].label + " price " + (state.sortDir === "desc" ? "(highest first)." : "(lowest first).");
     }
 
     function copyCode(btn, code) {
@@ -458,9 +434,21 @@
       });
     });
 
+    // --- sort toggle ---
+    var sortBtn = document.getElementById("pc-sort-btn");
+    var sortText = document.getElementById("pc-sort-text");
+    var sortArrow = document.getElementById("pc-sort-arrow");
+    sortBtn.addEventListener("click", function () {
+      state.sortDir = state.sortDir === "asc" ? "desc" : "asc";
+      var lowestFirst = state.sortDir === "asc";
+      sortText.textContent = lowestFirst ? "Lowest first" : "Highest first";
+      sortArrow.textContent = lowestFirst ? "↑" : "↓";
+      sortBtn.setAttribute("aria-label", "Sort by price, currently " + (lowestFirst ? "lowest" : "highest") + " first");
+      render();
+    });
+
     render();
-  })();
+  
   </script>
 
-</body>
-</html>
+</BaseLayout>
