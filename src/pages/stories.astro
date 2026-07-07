@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import CategoryFilters from '../components/CategoryFilters.astro';
+import filterData from '../data/filters.json';
+import allPosts from '../data/stories.json';
+
+// Cards are driven by src/data/stories.json — add an entry there and it shows up
+// here (grid + filters) automatically. Featured first, then newest by date.
+const posts = [...allPosts].sort((a, b) => {
+  if (a.featured !== b.featured) return a.featured ? -1 : 1;
+  return new Date(b.date).getTime() - new Date(a.date).getTime();
+});
+const tags = filterData['stories'];
+---
+<BaseLayout
+  title={"Real GLP-1 Stories \u2014 First-Person Patient Journeys | Understand GLP-1"}
+  description={"Honest, first-person accounts from real people on Ozempic, Wegovy, Mounjaro, Zepbound, and Saxenda. The wins, the side effects, and the long-term reality."}
+  canonicalPath="/stories"
+  activeNav="stories"
+>
+
+<div class="blog-wrap">
+
+  <header class="blog-hero">
+    <h1>Real Stories</h1>
+    <p>First-hand accounts from people navigating GLP-1 medications. Unfiltered, honest, and deeply personal.</p>
+  </header>
+
+  <CategoryFilters tags={tags} />
+
+  <div class="blog-layout">
+    <div>
+      <div class="posts-grid" id="posts-grid">
+        {posts.map(p => <PostCard {...p} />)}
+        <div class="no-results" id="no-results">No articles found in this category yet.</div>
+      </div>
+    </div>
+
+    <div class="blog-sidebar">
+      <div class="submit-cta">
+        <h3>Share your story</h3>
+        <p>Been on a GLP-1 medication? We'd love to hear about your experience — good, bad, or somewhere in between.</p>
+        <a href="#">Submit Your Story →</a>
+      </div>
+
+      <div class="email-box">
+        <div class="email-box__title">Get the newsletter</div>
+        <div class="email-box__desc">Weekly digest of GLP-1 news, stories, and tips — no spam.</div>
+        <input type="email" placeholder="you@email.com">
+        <button onclick="this.textContent='✓ Subscribed!';this.disabled=true">Subscribe Free</button>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__label">Partner</div>
+        <div class="sidebar-card__title">Ready to start?</div>
+        <div class="sidebar-card__desc">Get evaluated by a licensed provider from home.</div>
+        <a href="https://understandglp1.com/uk-glp1-price-comparison" class="sidebar-card__btn" rel="nofollow sponsored">Check Eligibility →</a>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__label">Explore</div>
+        <div class="sidebar-card__title">More from us</div>
+        <div style="margin-top:12px">
+          <a href="/blog" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">News &amp; Blog →</a>
+          <a href="/food" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">Food &amp; Nutrition →</a>
+          <a href="/#medications" style="display:block;color:var(--accent);font-size:14px;font-weight:600;text-decoration:none;">Medication Guides →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</BaseLayout>

@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import CategoryFilters from '../components/CategoryFilters.astro';
+import filterData from '../data/filters.json';
+import allPosts from '../data/blog.json';
+
+// Cards are driven by src/data/blog.json — add an entry there and it shows up
+// here (grid + filters) automatically. Featured first, then newest by date.
+const posts = [...allPosts].sort((a, b) => {
+  if (a.featured !== b.featured) return a.featured ? -1 : 1;
+  return new Date(b.date).getTime() - new Date(a.date).getTime();
+});
+const tags = filterData['blog'];
+---
+<BaseLayout
+  title={"The GLP-1 Blog \u2014 News, Guides & Research | Understand GLP-1"}
+  description={"Research updates, practical guides, and everything you need to navigate GLP-1 medications like Ozempic, Wegovy, Mounjaro, and Zepbound."}
+  canonicalPath="/blog"
+  activeNav="news"
+>
+
+<div class="blog-wrap">
+
+  <header class="blog-hero">
+    <h1>The GLP-1 Blog</h1>
+    <p>Research updates, practical guides, and everything you need to navigate the world of GLP-1 medications.</p>
+  </header>
+
+  <CategoryFilters tags={tags} />
+
+  <div class="blog-layout">
+    <div>
+      <div class="posts-grid" id="posts-grid">
+        {posts.map(p => <PostCard {...p} />)}
+        <div class="no-results" id="no-results">No articles found in this category yet.</div>
+      </div>
+    </div>
+
+    <div class="blog-sidebar">
+
+      <div class="email-box">
+        <div class="email-box__title">Get the newsletter</div>
+        <div class="email-box__desc">Weekly digest of GLP-1 news, tips, and the best deals — trusted by 10,000+ subscribers.</div>
+        <input type="email" placeholder="you@email.com">
+        <button onclick="this.textContent='✓ Subscribed!';this.disabled=true">Subscribe Free</button>
+      </div>
+
+      <div class="popular-posts">
+        <div class="popular-posts__title">Most Popular</div>
+        <a href="/glp1-plateau" class="popular-post"><span class="popular-post__num">01</span><span class="popular-post__name">The GLP-1 Plateau: Why Your Weight Loss Stopped</span></a>
+        <a href="/ozempic-vs-mounjaro-2026" class="popular-post"><span class="popular-post__num">02</span><span class="popular-post__name">Ozempic vs. Mounjaro: Which Should You Choose?</span></a>
+        <a href="/glp1-drinking-alcohol-guide" class="popular-post"><span class="popular-post__num">03</span><span class="popular-post__name">What Drinking on a GLP-1 Actually Feels Like</span></a>
+        <a href="/muscle-loss" class="popular-post"><span class="popular-post__num">04</span><span class="popular-post__name">The Muscle Loss Problem on GLP-1s</span></a>
+        <a href="/managing-glp1-nausea" class="popular-post"><span class="popular-post__num">05</span><span class="popular-post__name">Managing GLP-1 Nausea: 12 Tips That Work</span></a>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__label">Partner</div>
+        <div class="sidebar-card__title">Ready to start?</div>
+        <div class="sidebar-card__desc">Get evaluated by a licensed provider from home and have medication delivered to your door.</div>
+        <a href="https://understandglp1.com/uk-glp1-price-comparison" class="sidebar-card__btn" rel="nofollow sponsored">Check Eligibility →</a>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__label">Guides</div>
+        <div class="sidebar-card__title">Medication deep dives</div>
+        <div class="sidebar-card__desc" style="margin-bottom:12px;">Comprehensive guides for every GLP-1:</div>
+        <div class="med-links">
+          <a href="/semaglutide">Semaglutide →</a>
+          <a href="/tirzepatide">Tirzepatide →</a>
+          <a href="/liraglutide">Liraglutide →</a>
+          <a href="/dulaglutide">Dulaglutide →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</BaseLayout>
