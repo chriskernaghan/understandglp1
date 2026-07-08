@@ -1,0 +1,24 @@
+---
+// One card in a listing grid. Rendered from a collection entry's data.
+export interface Props {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  categoryLabel?: string | null;
+  emoji?: string | null;
+  date: string;
+  readTime: string;
+  featured?: boolean;
+}
+const { slug, title, excerpt, category, categoryLabel, emoji, date, readTime, featured } = Astro.props;
+---
+<a href={`/${slug}`} class={`post-card${featured ? ' featured' : ''}`} data-category={category}>
+  <div class="post-card__img">{emoji}</div>
+  <div class="post-card__body">
+    {categoryLabel && <div class="post-card__cat">{categoryLabel}</div>}
+    <div class="post-card__title">{title}</div>
+    <div class="post-card__excerpt">{excerpt}</div>
+    <div class="post-card__meta"><span>{date}</span><span>·</span><span>{readTime}</span></div>
+  </div>
+</a>
