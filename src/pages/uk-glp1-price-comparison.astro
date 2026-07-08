@@ -1,0 +1,527 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="UK GLP-1 Price Comparison: Wegovy &amp; Mounjaro (June 2026) | UnderstandGLP1"
+  description="Compare verified UK prices for Wegovy and Mounjaro across regulated online pharmacies and weight-loss programmes. Discount codes, Trustpilot scores and Northern Ireland delivery — updated regularly."
+  canonicalPath="/uk-glp1-price-comparison"
+>
+  <style slot="head" is:inline>
+/* Layout overrides for full-width presentation */
+    .article-layout { display: block !important; grid-template-columns: none !important; max-width: 1200px; margin: 0 auto; }
+    .article-body { max-width: 100% !important; width: 100% !important; }
+    
+    /* Eliminate the double grey rule at the top */
+    .article-hero { border-top: none !important; border-bottom: none !important; padding:40px 0 0 0 !important; }
+
+    /* Comparison tool custom styling */
+    .pc-toolbar { margin: 1.5rem 0 1rem; }
+    .pc-badge {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: #eaf4f0; color: #0D6E4F; border: 1px solid #cde5db;
+      border-radius: 999px; padding: 0.35rem 0.9rem;
+      font-size: 0.85rem; font-weight: 600; margin-bottom: 1.1rem;
+    }
+    .pc-badge::before {
+      content: ""; width: 8px; height: 8px; border-radius: 50%;
+      background: #0D6E4F; display: inline-block;
+    }
+    .pc-tabs { display: flex; gap: 0.5rem; margin-bottom: 0.9rem; flex-wrap: wrap; }
+    .pc-tab {
+      font-family: inherit; font-size: 1rem; font-weight: 600;
+      padding: 0.6rem 1.4rem; border-radius: 999px; cursor: pointer;
+      border: 1.5px solid #0D6E4F; background: #fff; color: #0D6E4F;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .pc-tab:hover { background: #eaf4f0; }
+    .pc-tab[aria-selected="true"] { background: #0D6E4F; color: #fff; }
+    .pc-tab:focus-visible { outline: 3px solid #8fc7b2; outline-offset: 2px; }
+    /* Tidy toolbar: filters on the left, sort on the right */
+    .pc-controls { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+    .pc-filters { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; }
+    .pc-filters-label { font-size: 0.85rem; font-weight: 600; color: #555; margin-right: 0.2rem; }
+    .pc-sort { display: flex; gap: 0.45rem; align-items: center; }
+    .pc-sort-label { font-size: 0.85rem; font-weight: 600; color: #555; }
+    .pc-sort-btn {
+      font-family: inherit; font-size: 0.85rem; font-weight: 500;
+      padding: 0.35rem 0.95rem; border-radius: 999px; cursor: pointer;
+      border: 1px solid #ccc; background: #fff; color: #333;
+      transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 0.35rem;
+    }
+    .pc-sort-btn:hover { border-color: #0D6E4F; color: #0D6E4F; }
+    .pc-sort-btn:focus-visible { outline: 3px solid #8fc7b2; outline-offset: 2px; }
+    .pc-sort-arrow { font-size: 0.75rem; line-height: 1; }
+    .pc-pill {
+      font-family: inherit; font-size: 0.85rem; font-weight: 500;
+      padding: 0.35rem 0.95rem; border-radius: 999px; cursor: pointer;
+      border: 1px solid #ccc; background: #fff; color: #333;
+      transition: all 0.15s ease;
+    }
+    .pc-pill:hover { border-color: #0D6E4F; color: #0D6E4F; }
+    .pc-pill[aria-pressed="true"] { background: #0D6E4F; border-color: #0D6E4F; color: #fff; }
+    .pc-pill:focus-visible { outline: 3px solid #8fc7b2; outline-offset: 2px; }
+    .pc-provider-name { font-weight: 600; }
+    .pc-provider-note { display: block; font-size: 0.78rem; color: #777; font-weight: 400; margin-top: 0.15rem; }
+    .pc-type {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      padding: 0.18rem 0.55rem; border-radius: 4px;
+    }
+    .pc-type--pharmacy { background: #eaf4f0; color: #0D6E4F; }
+    .pc-type--programme { background: #f0eefa; color: #4b3f8f; }
+    .pc-price { font-weight: 600; white-space: nowrap; }
+    .pc-price--na { color: #999; font-weight: 400; }
+    .pc-best { color: #0D6E4F; }
+    .pc-best-tag {
+      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      background: #0D6E4F; color: #fff; border-radius: 3px;
+      padding: 0.12rem 0.4rem; margin-left: 0.4rem; vertical-align: middle;
+    }
+    .pc-code {
+      font-family: 'Courier New', monospace; font-size: 0.85rem; font-weight: 700;
+      background: #f5f5f2; border: 1px dashed #b9b9b2; border-radius: 5px;
+      padding: 0.3rem 0.65rem; cursor: pointer; color: #333;
+      transition: all 0.15s ease; white-space: nowrap;
+    }
+    .pc-code:hover { border-color: #0D6E4F; color: #0D6E4F; }
+    .pc-code:focus-visible { outline: 3px solid #8fc7b2; outline-offset: 2px; }
+    .pc-code--copied { background: #0D6E4F; border-color: #0D6E4F; color: #fff; }
+    .pc-discount-note { display: block; font-size: 0.74rem; color: #777; margin-top: 0.25rem; }
+    .pc-ni { font-size: 0.85rem; white-space: nowrap; }
+    .pc-ni--yes { color: #0D6E4F; font-weight: 600; }
+    .pc-ni--no { color: #b03a2e; font-weight: 600; }
+    .pc-ni--unknown { color: #888; }
+    .pc-visit {
+      display: inline-block; font-size: 0.85rem; font-weight: 600;
+      color: #0D6E4F; text-decoration: none; border: 1.5px solid #0D6E4F;
+      border-radius: 999px; padding: 0.32rem 0.95rem; white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .pc-visit:hover, a.pc-visit:hover { background: #0D6E4F; color: #fff; }
+    .pc-visit--pending {
+      border-color: #ccc; color: #999; cursor: default; pointer-events: none;
+    }
+    .pc-empty {
+      text-align: center; padding: 2.5rem 1rem; color: #777;
+      background: #fafaf8; border: 1px dashed #ddd; border-radius: 8px;
+      margin: 1rem 0;
+    }
+    .pc-count { font-size: 0.85rem; color: #777; margin: 0.4rem 0 0.8rem; }
+    
+    /* Table scaffolding & container rules */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.5rem 0; padding-bottom: 0.5rem; }
+    .comparison-table { width: 100%; border-collapse: collapse; text-align: left; }
+    .comparison-table th, .comparison-table td { padding: 0.85rem 1rem; border-bottom: 1px solid #efefe8; }
+    .comparison-table th { background: #fafaf8; font-weight: 600; font-size: 0.9rem; color: #333; }
+
+    .pc-readnote { font-size: 0.9rem; color: #666; margin: 1rem 0 2rem; }
+    .faq { margin: 2.5rem 0 1rem; }
+    .faq h2 { margin-bottom: 1rem; }
+    .faq-item {
+      border: 1px solid #e7e7e0; border-radius: 10px;
+      margin-bottom: 0.65rem; background: #fff; overflow: hidden;
+    }
+    .faq-item summary {
+      cursor: pointer; padding: 1rem 1.2rem; font-weight: 600;
+      font-size: 1rem; list-style: none; position: relative;
+      padding-right: 2.8rem; transition: background 0.15s ease;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { background: #fafaf8; }
+    .faq-item summary:focus-visible { outline: 3px solid #8fc7b2; outline-offset: -3px; }
+    .faq-item summary::after {
+      content: "+"; position: absolute; right: 1.2rem; top: 50%;
+      transform: translateY(-50%); font-size: 1.4rem; font-weight: 400;
+      color: #0D6E4F; line-height: 1; transition: transform 0.2s ease;
+    }
+    .faq-item[open] summary::after { content: "−"; }
+    .faq-body { padding: 0 1.2rem 1.1rem; }
+    .faq-body p { margin: 0 0 0.8rem; }
+    .faq-body p:last-child { margin-bottom: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pc-tab, .pc-pill, .pc-code, .pc-visit { transition: none; }
+    }
+  </style>
+
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Should I choose an online pharmacy or a weight-loss programme?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Online pharmacies sell you the medication with a clinical consultation attached. They're usually the cheapest route and transactional, and you're free to switch each month, but you get no coaching, app or community. Weight-loss programmes wrap the medication in a subscription with coaching, tracking and dietitian content, sometimes anti-sickness medication, but cost more — especially at higher doses — and the headline price is usually a first-month intro offer. Programmes are aggressive on starting-dose pricing and expensive at the top end; pharmacies are steadier across the range." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are the discount codes one-off, or do they apply every month?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Almost every discount is a first-order offer; the second month reverts to the standard price. The figure that matters is the cheapest ongoing price from a provider you trust, not the cheapest first month. Voy's discount is delivered by email after mailing-list sign-up, so there's no public code to copy." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I make sure I'm buying safely?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Only buy GLP-1 medication from a pharmacy registered with the General Pharmaceutical Council (GPhC). You can check any pharmacy's registration free at pharmacyregulation.org. The MHRA has warned about counterfeit weight-loss injections sold through social media and unregistered websites — a price that looks too good to be true is the biggest red flag." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I switch providers if mine gets more expensive?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. If you're already on treatment you are not locked in. Most providers accept a switch if you show evidence of your current prescription, such as a photo of your medication box or a recent order. You'll still complete their consultation, and some apply minimum BMI rules to switchers, but it usually takes days, not weeks. Cancel any old subscription before your next billing date." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you verify these prices, and how current are they?",
+        "acceptedAnswer": { "@type": "Answer", "text": "UK GLP-1 pricing changes constantly as codes expire, intro offers rotate and providers reprice. We check prices against provider listings and update the page regularly; the verification date above the table shows how fresh the data is." }
+      }
+    ]
+  })} />
+
+<div class="article-outer">
+
+    <header class="article-hero">
+      <h1>UK GLP-1 Price Comparison: Wegovy &amp; Mounjaro</h1>
+      <p class="article-deck">Verified monthly prices from regulated UK online pharmacies and weight-loss programmes, best new-patient discount applied.</p>
+      <div class="article-meta">
+      </div>
+    </header>
+
+    <div class="article-layout">
+
+      <article class="article-body">
+
+        <section class="pc-toolbar" aria-label="Price comparison tool">
+          <div class="pc-badge" id="pc-verified-badge">Prices verified: 10 June 2026</div>
+
+          <div class="pc-tabs" role="tablist" aria-label="Choose medication">
+            <button class="pc-tab" role="tab" id="pc-tab-mounjaro" aria-selected="true" data-med="mounjaro">Mounjaro</button>
+            <button class="pc-tab" role="tab" id="pc-tab-wegovy" aria-selected="false" data-med="wegovy">Wegovy</button>
+          </div>
+
+          <div class="pc-controls">
+            <div class="pc-filters" role="group" aria-label="Filter providers">
+              <span class="pc-filters-label">Show:</span>
+              <button class="pc-pill" aria-pressed="true" data-filter="all">All providers</button>
+              <button class="pc-pill" aria-pressed="false" data-filter="pharmacy">Pharmacies</button>
+              <button class="pc-pill" aria-pressed="false" data-filter="programme">Programmes</button>
+              <button class="pc-pill" aria-pressed="false" data-filter="ni" id="pc-ni-filter" hidden>NI delivery verified</button>
+            </div>
+            <div class="pc-sort">
+              <span class="pc-sort-label">Sort by price:</span>
+              <button class="pc-sort-btn" id="pc-sort-btn" aria-label="Sort by price, currently lowest first">
+                <span id="pc-sort-text">Lowest first</span>
+                <span class="pc-sort-arrow" id="pc-sort-arrow" aria-hidden="true">↑</span>
+              </button>
+            </div>
+          </div>
+
+          <p class="pc-count" id="pc-count"></p>
+
+          <div class="table-wrap">
+            <table class="comparison-table" id="pc-table">
+              <thead id="pc-thead"></thead>
+              <tbody id="pc-tbody"></tbody>
+            </table>
+          </div>
+
+          <div class="pc-empty" id="pc-empty" hidden>
+            No providers match those filters yet. Try removing a filter — or if you're filtering by Northern Ireland delivery, we're still verifying providers one by one.
+          </div>
+        </section>
+
+        <p class="pc-readnote"><em>How to read the table: prices are per month with each provider's best new-patient offer applied. A dash means we haven't verified that dose's price yet. Tap any discount code to copy it. "Check" in the NI column means delivery to Northern Ireland is unconfirmed — always check at checkout before paying.</em></p>
+
+        <section class="faq" aria-label="Frequently asked questions">
+          <h2>Frequently asked questions</h2>
+
+          <details class="faq-item">
+            <summary>Should I choose an online pharmacy or a weight-loss programme?</summary>
+            <div class="faq-body">
+              <p><strong>Online pharmacies</strong> (Pharmacy2U, Ashcroft, Boots Online Doctor and similar) sell you the medication with a clinical consultation attached. They're usually the cheapest route, the process is transactional, and you're free to switch to whoever is cheapest next month. What you don't get is structured support — no coaching, no app, no community.</p>
+              <p><strong>Weight-loss programmes</strong> (Numan, Juniper, Voy, Second Nature and similar) wrap the medication in a subscription: health coaching, progress tracking, dietitian content, sometimes anti-sickness medication included. They cost more — often substantially more at higher doses — and the headline price is typically an intro offer for month one. For some people the accountability is genuinely worth it; for others it's an expensive app they stop opening by week three.</p>
+              <p>A pattern worth noticing: programmes are aggressive on starting-dose pricing and expensive at the top end, while pharmacies are steadier across the range. If you expect to titrate up to higher doses, compare the right-hand column, not the headline.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Are the discount codes one-off, or do they apply every month?</summary>
+            <div class="faq-body">
+              <p>Almost every discount in this table is a <strong>first-order offer</strong>. Your second month reverts to the standard price, so the question that matters isn't "what's the cheapest first month?" but "what's the cheapest ongoing price from a provider I trust?" One quirk worth knowing: Voy's discount is delivered by email after you sign up to their mailing list — there's no public code to copy, which is why their entry says so.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I make sure I'm buying safely?</summary>
+            <div class="faq-body">
+              <p>Only ever buy GLP-1 medication from a pharmacy registered with the General Pharmaceutical Council (GPhC). You can check any pharmacy's registration free at <a href="https://www.pharmacyregulation.org/registers/pharmacy" rel="noopener" target="_blank">pharmacyregulation.org</a>. The MHRA has repeatedly warned about counterfeit weight-loss injections sold through social media and unregistered websites — a price that looks too good to be true is the biggest red flag there is.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I switch providers if mine gets more expensive?</summary>
+            <div class="faq-body">
+              <p>If you're already on treatment and your provider has crept up in price, you are not locked in. Most providers will accept a switch if you can show evidence of your current prescription — typically a photo of your medication box or a screenshot of a recent order. You'll still complete their consultation, and some providers apply minimum BMI rules to switchers, but the process usually takes days, not weeks. Cancel any subscription with your old provider before your next billing date.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do you verify these prices, and how current are they?</summary>
+            <div class="faq-body">
+              <p>UK GLP-1 pricing changes constantly — codes expire, intro offers rotate, and providers reprice around each other. We check prices against provider listings and update this page regularly; the verification date at the top of the table tells you exactly how fresh the data is. If you spot a price that's changed, <a href="#">tell us</a> and we'll fix it.</p>
+            </div>
+          </details>
+        </section>
+
+        <p class="article-disclaimer"><em>This page is for information only and is not medical advice. Wegovy and Mounjaro are prescription-only medicines — eligibility is always determined by a clinician. Speak to your GP or pharmacist before starting, switching or stopping treatment. Some links on this page may be affiliate links; this never affects how prices are ordered or displayed.</em></p>
+
+      </article>
+
+    </div>
+  </div>
+
+  <!-- Pricing data: the ONLY file to edit for price updates -->
+  <script src="/pricing-data.js" is:inline></script>
+
+  <!-- Comparison tool renderer -->
+  <script is:inline>
+
+  (function () {
+    "use strict";
+
+    var state = { med: "mounjaro", filter: "all", sortDir: "asc" };
+
+    var thead = document.getElementById("pc-thead");
+    var tbody = document.getElementById("pc-tbody");
+    var empty = document.getElementById("pc-empty");
+    var table = document.getElementById("pc-table");
+    var count = document.getElementById("pc-count");
+    var badge = document.getElementById("pc-verified-badge");
+    var metaDate = document.getElementById("pc-meta-date");
+    var niFilterBtn = document.getElementById("pc-ni-filter");
+
+    badge.textContent = "Prices verified: " + PRICING_DATA.lastVerified;
+    if (metaDate) metaDate.textContent = "Prices verified " + PRICING_DATA.lastVerified;
+
+    // Show the NI filter pill only once at least one provider is verified true
+    var anyNI = Object.keys(PRICING_DATA.medications).some(function (key) {
+      return PRICING_DATA.medications[key].providers.some(function (p) { return p.deliversNI === true; });
+    });
+    if (anyNI) niFilterBtn.hidden = false;
+
+    function gbp(n) {
+      return "£" + n.toFixed(2).replace(/\.00$/, "");
+    }
+
+    function lowestPrice(providers, doseKey) {
+      var min = null;
+      providers.forEach(function (p) {
+        var v = p.prices[doseKey];
+        if (typeof v === "number" && (min === null || v < min)) min = v;
+      });
+      return min;
+    }
+
+    function render() {
+      var med = PRICING_DATA.medications[state.med];
+      var cols = med.doseColumns;
+
+      // --- header row ---
+      var headHtml = "<tr>" +
+        "<th scope=\"col\">Provider</th>" +
+        "<th scope=\"col\">Type</th>";
+      cols.forEach(function (c) {
+        headHtml += "<th scope=\"col\">" + c.label + "<br><small>" + c.sub + "</small></th>";
+      });
+      headHtml += "<th scope=\"col\">Trustpilot</th>" +
+        "<th scope=\"col\">Discount</th>" +
+        "<th scope=\"col\">NI delivery</th>" +
+        "<th scope=\"col\">Visit</th></tr>";
+      thead.innerHTML = headHtml;
+
+      // --- filter ---
+      var providers = med.providers.filter(function (p) {
+        if (state.filter === "pharmacy") return p.type === "pharmacy";
+        if (state.filter === "programme") return p.type === "programme";
+        if (state.filter === "ni") return p.deliversNI === true;
+        return true;
+      });
+
+      // --- sort by first dose column, direction from state, unverified always last ---
+      var firstKey = cols[0].key;
+      var dir = state.sortDir === "desc" ? -1 : 1;
+      providers = providers.slice().sort(function (a, b) {
+        var av = a.prices[firstKey], bv = b.prices[firstKey];
+        if (av == null && bv == null) return 0;
+        if (av == null) return 1;   // unverified always sinks to the bottom
+        if (bv == null) return -1;
+        return (av - bv) * dir;
+      });
+
+      var best = {};
+      cols.forEach(function (c) { best[c.key] = lowestPrice(providers, c.key); });
+
+      // --- rows ---
+      tbody.innerHTML = "";
+      providers.forEach(function (p) {
+        var tr = document.createElement("tr");
+
+        // Provider
+        var tdName = document.createElement("td");
+        tdName.setAttribute("data-label", "Provider");
+        tdName.innerHTML = "<span class=\"pc-provider-name\">" + p.name + "</span>" +
+          (p.note ? "<span class=\"pc-provider-note\">" + p.note + "</span>" : "");
+        tr.appendChild(tdName);
+
+        // Type
+        var tdType = document.createElement("td");
+        tdType.setAttribute("data-label", "Type");
+        tdType.innerHTML = "<span class=\"pc-type pc-type--" + p.type + "\">" +
+          (p.type === "pharmacy" ? "Pharmacy" : "Programme") + "</span>";
+        tr.appendChild(tdType);
+
+        // Dose prices
+        cols.forEach(function (c) {
+          var td = document.createElement("td");
+          td.setAttribute("data-label", med.label + " " + c.label);
+          var v = p.prices[c.key];
+          if (typeof v === "number") {
+            var isBest = best[c.key] !== null && v === best[c.key];
+            td.innerHTML = "<span class=\"pc-price" + (isBest ? " pc-best" : "") + "\">" + gbp(v) + "</span>" +
+              (isBest ? "<span class=\"pc-best-tag\">Lowest</span>" : "");
+          } else {
+            td.innerHTML = "<span class=\"pc-price pc-price--na\" title=\"Not yet verified\">—</span>";
+          }
+          tr.appendChild(td);
+        });
+
+        // Trustpilot
+        var tdTp = document.createElement("td");
+        tdTp.setAttribute("data-label", "Trustpilot");
+        tdTp.textContent = p.trustpilot != null ? p.trustpilot.toFixed(1) + " / 5" : "—";
+        tr.appendChild(tdTp);
+
+        // Discount
+        var tdDisc = document.createElement("td");
+        tdDisc.setAttribute("data-label", "Discount");
+        if (p.discount && p.discount.code) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "pc-code";
+          btn.textContent = p.discount.code;
+          btn.setAttribute("aria-label", "Copy discount code " + p.discount.code);
+          btn.addEventListener("click", function () { copyCode(btn, p.discount.code); });
+          tdDisc.appendChild(btn);
+          if (p.discount.note) {
+            var note = document.createElement("span");
+            note.className = "pc-discount-note";
+            note.textContent = p.discount.note;
+            tdDisc.appendChild(note);
+          }
+        } else {
+          tdDisc.innerHTML = p.discount && p.discount.note
+            ? "<span class=\"pc-discount-note\">" + p.discount.note + "</span>"
+            : "—";
+        }
+        tr.appendChild(tdDisc);
+
+        // NI delivery
+        var tdNI = document.createElement("td");
+        tdNI.setAttribute("data-label", "NI delivery");
+        if (p.deliversNI === true) {
+          tdNI.innerHTML = "<span class=\"pc-ni pc-ni--yes\">✓ Yes</span>";
+        } else if (p.deliversNI === false) {
+          tdNI.innerHTML = "<span class=\"pc-ni pc-ni--no\">✗ No</span>";
+        } else {
+          tdNI.innerHTML = "<span class=\"pc-ni pc-ni--unknown\" title=\"Not yet verified — check at checkout\">Check</span>";
+        }
+        tr.appendChild(tdNI);
+
+        // Visit
+        var tdVisit = document.createElement("td");
+        tdVisit.setAttribute("data-label", "Visit");
+        if (p.url && p.url !== "#") {
+          tdVisit.innerHTML = "<a class=\"pc-visit\" href=\"" + p.url + "\" rel=\"nofollow sponsored noopener\" target=\"_blank\">Visit site</a>";
+        } else {
+          tdVisit.innerHTML = "<span class=\"pc-visit pc-visit--pending\" title=\"Link coming soon\">Coming soon</span>";
+        }
+        tr.appendChild(tdVisit);
+
+        tbody.appendChild(tr);
+      });
+
+      // --- empty state + count ---
+      var none = providers.length === 0;
+      table.hidden = none;
+      empty.hidden = !none;
+      count.textContent = none ? "" :
+        "Showing " + providers.length + " " + med.label + " provider" + (providers.length === 1 ? "" : "s") +
+        ", sorted by " + cols[0].label + " price " + (state.sortDir === "desc" ? "(highest first)." : "(lowest first).");
+    }
+
+    function copyCode(btn, code) {
+      function done() {
+        var original = btn.textContent;
+        btn.textContent = "Copied!";
+        btn.classList.add("pc-code--copied");
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.classList.remove("pc-code--copied");
+        }, 1600);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(done).catch(function () { fallback(); });
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = code;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) { /* no-op */ }
+        document.body.removeChild(ta);
+      }
+    }
+
+    // --- tabs ---
+    document.querySelectorAll(".pc-tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        state.med = tab.getAttribute("data-med");
+        document.querySelectorAll(".pc-tab").forEach(function (t) {
+          t.setAttribute("aria-selected", t === tab ? "true" : "false");
+        });
+        render();
+      });
+    });
+
+    // --- filter pills ---
+    document.querySelectorAll(".pc-pill").forEach(function (pill) {
+      pill.addEventListener("click", function () {
+        state.filter = pill.getAttribute("data-filter");
+        document.querySelectorAll(".pc-pill").forEach(function (q) {
+          q.setAttribute("aria-pressed", q === pill ? "true" : "false");
+        });
+        render();
+      });
+    });
+
+    // --- sort toggle ---
+    var sortBtn = document.getElementById("pc-sort-btn");
+    var sortText = document.getElementById("pc-sort-text");
+    var sortArrow = document.getElementById("pc-sort-arrow");
+    sortBtn.addEventListener("click", function () {
+      state.sortDir = state.sortDir === "asc" ? "desc" : "asc";
+      var lowestFirst = state.sortDir === "asc";
+      sortText.textContent = lowestFirst ? "Lowest first" : "Highest first";
+      sortArrow.textContent = lowestFirst ? "↑" : "↓";
+      sortBtn.setAttribute("aria-label", "Sort by price, currently " + (lowestFirst ? "lowest" : "highest") + " first");
+      render();
+    });
+
+    render();
+  })();
+  </script>
+
+</BaseLayout>

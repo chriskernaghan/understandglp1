@@ -1,0 +1,84 @@
+---
+// BaseLayout.astro — the single source of truth for the site shell.
+// Replaces the <head>, nav, mobile menu and footer that were copied across
+// all 49 HTML pages. Every page passes its own title/description/canonical.
+export interface Props {
+  title: string;
+  description: string;
+  /** Path only, e.g. "/blog" or "/" — combined with the site URL for canonical. */
+  canonicalPath: string;
+  /** Optional: highlight the active nav item ("news" | "stories" | "food"). */
+  activeNav?: string;
+}
+
+const { title, description, canonicalPath, activeNav } = Astro.props;
+const canonicalURL = new URL(canonicalPath, 'https://understandglp1.com').href;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N336R5797V"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N336R5797V');
+  </script>
+
+  <!-- Page-specific head content (e.g. the comparison page's scoped styles) -->
+  <slot name="head" />
+</head>
+<body>
+
+  <nav><div class="nav-inner">
+    <a href="/" class="logo">understand<em>GLP1</em></a>
+    <ul class="nav-links">
+      <li><a href="/blog" class={activeNav === 'news' ? 'active' : undefined}>News</a></li>
+      <li><a href="/stories" class={activeNav === 'stories' ? 'active' : undefined}>Stories</a></li>
+      <li><a href="/food" class={activeNav === 'food' ? 'active' : undefined}>Food &amp; Nutrition</a></li>
+      <li><a href="/#medications">Medications</a></li>
+      <li><a href="/blog" class="nav-cta">Read the Blog</a></li>
+    </ul>
+    <button class="burger" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div></nav>
+  <div class="mobile-menu" id="mob">
+    <a href="/">Home</a>
+    <a href="/blog">News &amp; Blog</a>
+    <a href="/stories">Stories</a>
+    <a href="/food">Food &amp; Nutrition</a>
+    <a href="/#medications">Medications</a>
+    <a href="/semaglutide">Semaglutide</a>
+    <a href="/tirzepatide">Tirzepatide</a>
+    <a href="/liraglutide">Liraglutide</a>
+    <a href="/dulaglutide">Dulaglutide</a>
+  </div>
+
+  <slot />
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand"><a href="/" class="logo">understand<em>GLP1</em></a><p>Your independent, evidence-based guide to GLP-1 and GLP-2 medications. Not affiliated with any pharmaceutical company.</p></div>
+      <div class="footer-col"><h4>Content</h4><a href="/blog">News &amp; Blog</a><a href="/stories">Real Stories</a><a href="/food">Food &amp; Nutrition</a><a href="/uk-glp1-price-comparison">Tools</a></div>
+      <div class="footer-col"><h4>Medications</h4><a href="/semaglutide">Semaglutide</a><a href="/tirzepatide">Tirzepatide</a><a href="/liraglutide">Liraglutide</a><a href="/dulaglutide">Dulaglutide</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Advertise</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 UnderstandGLP1.com</span><span>Built with care in Northern Ireland 🍀</span></div>
+    <div class="footer-disclaimer">This website is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare provider before starting any medication. This site may contain affiliate links — we may earn a commission at no extra cost to you.</div>
+  </footer>
+
+</body>
+</html>

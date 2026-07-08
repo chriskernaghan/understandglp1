@@ -1,0 +1,34 @@
+{
+  "blog": [
+    { "filter": "all", "label": "All" },
+    { "filter": "getting-started", "label": "Getting Started" },
+    { "filter": "research-news", "label": "Research & News" },
+    { "filter": "reference", "label": "Reference" },
+    { "filter": "lifestyle", "label": "Lifestyle" },
+    { "filter": "side-effects", "label": "Side Effects" },
+    { "filter": "diet-nutrition", "label": "Diet & Nutrition" },
+    { "filter": "exercise", "label": "Exercise" },
+    { "filter": "cost-insurance", "label": "Cost & Insurance" },
+    { "filter": "comparisons", "label": "Comparisons" }
+  ],
+  "stories": [
+    { "filter": "all", "label": "All Stories" },
+    { "filter": "ozempic-wegovy", "label": "Ozempic / Wegovy" },
+    { "filter": "mounjaro-zepbound", "label": "Mounjaro / Zepbound" },
+    { "filter": "saxenda", "label": "Saxenda" },
+    { "filter": "switching", "label": "Switching Medications" },
+    { "filter": "side-effects", "label": "Side Effects" },
+    { "filter": "mental-health", "label": "Mental Health" },
+    { "filter": "long-term", "label": "Long-Term (1yr+)" }
+  ],
+  "food": [
+    { "filter": "all", "label": "All" },
+    { "filter": "high-protein", "label": "High Protein" },
+    { "filter": "meal-plans", "label": "Meal Plans" },
+    { "filter": "recipes", "label": "Recipes" },
+    { "filter": "what-to-avoid", "label": "What to Avoid" },
+    { "filter": "supplements", "label": "Supplements" },
+    { "filter": "hydration", "label": "Hydration" },
+    { "filter": "low-volume", "label": "Low Volume Meals" }
+  ]
+}

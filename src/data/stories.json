@@ -1,0 +1,101 @@
+[
+  {
+    "slug": "story-sarah-wegovy-8-months",
+    "title": "\"The Food Noise Disappeared — and So Did 47 Pounds\"",
+    "excerpt": "Sarah M. spent 30 years battling her weight. After 8 months on Wegovy, the constant mental chatter about food went quiet for the first time. Here's her full journey — the breakthrough, the side effects, and what she wishes she'd known from day one.",
+    "category": "ozempic-wegovy",
+    "categoryLabel": "Featured Story",
+    "emoji": "💬",
+    "date": "Feb 24, 2026",
+    "readTime": "12 min read",
+    "featured": true
+  },
+  {
+    "slug": "story-james-ozempic-to-mounjaro",
+    "title": "\"Ozempic Made Me Miserable. Mounjaro Changed Everything.\"",
+    "excerpt": "James R. almost gave up on GLP-1 medications entirely after severe nausea on Ozempic. His doctor suggested switching to Mounjaro — and the difference was night and day.",
+    "category": "switching",
+    "categoryLabel": "Switching Medications",
+    "emoji": "🔄",
+    "date": "Feb 19, 2026",
+    "readTime": "9 min read",
+    "featured": false
+  },
+  {
+    "slug": "story-priya-zepbound-protein",
+    "title": "\"I Wish Someone Had Warned Me About the Protein Problem\"",
+    "excerpt": "Priya K. lost 32 lbs on Zepbound in 4 months — but a DEXA scan revealed she'd lost almost as much muscle as fat. Her hard-won advice on eating enough when you have zero appetite.",
+    "category": "mounjaro-zepbound",
+    "categoryLabel": "Diet & Nutrition",
+    "emoji": "🥩",
+    "date": "Feb 14, 2026",
+    "readTime": "10 min read",
+    "featured": false
+  },
+  {
+    "slug": "story-david-type2-trulicity",
+    "title": "\"Trulicity Gave Me My A1C Back — and My Confidence\"",
+    "excerpt": "David T. was diagnosed with type 2 diabetes at 42 and felt like a failure. After 18 months on Trulicity, his A1C dropped from 9.1 to 6.4 — and he stopped dreading blood work.",
+    "category": "long-term",
+    "categoryLabel": "Type 2 Diabetes",
+    "emoji": "📊",
+    "date": "Feb 8, 2026",
+    "readTime": "8 min read",
+    "featured": false
+  },
+  {
+    "slug": "story-maria-saxenda-journey",
+    "title": "\"2 Years on Saxenda: The Honest Truth About What Happens Long-Term\"",
+    "excerpt": "Maria L. has been on Saxenda for over two years. She shares what nobody talks about — the plateaus, the social pressure, the insurance battles, and why she's staying on it anyway.",
+    "category": "saxenda",
+    "categoryLabel": "Long-Term",
+    "emoji": "📈",
+    "date": "Feb 3, 2026",
+    "readTime": "14 min read",
+    "featured": false
+  },
+  {
+    "slug": "story-tom-mental-health-glp1",
+    "title": "\"Nobody Prepared Me for the Emotional Side of Rapid Weight Loss\"",
+    "excerpt": "Tom W. lost 60 lbs in 7 months on Wegovy. Physically, he felt great. Mentally, he was struggling with identity, loose skin anxiety, and a complicated relationship with his \"before\" self.",
+    "category": "mental-health",
+    "categoryLabel": "Mental Health",
+    "emoji": "🧠",
+    "date": "Jan 27, 2026",
+    "readTime": "11 min read",
+    "featured": false
+  },
+  {
+    "slug": "story-rachel-ozempic-pcos",
+    "title": "\"Ozempic Didn't Just Help My Weight — It Helped My PCOS\"",
+    "excerpt": "Rachel S. started Ozempic for weight management but was stunned when her PCOS symptoms dramatically improved. Her periods became regular for the first time in a decade.",
+    "category": "ozempic-wegovy",
+    "categoryLabel": "Ozempic / Wegovy",
+    "emoji": "💊",
+    "date": "Jan 20, 2026",
+    "readTime": "9 min read",
+    "featured": false
+  },
+  {
+    "slug": "story-carlos-mounjaro-couple",
+    "title": "\"My Wife and I Both Started Mounjaro. Here's What Happened.\"",
+    "excerpt": "Carlos and Elena D. started Mounjaro together. He lost 45 lbs in 5 months; she lost 18. Their story about different responses, supporting each other, and navigating it as a couple.",
+    "category": "mounjaro-zepbound",
+    "categoryLabel": "Mounjaro / Zepbound",
+    "emoji": "👫",
+    "date": "Jan 14, 2026",
+    "readTime": "13 min read",
+    "featured": false
+  },
+  {
+    "slug": "story-nina-stopping-glp1",
+    "title": "\"I Stopped Ozempic After 14 Months. Here's What Happened Next.\"",
+    "excerpt": "Nina P. decided to stop Ozempic after reaching her goal weight. She shares the honest reality of weight regain, what she kept, and what she'd do differently.",
+    "category": "ozempic-wegovy",
+    "categoryLabel": "Stopping Medication",
+    "emoji": "⏸️",
+    "date": "Jan 8, 2026",
+    "readTime": "10 min read",
+    "featured": false
+  }
+]

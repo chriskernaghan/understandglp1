@@ -1,0 +1,211 @@
+[
+  {
+    "slug": "glp1-plateau",
+    "title": "The GLP-1 Plateau: Why Your Weight Loss Stopped (And How to Restart It)",
+    "excerpt": "Hit a weight loss plateau on Wegovy, Ozempic, or Mounjaro? Learn the biological reasons why your body stops losing weight on GLP-1s and evidence-based steps to restart your progress.",
+    "category": "diet-nutrition",
+    "categoryLabel": "Diet & Nutrition",
+    "emoji": "📉",
+    "date": "Apr 22, 2026",
+    "readTime": "12 min read",
+    "featured": true
+  },
+  {
+    "slug": "muscle-loss",
+    "title": "The Muscle Loss Problem on GLP-1s: How to Protect Your Metabolism",
+    "excerpt": "Worried about muscle loss on Ozempic, Wegovy, or Mounjaro? Learn why GLP-1 medications can deplete lean mass and the exact steps to protect your metabolism while losing weight.",
+    "category": "side-effects",
+    "categoryLabel": "Side Effects",
+    "emoji": "💪",
+    "date": "Apr 21, 2026",
+    "readTime": "10 min read",
+    "featured": false
+  },
+  {
+    "slug": "telogen-effluvium",
+    "title": "Why You're Losing Hair on a GLP-1 (And How to Stop It)",
+    "excerpt": "Discover the science behind GLP-1 hair loss, what telogen effluvium is, and the exact steps you can take to regrow your hair.",
+    "category": "side-effects",
+    "categoryLabel": "Side Effects",
+    "emoji": "🚿",
+    "date": "Apr 19, 2026",
+    "readTime": "9 min read",
+    "featured": false
+  },
+  {
+    "slug": "travelling-on-glp1",
+    "title": "Traveling on a GLP-1: Airport Security, Refrigeration, and Vacation Eating",
+    "excerpt": "Planning a vacation on Wegovy or Mounjaro? Here is your complete guide to getting pens through airport security, refrigeration rules, and eating on holiday.",
+    "category": "lifestyle",
+    "categoryLabel": "Lifestyle",
+    "emoji": "✈️",
+    "date": "Apr 18, 2026",
+    "readTime": "8 min read",
+    "featured": false
+  },
+  {
+    "slug": "the-wardrobe-transition",
+    "title": "The \"Nothing Fits\" Phase: Managing Your Wardrobe (and Wallet)",
+    "excerpt": "Losing weight fast means your clothes don't fit, but buying a new wardrobe is expensive. Here's how to navigate the awkward in-between sizes on a budget.",
+    "category": "lifestyle",
+    "categoryLabel": "Lifestyle",
+    "emoji": "👗",
+    "date": "Apr 17, 2026",
+    "readTime": "7 min read",
+    "featured": false
+  },
+  {
+    "slug": "ozempic-vs-mounjaro-2026",
+    "title": "Ozempic vs. Mounjaro in 2026: Which Should You Choose?",
+    "excerpt": "A comprehensive side-by-side comparison of the two most popular GLP-1 medications — from weight loss results to side effects and cost.",
+    "category": "comparisons",
+    "categoryLabel": "Comparisons",
+    "emoji": "💉",
+    "date": "Feb 24, 2026",
+    "readTime": "18 min read",
+    "featured": false
+  },
+  {
+    "slug": "glp1-drinking-alcohol-guide",
+    "title": "What Drinking on a GLP-1 Actually Feels Like",
+    "excerpt": "\"Ozempic sober\" is now a real thing. Why you feel drunk faster, hangovers hit harder, and cravings fade on Ozempic, Wegovy, and Mounjaro.",
+    "category": "lifestyle",
+    "categoryLabel": "Lifestyle",
+    "emoji": "🍷",
+    "date": "Apr 22, 2026",
+    "readTime": "14 min read",
+    "featured": false
+  },
+  {
+    "slug": "glp1-and-dating",
+    "title": "GLP-1 and Dating: The Stuff Nobody Tells You",
+    "excerpt": "How to navigate restaurant dates, changing alcohol tolerance, and the \"should I tell them?\" question.",
+    "category": "lifestyle",
+    "categoryLabel": "Lifestyle",
+    "emoji": "💬",
+    "date": "Apr 11, 2026",
+    "readTime": "10 min read",
+    "featured": false
+  },
+  {
+    "slug": "glp1-golden-dose-leftover-medication",
+    "title": "The \"Golden Dose\": What's Really Left in Your GLP-1 Pen",
+    "excerpt": "Why there's leftover medication after your final dose, the contradiction with multi-pen starter kits, and upcoming pen redesigns.",
+    "category": "reference",
+    "categoryLabel": "Reference",
+    "emoji": "💊",
+    "date": "Mar 18, 2026",
+    "readTime": "10 min read",
+    "featured": false
+  },
+  {
+    "slug": "glp1-alzheimers-prevention",
+    "title": "GLP-1 Medications and Alzheimer's: Prevention Is the Real Story",
+    "excerpt": "Real-world data shows GLP-1 users have up to 70% lower dementia risk. What it means if you're already on Ozempic or Wegovy.",
+    "category": "research-news",
+    "categoryLabel": "Research & News",
+    "emoji": "🧠",
+    "date": "Mar 30, 2026",
+    "readTime": "11 min read",
+    "featured": false
+  },
+  {
+    "slug": "glp1-telehealth-platforms-compared",
+    "title": "GLP-1 Telehealth Platforms Compared — US & UK",
+    "excerpt": "What the major platforms actually cost, which medications they offer, and how good their ongoing app support really is.",
+    "category": "comparisons",
+    "categoryLabel": "Comparisons",
+    "emoji": "🖥️",
+    "date": "Mar 16, 2026",
+    "readTime": "14 min read",
+    "featured": false
+  },
+  {
+    "slug": "glp1-diet-what-to-eat",
+    "title": "The GLP-1 Diet: What to Eat (and Avoid) for Best Results",
+    "excerpt": "Your appetite is down, but what you eat still matters. A practical guide to maximizing nutrition and preserving muscle.",
+    "category": "diet-nutrition",
+    "categoryLabel": "Diet & Nutrition",
+    "emoji": "🍽️",
+    "date": "Feb 20, 2026",
+    "readTime": "10 min read",
+    "featured": false
+  },
+  {
+    "slug": "strength-training-glp1",
+    "title": "Strength Training on GLP-1: Why It's Non-Negotiable",
+    "excerpt": "Up to 40% of weight lost on GLP-1 medications can be lean muscle. Here's why resistance training is critical.",
+    "category": "exercise",
+    "categoryLabel": "Exercise",
+    "emoji": "🏋️",
+    "date": "Feb 17, 2026",
+    "readTime": "8 min read",
+    "featured": false
+  },
+  {
+    "slug": "glp1-medications-under-300",
+    "title": "How to Get GLP-1 Medications for Under $300/Month",
+    "excerpt": "From manufacturer savings cards to compounding pharmacies — every legitimate way to reduce the cost of your prescription.",
+    "category": "cost-insurance",
+    "categoryLabel": "Cost & Insurance",
+    "emoji": "💰",
+    "date": "Feb 13, 2026",
+    "readTime": "8 min read",
+    "featured": false
+  },
+  {
+    "slug": "glp1-brain-addiction-alzheimers",
+    "title": "GLP-1 and the Brain: Emerging Research on Addiction",
+    "excerpt": "Beyond weight loss and diabetes, researchers are discovering GLP-1 medications may have neuroprotective effects.",
+    "category": "research-news",
+    "categoryLabel": "Research & News",
+    "emoji": "🔬",
+    "date": "Feb 10, 2026",
+    "readTime": "14 min read",
+    "featured": false
+  },
+  {
+    "slug": "managing-glp1-nausea",
+    "title": "Managing GLP-1 Nausea: 12 Tips That Actually Work",
+    "excerpt": "Nausea is the #1 side effect. Here are evidence-based strategies from doctors and patients to minimize it.",
+    "category": "side-effects",
+    "categoryLabel": "Side Effects",
+    "emoji": "⚠️",
+    "date": "Feb 6, 2026",
+    "readTime": "8 min read",
+    "featured": false
+  },
+  {
+    "slug": "first-month-glp1-guide",
+    "title": "Your First Month on a GLP-1: A Week-by-Week Guide",
+    "excerpt": "What to expect in weeks 1 through 4 — from the first injection to managing side effects, adjusting your diet, and tracking progress.",
+    "category": "getting-started",
+    "categoryLabel": "Getting Started",
+    "emoji": "📋",
+    "date": "Feb 3, 2026",
+    "readTime": "11 min read",
+    "featured": false
+  },
+  {
+    "slug": "compounded-vs-brand-semaglutide",
+    "title": "Compounded Semaglutide vs. Brand Name: What You Need to Know",
+    "excerpt": "Compounded semaglutide costs a fraction of Ozempic and Wegovy, but is it safe? The differences, risks, and what to look for.",
+    "category": "comparisons",
+    "categoryLabel": "Comparisons",
+    "emoji": "⚖️",
+    "date": "Jan 28, 2026",
+    "readTime": "13 min read",
+    "featured": false
+  },
+  {
+    "slug": "food-noise-explained",
+    "title": "\"Food Noise\" Explained: The Science of Why GLP-1s Quiet Your Mind",
+    "excerpt": "What is \"food noise,\" what causes it, and how do these medications turn it down?",
+    "category": "research-news",
+    "categoryLabel": "Research & News",
+    "emoji": "🧠",
+    "date": "Jan 22, 2026",
+    "readTime": "9 min read",
+    "featured": false
+  }
+]

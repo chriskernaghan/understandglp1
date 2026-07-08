@@ -1,0 +1,34 @@
+---
+// Filter tag row + the client-side filter script. Reused by all listing pages.
+export interface Props {
+  tags: { filter: string; label: string }[];
+}
+const { tags } = Astro.props;
+---
+<div class="categories" id="category-filters">
+  {tags.map((t, i) => (
+    <span class={`cat-tag${i === 0 ? ' active' : ''}`} data-filter={t.filter}>{t.label}</span>
+  ))}
+</div>
+
+<script is:inline>
+(function () {
+  const filters = document.querySelectorAll('#category-filters .cat-tag');
+  const cards   = document.querySelectorAll('#posts-grid .post-card');
+  const noResults = document.getElementById('no-results');
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filters.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var selected = btn.getAttribute('data-filter');
+      var visible = 0;
+      cards.forEach(function (card) {
+        var cat = card.getAttribute('data-category');
+        if (selected === 'all' || cat === selected) { card.classList.remove('hidden'); visible++; }
+        else { card.classList.add('hidden'); }
+      });
+      if (noResults) noResults.classList.toggle('visible', visible === 0);
+    });
+  });
+}());
+</script>

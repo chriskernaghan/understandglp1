@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import CategoryFilters from '../components/CategoryFilters.astro';
+import filterData from '../data/filters.json';
+import allPosts from '../data/food.json';
+
+// Cards are driven by src/data/food.json — add an entry there and it shows up
+// here (grid + filters) automatically. Featured first, then newest by date.
+const posts = [...allPosts].sort((a, b) => {
+  if (a.featured !== b.featured) return a.featured ? -1 : 1;
+  return new Date(b.date).getTime() - new Date(a.date).getTime();
+});
+const tags = filterData['food'];
+---
+<BaseLayout
+  title={"GLP-1 Food & Nutrition \u2014 High-Protein Meals & Meal Plans | Understand GLP-1"}
+  description={"Practical food and nutrition guides for life on GLP-1 medications: high-protein meals, meal plans, hydration, supplements, and what to avoid."}
+  canonicalPath="/food"
+  activeNav="food"
+>
+
+<div class="blog-wrap">
+
+  <header class="blog-hero">
+    <h1>Food & Nutrition</h1>
+    <p>Recipes, meal plans, and practical guides designed for life on GLP-1 and GLP-2 medications — when eating well matters more than ever.</p>
+  </header>
+
+  <CategoryFilters tags={tags} />
+
+  <div class="blog-layout">
+    <div>
+      <div class="posts-grid" id="posts-grid">
+        {posts.map(p => <PostCard {...p} />)}
+        <div class="no-results" id="no-results">No articles found in this category yet.</div>
+      </div>
+    </div>
+
+    <div class="blog-sidebar">
+      <div class="email-box">
+        <div class="email-box__title">Weekly meal ideas</div>
+        <div class="email-box__desc">Get GLP-1 friendly recipes and nutrition tips delivered to your inbox every week.</div>
+        <input type="email" placeholder="you@email.com">
+        <button onclick="this.textContent='✓ Subscribed!';this.disabled=true">Subscribe Free</button>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__label">Quick Links</div>
+        <div class="sidebar-card__title">Most popular guides</div>
+        <div style="margin-top:12px">
+          <a href="/food-glp1-diet-guide" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">The GLP-1 Diet Guide →</a>
+          <a href="/food-high-protein-breakfasts" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">High-Protein Breakfasts →</a>
+          <a href="/food-weekly-meal-plan" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">Weekly Meal Plan →</a>
+          <a href="/food-protein-shakes-ranked" style="display:block;color:var(--accent);font-size:14px;font-weight:600;text-decoration:none;">Protein Shakes Ranked →</a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__label">Partner</div>
+        <div class="sidebar-card__title">Ready to start?</div>
+        <div class="sidebar-card__desc">Get evaluated by a licensed provider from home.</div>
+        <a href="https://understandglp1.com/uk-glp1-price-comparison" class="sidebar-card__btn" rel="nofollow sponsored">Check Eligibility →</a>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__label">Explore</div>
+        <div class="sidebar-card__title">More from us</div>
+        <div style="margin-top:12px">
+          <a href="/blog" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">News &amp; Blog →</a>
+          <a href="/stories" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">Real Stories →</a>
+          <a href="/#medications" style="display:block;color:var(--accent);font-size:14px;font-weight:600;text-decoration:none;">Medication Guides →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</BaseLayout>

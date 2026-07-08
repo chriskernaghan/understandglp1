@@ -1,0 +1,101 @@
+[
+  {
+    "slug": "food-glp1-diet-guide",
+    "title": "The GLP-1 Diet: What to Eat (and Avoid) for Best Results",
+    "excerpt": "Your appetite is down, but what you eat still matters more than ever. A practical, comprehensive guide to maximizing nutrition, preserving lean muscle, and avoiding common dietary mistakes on GLP-1 medications.",
+    "category": "what-to-avoid",
+    "categoryLabel": "Featured Guide",
+    "emoji": "🥗",
+    "date": "Feb 20, 2026",
+    "readTime": "14 min read",
+    "featured": true
+  },
+  {
+    "slug": "food-high-protein-breakfasts",
+    "title": "10 Quick High-Protein Breakfasts for Low Appetite Days",
+    "excerpt": "When eating feels like a chore, these 200–400 calorie breakfasts pack maximum nutrition into minimum volume. Each one has 25g+ protein.",
+    "category": "high-protein",
+    "categoryLabel": "High Protein",
+    "emoji": "🥚",
+    "date": "Feb 17, 2026",
+    "readTime": "8 min read",
+    "featured": false
+  },
+  {
+    "slug": "food-weekly-meal-plan",
+    "title": "The 1,200–1,500 Calorie GLP-1 Weekly Meal Plan",
+    "excerpt": "A complete week of balanced meals designed around the reduced appetite and heightened nutritional needs of GLP-1 patients. Includes a shopping list.",
+    "category": "meal-plans",
+    "categoryLabel": "Meal Plan",
+    "emoji": "🍲",
+    "date": "Feb 13, 2026",
+    "readTime": "12 min read",
+    "featured": false
+  },
+  {
+    "slug": "food-what-makes-side-effects-worse",
+    "title": "Foods That Make GLP-1 Side Effects Worse",
+    "excerpt": "Greasy, fried, and high-sugar foods can dramatically amplify nausea, bloating, and GI issues. Here's what to skip and what to eat instead.",
+    "category": "what-to-avoid",
+    "categoryLabel": "What to Avoid",
+    "emoji": "🚫",
+    "date": "Feb 9, 2026",
+    "readTime": "7 min read",
+    "featured": false
+  },
+  {
+    "slug": "food-protein-shakes-ranked",
+    "title": "The 8 Best Protein Shakes for GLP-1 Patients, Ranked",
+    "excerpt": "Not all protein shakes are created equal when your stomach is sensitive. We tested dozens and ranked the best by taste, digestibility, protein content, and price.",
+    "category": "high-protein",
+    "categoryLabel": "High Protein",
+    "emoji": "🥤",
+    "date": "Feb 5, 2026",
+    "readTime": "10 min read",
+    "featured": false
+  },
+  {
+    "slug": "food-supplements-glp1",
+    "title": "Essential Supplements on GLP-1: What You Actually Need",
+    "excerpt": "When you're eating less, nutritional gaps are inevitable. A doctor-informed guide to which supplements matter, which are overhyped, and when to get bloodwork.",
+    "category": "supplements",
+    "categoryLabel": "Supplements",
+    "emoji": "💊",
+    "date": "Jan 30, 2026",
+    "readTime": "9 min read",
+    "featured": false
+  },
+  {
+    "slug": "food-hydration-guide",
+    "title": "The GLP-1 Hydration Guide: Why You're Probably Not Drinking Enough",
+    "excerpt": "Dehydration is one of the most underrated side effects of GLP-1 medications. How much you really need, signs you're falling short, and electrolyte strategies that work.",
+    "category": "hydration",
+    "categoryLabel": "Hydration",
+    "emoji": "💧",
+    "date": "Jan 24, 2026",
+    "readTime": "7 min read",
+    "featured": false
+  },
+  {
+    "slug": "food-small-meals-big-nutrition",
+    "title": "Small Meals, Big Nutrition: 15 Calorie-Dense Recipes Under 300 Calories",
+    "excerpt": "When you can only manage a few bites, every calorie needs to count. These nutrient-dense mini-meals pack maximum value into minimum volume.",
+    "category": "low-volume",
+    "categoryLabel": "Low Volume Meals",
+    "emoji": "🍱",
+    "date": "Jan 18, 2026",
+    "readTime": "11 min read",
+    "featured": false
+  },
+  {
+    "slug": "food-eating-out-glp1",
+    "title": "Eating Out on GLP-1: A Restaurant Survival Guide",
+    "excerpt": "How to navigate menus, manage portions, and avoid triggering nausea when dining out — with specific tips for Italian, Mexican, Asian, and fast casual restaurants.",
+    "category": "recipes",
+    "categoryLabel": "Practical Guide",
+    "emoji": "🍽️",
+    "date": "Jan 12, 2026",
+    "readTime": "9 min read",
+    "featured": false
+  }
+]
