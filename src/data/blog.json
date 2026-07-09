@@ -208,4 +208,40 @@
     "readTime": "9 min read",
     "featured": false
   }
+  [
+  {
+    "slug": "best-protein-powder-glp1",
+    "title": "Best Protein Powder for GLP-1 Users: A UK Buyer's Guide",
+    "excerpt": "Whey, clear whey or plant-based? How to pick a powder that works with a shrunken appetite — plus what to check on the label and the UK options worth buying.",
+    "category": "diet-nutrition",
+    "categoryLabel": "Diet & Nutrition",
+    "emoji": "🥤",
+    "date": "9 Jul 2026",
+    "readTime": "8 min read",
+    "featured": false
+  },
+  {
+    "slug": "victoza-vs-saxenda",
+    "title": "Victoza vs Saxenda: Same Drug, Two Very Different Jobs",
+    "excerpt": "They're both liraglutide — the difference is dose and licence. What separates them, and where daily liraglutide fits now weekly GLP-1s dominate.",
+    "category": "comparisons",
+    "categoryLabel": "Comparisons",
+    "emoji": "⚖️",
+    "date": "9 Jul 2026",
+    "readTime": "7 min read",
+    "featured": false
+  },
+  {
+    "slug": "is-trulicity-insulin",
+    "title": "Is Trulicity Insulin? What Dulaglutide Actually Is (and Isn't)",
+    "excerpt": "It comes in a pen and treats diabetes, but Trulicity isn't insulin. What dulaglutide does, what it's used for, and why it isn't a weight-loss drug.",
+    "category": "getting-started",
+    "categoryLabel": "Getting Started",
+    "emoji": "💉",
+    "date": "9 Jul 2026",
+    "readTime": "7 min read",
+    "featured": false
+  }
+]
+
 ]
