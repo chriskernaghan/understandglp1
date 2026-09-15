@@ -31,7 +31,7 @@ const titleDate = priceMeta ? ` (${priceMeta.monthYear})` : '';
       content: ""; width: 6px; height: 6px; border-radius: 50%;
       background: #0D6E4F; display: inline-block;
     }
-    .pc-tabs { display: flex; gap: 0.5rem; margin-bottom: 0.9rem; flex-wrap: wrap; }
+    .pc-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .pc-tab {
       font-family: inherit; font-size: 1rem; font-weight: 600;
       padding: 0.6rem 1.4rem; border-radius: 999px; cursor: pointer;
@@ -42,7 +42,8 @@ const titleDate = priceMeta ? ` (${priceMeta.monthYear})` : '';
     .pc-tab[aria-selected="true"] { background: #0D6E4F; color: #fff; }
     .pc-tab:focus-visible { outline: 3px solid #8fc7b2; outline-offset: 2px; }
     /* Tidy toolbar: filters on the left, sort on the right */
-    .pc-controls { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+        .pc-controls { display: flex; flex-wrap: wrap; gap: 0.9rem 1.5rem; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; }
+    .pc-options { display: flex; flex-wrap: wrap; gap: 0.6rem 1.25rem; align-items: center; }
     .pc-field { display: flex; gap: 0.45rem; align-items: center; }
     .pc-field label { font-size: 0.85rem; font-weight: 600; color: #555; }
     .pc-select {
@@ -185,26 +186,27 @@ const titleDate = priceMeta ? ` (${priceMeta.monthYear})` : '';
 
         <section class="pc-toolbar" aria-label="Price comparison tool">
 
-          <div class="pc-tabs" role="tablist" aria-label="Choose medication">
-            <button class="pc-tab" role="tab" id="pc-tab-mounjaro" aria-selected="true" data-med="mounjaro">Mounjaro</button>
-            <button class="pc-tab" role="tab" id="pc-tab-wegovy" aria-selected="false" data-med="wegovy">Wegovy</button>
-          </div>
-
           <div class="pc-controls">
-            <div class="pc-field">
-              <label for="pc-filter">Show:</label>
-              <select class="pc-select" id="pc-filter">
-                <option value="all">All providers</option>
-                <option value="pharmacy">Pharmacies</option>
-                <option value="programme">Programmes</option>
-              </select>
+            <div class="pc-tabs" role="tablist" aria-label="Choose medication">
+              <button class="pc-tab" role="tab" id="pc-tab-mounjaro" aria-selected="true" data-med="mounjaro">Mounjaro</button>
+              <button class="pc-tab" role="tab" id="pc-tab-wegovy" aria-selected="false" data-med="wegovy">Wegovy</button>
             </div>
-            <div class="pc-field">
-              <label for="pc-sort">Sort by price:</label>
-              <select class="pc-select" id="pc-sort">
-                <option value="asc">Lowest first</option>
-                <option value="desc">Highest first</option>
-              </select>
+            <div class="pc-options">
+              <div class="pc-field">
+                <label for="pc-filter">Show:</label>
+                <select class="pc-select" id="pc-filter">
+                  <option value="all">All providers</option>
+                  <option value="pharmacy">Pharmacies</option>
+                  <option value="programme">Programmes</option>
+                </select>
+              </div>
+              <div class="pc-field">
+                <label for="pc-sort">Sort by price:</label>
+                <select class="pc-select" id="pc-sort">
+                  <option value="asc">Lowest first</option>
+                  <option value="desc">Highest first</option>
+                </select>
+              </div>
             </div>
           </div>
 
