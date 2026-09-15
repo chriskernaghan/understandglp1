@@ -1638,3 +1638,40 @@ footer {
   .related-strip { padding: 40px var(--page-px); }
   .related-strip__grid { grid-template-columns: 1fr; }
 }
+
+/* ── Homepage price band ───────────────────────────────────── */
+.price-band { padding: 0 0 72px; }
+.price-band__card {
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  background: linear-gradient(135deg, var(--accent-light), var(--warm));
+  border: 1px solid var(--gray-100); border-radius: var(--radius);
+  padding: 40px 44px;
+}
+.price-band__copy { max-width: 620px; }
+.price-band__label {
+  font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 10px;
+}
+.price-band h2 {
+  font-family: var(--font-display); font-weight: 400; font-size: 34px;
+  line-height: 1.15; letter-spacing: -0.01em; color: var(--black); margin-bottom: 12px;
+}
+.price-band h2 em { font-style: italic; color: var(--accent); }
+.price-band__copy > p { font-size: 15px; font-weight: 300; color: var(--gray-700); line-height: 1.6; }
+.price-band__meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.price-band__meta span {
+  font-size: 12px; font-weight: 500; color: var(--gray-700);
+  background: var(--white); border: 1px solid var(--gray-100);
+  border-radius: 100px; padding: 5px 12px;
+}
+.price-band__action { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex-shrink: 0; }
+.price-band__note { font-size: 12px; color: var(--gray-500); font-weight: 300; max-width: 220px; text-align: right; }
+@media (max-width: 960px) {
+  .price-band__card { flex-direction: column; align-items: flex-start; padding: 32px 28px; gap: 24px; }
+  .price-band__action { align-items: flex-start; }
+  .price-band__note { text-align: left; max-width: none; }
+}
+@media (max-width: 640px) {
+  .price-band { padding-bottom: 48px; }
+  .price-band h2 { font-size: 28px; }
+}
