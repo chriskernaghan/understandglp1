@@ -1,9 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPriceMeta } from '../lib/price-meta.js';
+
+const priceMeta = getPriceMeta();
+const titleDate = priceMeta ? ` (${priceMeta.monthYear})` : '';
 ---
 <BaseLayout
-  title="UK GLP-1 Price Comparison: Wegovy &amp; Mounjaro (August 2026) | UnderstandGLP1"
-  description="Compare verified UK prices for Wegovy and Mounjaro across regulated online pharmacies and weight-loss programmes. Discount codes, Trustpilot scores and Northern Ireland delivery — updated regularly."
+  title={`UK GLP-1 Price Comparison: Wegovy & Mounjaro${titleDate} | UnderstandGLP1`}
+  description="Compare verified UK prices for Wegovy and Mounjaro across regulated online pharmacies and weight-loss programmes. Discount codes, Trustpilot scores and Northern Ireland delivery, checked daily."
   canonicalPath="/uk-glp1-price-comparison"
 >
   <style slot="head" is:inline>
