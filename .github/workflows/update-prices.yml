@@ -1,0 +1,58 @@
+name: Update prices
+
+on:
+  schedule:
+    - cron: "15 5 * * *" # 05:15 UTC daily (06:15 UK in summer)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (fetch and report, don't commit)"
+        type: boolean
+        default: false
+      accept_swings:
+        description: "Apply held price moves (only after checking them by hand)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch and apply prices
+        id: prices
+        env:
+          ACCEPT_SWINGS: ${{ inputs.accept_swings && 'true' || 'false' }}
+        run: node scripts/update-prices.mjs ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Commit and push
+        if: ${{ !inputs.dry_run }}
+        run: |
+          if git diff --quiet -- public/pricing-data.js; then
+            echo "Nothing to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/pricing-data.js
+          git commit -m "chore(prices): daily update $(date -u +%F)"
+          git push
+
+      - name: Needs attention
+        if: steps.prices.outputs.needs_attention == 'true'
+        run: |
+          echo "::error::Some prices were held back or providers have gone stale. Everything else was published. Check the run summary."
+          exit 1
