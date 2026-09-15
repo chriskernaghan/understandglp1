@@ -1,12 +1,21 @@
 /* ============================================================
    UnderstandGLP1.com — UK Price Comparison Data
    ============================================================
-   THIS IS THE ONLY FILE YOU EDIT FOR PRICE UPDATES.
+   PRICES UPDATE AUTOMATICALLY once a day via
+   .github/workflows/update-prices.yml (scripts/update-prices.mjs).
+   The script rewrites everything below the header, so keep notes
+   in this header rather than inline in the data.
 
-   How to update:
-   1. Change the price numbers below (numbers only, no £ sign).
-   2. Update "lastVerified" to today's date.
-   3. Commit and push. Done.
+   Updated automatically: prices, discount.code, trustpilot,
+   lastSeen, lastVerified, lastChecked.
+   Never touched by the script (edit by hand): providers list,
+   name, type, url, gphc, gphcVerified, deliversNI, note,
+   discount.note, sourceSlug.
+
+   To add a provider: add it by hand and commit. The next run
+   fills in its prices if the aggregator lists it. If its name
+   doesn't match the aggregator's /providers/<slug> URL, add
+   sourceSlug: "the-slug".
 
    Field guide:
    - type:        "pharmacy" or "programme" (drives the filter pills)
@@ -28,6 +37,8 @@
                   consultation + standard delivery included.
                   Use null for "not verified" — renders as a dash.
    - note:        optional short note shown under the provider name
+   - sourceSlug:  optional aggregator slug if the name doesn't match
+   - lastSeen:    set by the script; date the provider was last found
 
    To add a dose column later (e.g. Mounjaro 5mg): add it to
    doseColumns AND add the matching key to each provider's prices.
