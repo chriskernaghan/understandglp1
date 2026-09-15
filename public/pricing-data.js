@@ -46,374 +46,605 @@
    ============================================================ */
 
 const PRICING_DATA = {
-  lastVerified: "26 August 2026",
-  methodology:
-    "Prices are the advertised monthly cost from each provider with the best publicly available new-patient discount applied, including the online consultation and standard UK delivery. New-patient offers usually apply to first orders only — ongoing months are typically charged at the provider's standard rate. Cross-checked against comparewg.co.uk and comparemj.co.uk.",
-
-  medications: {
-    mounjaro: {
-      label: "Mounjaro",
-      generic: "tirzepatide",
-      doseColumns: [
-        { key: "2.5mg", label: "2.5mg", sub: "starting dose" },
-        { key: "15mg", label: "15mg", sub: "highest dose" }
+  "lastVerified": "15 September 2026",
+  "methodology": "Prices are the advertised monthly cost from each provider with the best publicly available new-patient discount applied, including the online consultation and standard UK delivery. New-patient offers usually apply to first orders only — ongoing months are typically charged at the provider's standard rate. Cross-checked against comparewg.co.uk and comparemj.co.uk.",
+  "medications": {
+    "mounjaro": {
+      "label": "Mounjaro",
+      "generic": "tirzepatide",
+      "doseColumns": [
+        {
+          "key": "2.5mg",
+          "label": "2.5mg",
+          "sub": "starting dose"
+        },
+        {
+          "key": "15mg",
+          "label": "15mg",
+          "sub": "highest dose"
+        }
       ],
-      providers: [
+      "providers": [
         {
-          name: "The Family Chemist",
-          type: "pharmacy",
-          trustpilot: 4.8,
-          url: "https://www.thefamilychemist.co.uk/?product=mounjaro",
-          gphc: "9012318",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "TFC30", note: "First-order code" },
-          prices: { "2.5mg": 134.99, "15mg": 264.99 }
+          "name": "The Family Chemist",
+          "type": "pharmacy",
+          "trustpilot": 4.8,
+          "url": "https://www.thefamilychemist.co.uk/?product=mounjaro",
+          "gphc": "9012318",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": "TFC30",
+            "note": "First-order code"
+          },
+          "prices": {
+            "2.5mg": 134.99,
+            "15mg": 264.99
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Oushk",
-          type: "pharmacy",
-          trustpilot: 4.7,
-          url: "https://www.oushkpharmacy.com/?product=mounjaro",
-          gphc: "9012610",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "WELCOME", note: "First-order code" },
-          prices: { "2.5mg": 129.00, "15mg": 270.00 }
+          "name": "Oushk",
+          "type": "pharmacy",
+          "trustpilot": 4.7,
+          "url": "https://www.oushkpharmacy.com/?product=mounjaro",
+          "gphc": "9012610",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": "WELCOME",
+            "note": "First-order code"
+          },
+          "prices": {
+            "2.5mg": 129,
+            "15mg": 270
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Curely",
-          type: "pharmacy",
-          trustpilot: 4.7,
-          url: "https://www.curely.co.uk/?product=mounjaro",
-          gphc: "9012401",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Discount applied automatically" },
-          prices: { "2.5mg": 136.80, "15mg": 274.50 }
+          "name": "Curely",
+          "type": "pharmacy",
+          "trustpilot": 4.7,
+          "url": "https://www.curely.co.uk/?product=mounjaro",
+          "gphc": "9012401",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Discount applied automatically"
+          },
+          "prices": {
+            "2.5mg": 136.8,
+            "15mg": 274.5
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Ashcroft Pharmacy",
-          type: "pharmacy",
-          trustpilot: 4.8,
-          url: "https://www.ashcroftpharmacy.co.uk/?product=mounjaro",
-          gphc: "1039428",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "JULY15", note: "First-order code" },
-          prices: { "2.5mg": 134.99, "15mg": 279.99 }
+          "name": "Ashcroft Pharmacy",
+          "type": "pharmacy",
+          "trustpilot": 4.8,
+          "url": "https://www.ashcroftpharmacy.co.uk/?product=mounjaro",
+          "gphc": "1039428",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": "JULY15",
+            "note": "First-order code"
+          },
+          "prices": {
+            "2.5mg": 134.99,
+            "15mg": 279.99
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "MedExpress",
-          type: "pharmacy",
-          trustpilot: 4.3,
-          url: "https://www.medexpress.co.uk/?product=mounjaro",
-          gphc: "9011509",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Intro pricing, no code needed" },
-          prices: { "2.5mg": 139.99, "15mg": 269.99 }
+          "name": "MedExpress",
+          "type": "pharmacy",
+          "trustpilot": 4.3,
+          "url": "https://www.medexpress.co.uk/?product=mounjaro",
+          "gphc": "9011509",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Intro pricing, no code needed"
+          },
+          "prices": {
+            "2.5mg": 139.99,
+            "15mg": 269.99
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Asda Online Doctor",
-          type: "pharmacy",
-          trustpilot: 4.5,
-          url: "https://onlinedoctor.asda.com/uk/?product=mounjaro",
-          gphc: "1091675",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "WNLC10A", note: "New-patient code" },
-          prices: { "2.5mg": 138.97, "15mg": 288.97 }
+          "name": "Asda Online Doctor",
+          "type": "pharmacy",
+          "trustpilot": 4.5,
+          "url": "https://onlinedoctor.asda.com/uk/?product=mounjaro",
+          "gphc": "1091675",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": "WNLC10A",
+            "note": "New-patient code"
+          },
+          "prices": {
+            "2.5mg": 138.97,
+            "15mg": 288.97
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Simple Online Pharmacy",
-          type: "pharmacy",
-          trustpilot: 4.7,
-          url: "https://www.simpleonlinepharmacy.co.uk/?product=mounjaro",
-          gphc: "9011287",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Intro pricing, no code needed" },
-          prices: { "2.5mg": 169.00, "15mg": 319.99 }
+          "name": "Simple Online Pharmacy",
+          "type": "pharmacy",
+          "trustpilot": 4.7,
+          "url": "https://www.simpleonlinepharmacy.co.uk/?product=mounjaro",
+          "gphc": "9011287",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Intro pricing, no code needed"
+          },
+          "prices": {
+            "2.5mg": 169,
+            "15mg": 319.99
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "The Independent Pharmacy",
-          type: "pharmacy",
-          trustpilot: 4.8,
-          url: "https://www.theindependentpharmacy.co.uk/?product=mounjaro",
-          gphc: "9012559",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "NEW15", note: "First-order code" },
-          prices: { "2.5mg": 152.99, "15mg": 280.49 }
+          "name": "The Independent Pharmacy",
+          "type": "pharmacy",
+          "trustpilot": 4.8,
+          "url": "https://www.theindependentpharmacy.co.uk/?product=mounjaro",
+          "gphc": "9012559",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": "NEW15",
+            "note": "First-order code"
+          },
+          "prices": {
+            "2.5mg": 152.99,
+            "15mg": 280.49
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Boots Online Doctor",
-          type: "pharmacy",
-          trustpilot: 4.4,
-          url: "https://onlinedoctor.boots.com/home?product=mounjaro",
-          gphc: "1096181",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "WELCOME10", note: "New-patient code" },
-          prices: { "2.5mg": 159.57, "15mg": 301.50 }
+          "name": "Boots Online Doctor",
+          "type": "pharmacy",
+          "trustpilot": 4.4,
+          "url": "https://onlinedoctor.boots.com/home?product=mounjaro",
+          "gphc": "1096181",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": "WELCOME10",
+            "note": "New-patient code"
+          },
+          "prices": {
+            "2.5mg": 159.57,
+            "15mg": 301.5
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Superdrug Online Doctor",
-          type: "pharmacy",
-          trustpilot: 4.4,
-          url: "https://onlinedoctor.superdrug.com/?product=mounjaro",
-          gphc: "9010736",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "WLNP20", note: "New-patient code" },
-          prices: { "2.5mg": 156.00, "15mg": 314.00 }
+          "name": "Superdrug Online Doctor",
+          "type": "pharmacy",
+          "trustpilot": 4.4,
+          "url": "https://onlinedoctor.superdrug.com/?product=mounjaro",
+          "gphc": "9010736",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": "WLNP20",
+            "note": "New-patient code"
+          },
+          "prices": {
+            "2.5mg": 156,
+            "15mg": 314
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Numan",
-          type: "programme",
-          trustpilot: 4.5,
-          url: "https://www.numan.com/?product=mounjaro",
-          gphc: "9011408",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Intro offer, first month" },
-          prices: { "2.5mg": 209.00, "15mg": 339.00 }
+          "name": "Numan",
+          "type": "programme",
+          "trustpilot": 4.5,
+          "url": "https://www.numan.com/?product=mounjaro",
+          "gphc": "9011408",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Intro offer, first month"
+          },
+          "prices": {
+            "2.5mg": 209,
+            "15mg": 339
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Juniper",
-          type: "programme",
-          trustpilot: 4.5,
-          url: "https://www.myjuniper.co.uk/?product=mounjaro",
-          gphc: "9011842",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Intro offer, first month" },
-          prices: { "2.5mg": 199.00, "15mg": 339.00 }
+          "name": "Juniper",
+          "type": "programme",
+          "trustpilot": 4.5,
+          "url": "https://www.myjuniper.co.uk/?product=mounjaro",
+          "gphc": "9011842",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Intro offer, first month"
+          },
+          "prices": {
+            "2.5mg": 199,
+            "15mg": 339
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Medicspot",
-          type: "programme",
-          trustpilot: 4.4,
-          url: "https://www.medicspot.co.uk/weight-loss/start?product=mounjaro",
-          gphc: "9012559",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Intro offer, first month" },
-          prices: { "2.5mg": 149.00, "15mg": 279.00 }
+          "name": "Medicspot",
+          "type": "programme",
+          "trustpilot": 4.4,
+          "url": "https://www.medicspot.co.uk/weight-loss/start?product=mounjaro",
+          "gphc": "9012559",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Intro offer, first month"
+          },
+          "prices": {
+            "2.5mg": 149,
+            "15mg": 279
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Voy",
-          type: "programme",
-          trustpilot: 4.7,
-          url: "https://www.joinvoy.com/?product=mounjaro",
-          gphc: "9012134",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Email sign-up offer — no public code" },
-          prices: { "2.5mg": 194.00, "15mg": 339.00 }
+          "name": "Voy",
+          "type": "programme",
+          "trustpilot": 4.7,
+          "url": "https://www.joinvoy.com/?product=mounjaro",
+          "gphc": "9012134",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Email sign-up offer — no public code"
+          },
+          "prices": {
+            "2.5mg": 194,
+            "15mg": 339
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Second Nature",
-          type: "programme",
-          trustpilot: 4.5,
-          url: "https://www.secondnature.io?product=mounjaro",
-          gphc: "8511152",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Intro offer, first month" },
-          prices: { "2.5mg": 179.00, "15mg": 299.00 }
+          "name": "Second Nature",
+          "type": "programme",
+          "trustpilot": 4.5,
+          "url": "https://www.secondnature.io?product=mounjaro",
+          "gphc": "8511152",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Intro offer, first month"
+          },
+          "prices": {
+            "2.5mg": 179,
+            "15mg": 299
+          },
+          "lastSeen": "2026-09-15"
         }
       ]
     },
-
-    wegovy: {
-      label: "Wegovy",
-      generic: "semaglutide",
-      doseColumns: [
-        { key: "0.25mg", label: "0.25mg", sub: "starting dose" },
-        { key: "2.4mg", label: "2.4mg", sub: "maintenance dose" }
+    "wegovy": {
+      "label": "Wegovy",
+      "generic": "semaglutide",
+      "doseColumns": [
+        {
+          "key": "0.25mg",
+          "label": "0.25mg",
+          "sub": "starting dose"
+        },
+        {
+          "key": "2.4mg",
+          "label": "2.4mg",
+          "sub": "maintenance dose"
+        }
       ],
-      providers: [
+      "providers": [
         {
-          name: "The Family Chemist",
-          type: "pharmacy",
-          trustpilot: 4.8,
-          url: "https://www.thefamilychemist.co.uk/?product=wegovy",
-          gphc: "9012318",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "TFC30", note: "First-order code" },
-          prices: { "0.25mg": 69.99, "2.4mg": 158.99 }
+          "name": "The Family Chemist",
+          "type": "pharmacy",
+          "trustpilot": 4.8,
+          "url": "https://www.thefamilychemist.co.uk/?product=wegovy",
+          "gphc": "9012318",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": "TFC30",
+            "note": "First-order code"
+          },
+          "prices": {
+            "0.25mg": 69.99,
+            "2.4mg": 158.99
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Oushk",
-          type: "pharmacy",
-          trustpilot: 4.7,
-          url: "https://www.oushkpharmacy.com/?product=wegovy",
-          gphc: "9012610",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "WELCOME", note: "First-order code" },
-          prices: { "0.25mg": 85.00, "2.4mg": 150.00 }
+          "name": "Oushk",
+          "type": "pharmacy",
+          "trustpilot": 4.7,
+          "url": "https://www.oushkpharmacy.com/?product=wegovy",
+          "gphc": "9012610",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": "WELCOME",
+            "note": "First-order code"
+          },
+          "prices": {
+            "0.25mg": 85,
+            "2.4mg": 150
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "MedExpress",
-          type: "pharmacy",
-          trustpilot: 4.3,
-          url: "https://www.medexpress.co.uk/?product=wegovy",
-          gphc: "9011509",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Intro pricing, no code needed" },
-          prices: { "0.25mg": 69.99, "2.4mg": 159.99 }
+          "name": "MedExpress",
+          "type": "pharmacy",
+          "trustpilot": 4.3,
+          "url": "https://www.medexpress.co.uk/?product=wegovy",
+          "gphc": "9011509",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Intro pricing, no code needed"
+          },
+          "prices": {
+            "0.25mg": 69.99,
+            "2.4mg": 159.99
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Asda Online Doctor",
-          type: "pharmacy",
-          trustpilot: 4.5,
-          url: "https://onlinedoctor.asda.com/uk/?product=wegovy",
-          gphc: "1091675",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "WNLC10A", note: "New-patient code" },
-          prices: { "0.25mg": 78.97, "2.4mg": 178.97 }
+          "name": "Asda Online Doctor",
+          "type": "pharmacy",
+          "trustpilot": 4.5,
+          "url": "https://onlinedoctor.asda.com/uk/?product=wegovy",
+          "gphc": "1091675",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": "WNLC10A",
+            "note": "New-patient code"
+          },
+          "prices": {
+            "0.25mg": 78.97,
+            "2.4mg": 178.97
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Phlo Clinic",
-          type: "pharmacy",
-          trustpilot: 4.7,
-          url: "https://phloclinic.co.uk/?product=wegovy",
-          gphc: "9011171",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Intro pricing, no code needed" },
-          prices: { "0.25mg": 89.00, "2.4mg": 199.00 }
+          "name": "Phlo Clinic",
+          "type": "pharmacy",
+          "trustpilot": 4.7,
+          "url": "https://phloclinic.co.uk/?product=wegovy",
+          "gphc": "9011171",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Intro pricing, no code needed"
+          },
+          "prices": {
+            "0.25mg": 89,
+            "2.4mg": 199
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Medicspot",
-          type: "programme",
-          trustpilot: 4.4,
-          url: "https://www.medicspot.co.uk/weight-loss/injections/wegovy-injections-uk",
-          gphc: "9012559",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Intro offer, first month" },
-          prices: { "0.25mg": 89.00, "2.4mg": 169.00 }
+          "name": "Medicspot",
+          "type": "programme",
+          "trustpilot": 4.4,
+          "url": "https://www.medicspot.co.uk/weight-loss/injections/wegovy-injections-uk",
+          "gphc": "9012559",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Intro offer, first month"
+          },
+          "prices": {
+            "0.25mg": 89,
+            "2.4mg": 169
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "The Independent Pharmacy",
-          type: "pharmacy",
-          trustpilot: 4.8,
-          url: "https://www.theindependentpharmacy.co.uk/?product=wegovy",
-          gphc: "9012559",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "NEW15", note: "First-order code" },
-          prices: { "0.25mg": 84.82, "2.4mg": 161.49 }
+          "name": "The Independent Pharmacy",
+          "type": "pharmacy",
+          "trustpilot": 4.8,
+          "url": "https://www.theindependentpharmacy.co.uk/?product=wegovy",
+          "gphc": "9012559",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": "NEW15",
+            "note": "First-order code"
+          },
+          "prices": {
+            "0.25mg": 84.82,
+            "2.4mg": 161.49
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Pharmacy Online",
-          type: "pharmacy",
-          trustpilot: 4.5,
-          url: "https://www.pharmacyonline.co.uk/?product=wegovy",
-          gphc: "9011756",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Intro pricing, no code needed" },
-          prices: { "0.25mg": 99.99, "2.4mg": 159.99 }
+          "name": "Pharmacy Online",
+          "type": "pharmacy",
+          "trustpilot": 4.5,
+          "url": "https://www.pharmacyonline.co.uk/?product=wegovy",
+          "gphc": "9011756",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Intro pricing, no code needed"
+          },
+          "prices": {
+            "0.25mg": 99.99,
+            "2.4mg": 159.99
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Second Nature",
-          type: "programme",
-          trustpilot: 4.5,
-          url: "https://www.secondnature.io?product=wegovy",
-          gphc: "8511152",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Intro offer, first month" },
-          prices: { "0.25mg": 99.00, "2.4mg": 199.00 }
+          "name": "Second Nature",
+          "type": "programme",
+          "trustpilot": 4.5,
+          "url": "https://www.secondnature.io?product=wegovy",
+          "gphc": "8511152",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Intro offer, first month"
+          },
+          "prices": {
+            "0.25mg": 99,
+            "2.4mg": 199
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Voy",
-          type: "programme",
-          trustpilot: 4.7,
-          url: "https://www.joinvoy.com/?product=wegovy",
-          gphc: "9012134",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: "Email sign-up offer — no public code" },
-          prices: { "0.25mg": 104.00, "2.4mg": 239.00 }
+          "name": "Voy",
+          "type": "programme",
+          "trustpilot": 4.7,
+          "url": "https://www.joinvoy.com/?product=wegovy",
+          "gphc": "9012134",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": "Email sign-up offer — no public code"
+          },
+          "prices": {
+            "0.25mg": 144,
+            "2.4mg": 239
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Ashcroft Pharmacy",
-          type: "pharmacy",
-          trustpilot: 4.8,
-          url: "https://www.ashcroftpharmacy.co.uk/?product=wegovy",
-          gphc: "1039428",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "JULY15", note: "First-order code" },
-          prices: { "0.25mg": 104.99, "2.4mg": 210.00 }
+          "name": "Ashcroft Pharmacy",
+          "type": "pharmacy",
+          "trustpilot": 4.8,
+          "url": "https://www.ashcroftpharmacy.co.uk/?product=wegovy",
+          "gphc": "1039428",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": "JULY15",
+            "note": "First-order code"
+          },
+          "prices": {
+            "0.25mg": 105,
+            "2.4mg": 210
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Boots Online Doctor",
-          type: "pharmacy",
-          trustpilot: 4.4,
-          url: "https://onlinedoctor.boots.com/home?product=wegovy",
-          gphc: "1096181",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: "WELCOME10", note: "New-patient code" },
-          prices: { "0.25mg": 112.59, "2.4mg": 185.40 }
+          "name": "Boots Online Doctor",
+          "type": "pharmacy",
+          "trustpilot": 4.4,
+          "url": "https://onlinedoctor.boots.com/home?product=wegovy",
+          "gphc": "1096181",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": null
+          },
+          "prices": {
+            "0.25mg": 79.97,
+            "2.4mg": 185.4
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Cloud Pharmacy",
-          type: "pharmacy",
-          trustpilot: 4.6,
-          url: "https://www.cloudpharmacy.co.uk/weight-loss-clinic?product=wegovy",
-          gphc: "9012073",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: null },
-          prices: { "0.25mg": 114.99, "2.4mg": 174.99 }
+          "name": "Cloud Pharmacy",
+          "type": "pharmacy",
+          "trustpilot": 4.6,
+          "url": "https://www.cloudpharmacy.co.uk/weight-loss-clinic?product=wegovy",
+          "gphc": "9012073",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": null
+          },
+          "prices": {
+            "0.25mg": 114.99,
+            "2.4mg": 174.99
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Fella Health",
-          type: "programme",
-          trustpilot: 4.5,
-          url: "https://www.fellahealth.co.uk/?product=wegovy",
-          gphc: "9012625",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: null },
-          note: "Men only",
-          prices: { "0.25mg": 119.00, "2.4mg": 189.00 }
+          "name": "Fella Health",
+          "type": "programme",
+          "trustpilot": 4.5,
+          "url": "https://www.fellahealth.co.uk/?product=wegovy",
+          "gphc": "9012625",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": null
+          },
+          "note": "Men only",
+          "prices": {
+            "0.25mg": 119,
+            "2.4mg": 199
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "SheMed",
-          type: "programme",
-          trustpilot: 4.3,
-          url: "https://www.shemed.co.uk/?product=wegovy",
-          gphc: "9012578",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: null },
-          note: "Women only",
-          prices: { "0.25mg": 79.00, "2.4mg": 159.00 }
+          "name": "SheMed",
+          "type": "programme",
+          "trustpilot": 4.3,
+          "url": "https://www.shemed.co.uk/?product=wegovy",
+          "gphc": "9012578",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": null
+          },
+          "note": "Women only",
+          "prices": {
+            "0.25mg": 79,
+            "2.4mg": 159
+          },
+          "lastSeen": "2026-09-15"
         },
         {
-          name: "Juniper",
-          type: "programme",
-          trustpilot: 4.5,
-          url: "https://www.myjuniper.co.uk/?product=wegovy",
-          gphc: "9011842",
-          gphcVerified: false,
-          deliversNI: null,
-          discount: { code: null, note: null },
-          prices: { "0.25mg": 164.00, "2.4mg": 229.00 }
+          "name": "Juniper",
+          "type": "programme",
+          "trustpilot": 4.5,
+          "url": "https://www.myjuniper.co.uk/?product=wegovy",
+          "gphc": "9011842",
+          "gphcVerified": false,
+          "deliversNI": null,
+          "discount": {
+            "code": null,
+            "note": null
+          },
+          "prices": {
+            "0.25mg": 164,
+            "2.4mg": 229
+          },
+          "lastSeen": "2026-09-15"
         }
       ]
     }
-  }
+  },
+  "lastChecked": "2026-09-15T17:50:44.702Z"
 };
