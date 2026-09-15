@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPriceMeta } from '../lib/price-meta.js';
+
+// Read at build time. The daily price commit triggers a rebuild,
+// so the date and provider count stay current in the static HTML.
+const priceMeta = getPriceMeta();
 ---
 <BaseLayout
   title="Understand GLP-1 — Real Life on GLP-1 Medications"
@@ -31,6 +36,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </div>
 </div></section>
 
+<section class="price-band"><div class="section-wrap">
+  <div class="price-band__card">
+    <div class="price-band__copy">
+      <div class="price-band__label">UK price comparison</div>
+      <h2>Wegovy &amp; Mounjaro prices, <em>checked daily</em></h2>
+      <p>Already prescribed? See what UK online pharmacies and weight-loss programmes charge each month, with consultation, delivery and current new-patient codes factored in.</p>
+      {priceMeta && (
+        <div class="price-band__meta">
+          <span>{priceMeta.providerCount} UK providers</span>
+          <span>Starting and top doses</span>
+          <span>Checked {priceMeta.lastVerified}</span>
+        </div>
+      )}
+    </div>
+    <div class="price-band__action">
+      <a href="/uk-glp1-price-comparison" class="btn-primary">Compare UK prices →</a>
+      <p class="price-band__note">Prescription-only medicines. Always confirm the final price with the provider.</p>
+    </div>
+  </div>
+</div></section>
+
 <section class="latest"><div class="section-wrap">
   <div class="latest-header"><h2>Latest news</h2><a href="/blog">View all articles →</a></div>
   <div class="news-grid">
@@ -55,11 +81,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </a>
   </div>
 </div></section>
-
-<section class="inline-cta-strip"><div class="section-wrap"><div class="inline-cta-inner">
-  <div><h3>Ready to explore your options?</h3><p>Connect with a licensed provider to discuss whether a GLP-1 medication is right for you — from home.</p></div>
-  <a href="/uk-glp1-price-comparison" class="btn-primary" rel="nofollow sponsored">Check Eligibility →</a>
-</div></div></section>
 
 <section class="stories"><div class="section-wrap">
   <div class="stories-header"><h2>Real stories, real people</h2><p>First-hand accounts from people navigating GLP-1 medications. Unfiltered and honest.</p></div>
