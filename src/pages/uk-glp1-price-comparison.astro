@@ -19,7 +19,10 @@ const titleDate = priceMeta ? ` (${priceMeta.monthYear})` : '';
     .article-hero { border-top: none !important; border-bottom: none !important; padding:40px 0 0 0 !important; }
 
     /* Comparison tool custom styling */
-    .article-hero .article-meta { margin-top: 14px; }
+    .article-hero .article-meta { margin-top: 14px; align-items: center; gap: 10px 16px; }
+    .pc-listing { font-size: 0.8rem; color: #777; }
+    .pc-listing a { color: #0D6E4F; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    .pc-listing a:hover { color: #0a5a40; }
     .pc-toolbar { margin: 1.5rem 0 1rem; }
     .pc-badge {
       display: inline-flex; align-items: center; gap: 0.4rem;
@@ -70,10 +73,10 @@ const titleDate = priceMeta ? ` (${priceMeta.monthYear})` : '';
     .pc-price--na { color: #999; font-weight: 400; }
     .pc-best { color: #0D6E4F; }
     .pc-best-tag {
-      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      display: table; font-size: 0.68rem; font-weight: 700; line-height: 1.5;
       text-transform: uppercase; letter-spacing: 0.05em;
       background: #0D6E4F; color: #fff; border-radius: 3px;
-      padding: 0.12rem 0.4rem; margin-left: 0.4rem; vertical-align: middle;
+      padding: 0.12rem 0.45rem; margin-top: 0.35rem;
     }
     .pc-code {
       font-family: 'Courier New', monospace; font-size: 0.85rem; font-weight: 700;
@@ -92,6 +95,8 @@ const titleDate = priceMeta ? ` (${priceMeta.monthYear})` : '';
       transition: all 0.15s ease;
     }
     .pc-visit:hover, a.pc-visit:hover { background: #0D6E4F; color: #fff; }
+    .article-body a.pc-visit { text-decoration: none; color: #0D6E4F; }
+    .article-body a.pc-visit:hover { color: #fff; }
     .pc-visit--pending {
       border-color: #ccc; color: #999; cursor: default; pointer-events: none;
     }
@@ -177,6 +182,7 @@ const titleDate = priceMeta ? ` (${priceMeta.monthYear})` : '';
       <p class="article-deck">Monthly prices from regulated UK online pharmacies and weight-loss programmes, checked daily with the best new-patient discount applied.</p>
       <div class="article-meta">
         <span class="pc-badge" id="pc-verified-badge">Prices checked: {priceMeta ? priceMeta.lastVerified : 'daily'}</span>
+        <span class="pc-listing">Provider not listed here? <a href="mailto:understandglp1@wpbase.co.uk?subject=Price%20comparison%20listing">Get in touch</a></span>
       </div>
     </header>
 
