@@ -1,5 +1,16 @@
 [
   {
+    "slug": "wegovy-pill-daily-routine",
+    "title": "Living With the Wegovy Pill: What the Daily Routine Actually Looks Like",
+    "excerpt": "The Wegovy pill is now available privately in the UK. Here's what taking a daily GLP-1 tablet means for your mornings, your coffee, your other medication and your budget.",
+    "category": "lifestyle",
+    "categoryLabel": "Lifestyle",
+    "emoji": "💊",
+    "date": "Sep 16, 2026",
+    "readTime": "8 min read",
+    "featured": false
+  },
+  {
     "slug": "glp1-plateau",
     "title": "The GLP-1 Plateau: Why Your Weight Loss Stopped (And How to Restart It)",
     "excerpt": "Hit a weight loss plateau on Wegovy, Ozempic, or Mounjaro? Learn the biological reasons why your body stops losing weight on GLP-1s and evidence-based steps to restart your progress.",
@@ -241,15 +252,4 @@
     "readTime": "7 min read",
     "featured": false
   }
-    {
-    "slug": "wegovy-pill-daily-routine",
-    "title": "Living With the Wegovy Pill: What the Daily Routine Actually Looks Like",
-    "excerpt": "The Wegovy pill is now available privately in the UK. Here's what taking a daily GLP-1 tablet means for your mornings, your coffee, your other medication and your budget.",
-    "category": "lifestyle",
-    "categoryLabel": "Lifestyle",
-    "emoji": "💊",
-    "date": "Sep 16, 2026",
-    "readTime": "8 min read",
-    "featured": false
-  },
 ]
