@@ -299,8 +299,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     var metaDate = document.getElementById("pc-meta-date");
     var niFilterBtn = document.getElementById("pc-ni-filter");
 
-    badge.textContent = "Prices verified: " + PRICING_DATA.lastVerified;
-    if (metaDate) metaDate.textContent = "Prices verified " + PRICING_DATA.lastVerified;
+    badge.textContent = "Prices checked: " + PRICING_DATA.lastVerified;
+    if (metaDate) metaDate.textContent = "Prices checked " + PRICING_DATA.lastVerified;
 
     // Show the NI filter pill only once at least one provider is verified true
     var anyNI = Object.keys(PRICING_DATA.medications).some(function (key) {
