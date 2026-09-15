@@ -26,9 +26,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
 
@@ -51,8 +51,14 @@ jobs:
           git commit -m "chore(prices): daily update $(date -u +%F)"
           git push
 
+      # Runs after the commit, so good prices still go live. Failing here is
+      # deliberate: it's what makes GitHub email you.
       - name: Needs attention
         if: steps.prices.outputs.needs_attention == 'true'
         run: |
-          echo "::error::Some prices were held back or providers have gone stale. Everything else was published. Check the run summary."
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "::error::Dry run: some prices would be held back or providers are stale. Nothing was committed. Check the run summary."
+          else
+            echo "::error::Some prices were held back or providers have gone stale. Everything else was published. Check the run summary."
+          fi
           exit 1
