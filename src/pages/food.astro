@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
 import PostCard from '../components/PostCard.astro';
 import CategoryFilters from '../components/CategoryFilters.astro';
 import filterData from '../data/filters.json';
@@ -41,8 +42,7 @@ const tags = filterData['food'];
       <div class="email-box">
         <div class="email-box__title">Weekly meal ideas</div>
         <div class="email-box__desc">Get GLP-1 friendly recipes and nutrition tips delivered to your inbox every week.</div>
-        <input type="email" placeholder="you@email.com">
-        <button onclick="this.textContent='✓ Subscribed!';this.disabled=true">Subscribe Free</button>
+        <NewsletterForm />
       </div>
 
       <div class="sidebar-card">

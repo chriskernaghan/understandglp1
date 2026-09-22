@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
 import PostCard from '../components/PostCard.astro';
 import CategoryFilters from '../components/CategoryFilters.astro';
 import filterData from '../data/filters.json';
@@ -41,9 +42,8 @@ const tags = filterData['blog'];
 
       <div class="email-box">
         <div class="email-box__title">Get the newsletter</div>
-        <div class="email-box__desc">Weekly digest of GLP-1 news, tips, and the best deals — trusted by 10,000+ subscribers.</div>
-        <input type="email" placeholder="you@email.com">
-        <button onclick="this.textContent='✓ Subscribed!';this.disabled=true">Subscribe Free</button>
+        <div class="email-box__desc">Weekly digest of GLP-1 news, tips, and the best deals — no spam.</div>
+        <NewsletterForm />
       </div>
 
       <div class="popular-posts">

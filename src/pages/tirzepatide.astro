@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
 ---
 <BaseLayout
   title={"Tirzepatide Guide (Mounjaro, Zepbound) \u2014 Understand GLP-1"}
@@ -201,10 +202,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <aside class="article-sidebar">
 
       <div class="email-box">
-        <div class="email-box__title">Stay Updated</div>
+        <div class="email-box__title">Stay updated</div>
         <div class="email-box__desc">Latest GLP-1 research and deals — no spam.</div>
-        <input type="email" placeholder="you@email.com">
-        <button onclick="this.textContent='✓ Subscribed!';this.disabled=true;this.style.background='var(--accent)'">Subscribe Free</button>
+        <NewsletterForm />
       </div>
 
       <div class="sidebar-card">

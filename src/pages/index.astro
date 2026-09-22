@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
 import { getPriceMeta } from '../lib/price-meta.js';
 
 // Read at build time. The daily price commit triggers a rebuild,
@@ -122,8 +123,8 @@ const priceMeta = getPriceMeta();
 <section class="newsletter"><div class="newsletter-inner">
   <h2>Stay in the loop</h2>
   <p>A weekly digest of GLP-1 news, stories, and nutrition tips — written for real people, not medical journals.</p>
-  <div class="newsletter-form"><input type="email" placeholder="Your email address" /><button onclick="this.textContent='✓ Subscribed!';this.disabled=true">Subscribe</button></div>
-  <div class="newsletter-trust">No spam, ever. Unsubscribe anytime.</div>
+  <NewsletterForm class="newsletter-form" buttonLabel="Subscribe" placeholder="Your email address" />
+  <div class="newsletter-trust">No spam, ever. Unsubscribe anytime. <a href="/privacy">Privacy policy</a></div>
 </div></section>
 
 <section class="inline-cta-strip"><div class="section-wrap"><div class="inline-cta-inner">

@@ -843,6 +843,34 @@ body.nav-overlay:not(:has(.mobile-menu.open)) nav:not(.scrolled) .burger span { 
 .newsletter-form button:hover { background: var(--gray-100); }
 .newsletter-trust { margin-top: 20px; font-size: 12px; color: var(--gray-500); }
 
+/* ── Newsletter signup (NewsletterForm.astro) ──────────────── */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+.newsletter-signup__field { display: block; }
+.newsletter-signup button:disabled { opacity: .6; cursor: wait; }
+.newsletter-signup__status { font-size: 13px; line-height: 1.5; margin: 0; }
+.newsletter-signup__status:empty { display: none; }
+.email-box .newsletter-signup__status { margin-top: 10px; color: var(--gray-500); }
+.newsletter-signup__status[data-state="error"] { color: #B3261E; }
+.email-box .newsletter-signup__status[data-state="done"] { color: var(--accent); font-weight: 500; }
+.newsletter-signup.is-done .newsletter-signup__field,
+.newsletter-signup.is-done button { display: none; }
+.email-box .newsletter-signup.is-done .newsletter-signup__status { margin-top: 0; }
+
+/* Homepage band: the form is the flex row */
+.newsletter-form { flex-wrap: wrap; }
+.newsletter-form .newsletter-signup__field { flex: 1; min-width: 0; display: flex; }
+.newsletter-form .newsletter-signup__field input { width: 100%; }
+.newsletter-form .newsletter-signup__status { flex-basis: 100%; text-align: center; color: var(--gray-400); }
+.newsletter-form .newsletter-signup__status[data-state="error"] { color: #F2B8B5; }
+.newsletter-form .newsletter-signup__status[data-state="done"] { color: var(--hero-mint); font-size: 15px; font-weight: 500; }
+.newsletter-trust a { color: inherit; }
+
 /* ── Golden dose / reference article extras ────────────────── */
 .article-hero { padding: 56px 0 48px; border-bottom: 1px solid var(--gray-100); margin-bottom: 48px; }
 .article-hero__back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--gray-400); text-decoration: none; margin-bottom: 24px; transition: color .2s; }

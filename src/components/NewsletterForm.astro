@@ -1,0 +1,111 @@
+---
+// NewsletterForm.astro: the one signup form used across the site.
+// The reader types their email here; on submit we open the Tally form
+// (RGOpo4) as a popup with the email and page pre-filled, and they confirm
+// consent there. Tally's script is only loaded when someone clicks Subscribe.
+// If the script is blocked (ad blockers, Brave shields), we fall back to
+// opening the Tally form directly with the same pre-filled values.
+export interface Props {
+  /** Extra class on the <form>, e.g. "newsletter-form" for the homepage band. */
+  class?: string;
+  buttonLabel?: string;
+  placeholder?: string;
+}
+const { class: className, buttonLabel = 'Subscribe Free', placeholder = 'you@email.com' } = Astro.props;
+---
+<form class:list={['newsletter-signup', className]} data-newsletter novalidate>
+  <label class="newsletter-signup__field">
+    <span class="visually-hidden">Email address</span>
+    <input type="email" name="email" placeholder={placeholder} autocomplete="email" required />
+  </label>
+  <button type="submit">{buttonLabel}</button>
+  <p class="newsletter-signup__status" role="status" aria-live="polite"></p>
+</form>
+
+<script>
+  const FORM_ID = 'RGOpo4';
+  const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  declare global {
+    interface Window {
+      Tally?: { openPopup: (id: string, options: Record<string, unknown>) => void };
+      gtag?: (...args: unknown[]) => void;
+    }
+  }
+
+  let tallyLoader: Promise<void> | null = null;
+
+  function loadTally(): Promise<void> {
+    if (window.Tally) return Promise.resolve();
+    if (!tallyLoader) {
+      tallyLoader = new Promise<void>((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://tally.so/widgets/embed.js';
+        script.async = true;
+        script.onload = () => (window.Tally ? resolve() : reject(new Error('Tally unavailable')));
+        script.onerror = () => reject(new Error('Tally blocked'));
+        document.head.appendChild(script);
+        setTimeout(() => reject(new Error('Tally timed out')), 6000);
+      }).catch((err) => {
+        tallyLoader = null; // allow a retry on the next click
+        throw err;
+      });
+    }
+    return tallyLoader;
+  }
+
+  function setStatus(form: HTMLFormElement, message: string, state?: 'error' | 'done') {
+    const status = form.querySelector<HTMLElement>('.newsletter-signup__status');
+    if (!status) return;
+    status.textContent = message;
+    status.dataset.state = state ?? '';
+  }
+
+  function markSubscribed(form: HTMLFormElement) {
+    form.classList.add('is-done');
+    setStatus(form, "✓ You're on the list. Thanks for signing up.", 'done');
+  }
+
+  document.querySelectorAll<HTMLFormElement>('form[data-newsletter]').forEach((form) => {
+    const input = form.querySelector<HTMLInputElement>('input[type="email"]')!;
+    const button = form.querySelector<HTMLButtonElement>('button')!;
+
+    input.addEventListener('input', () => setStatus(form, ''));
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = input.value.trim();
+      if (!EMAIL_PATTERN.test(email)) {
+        setStatus(form, 'Please enter a valid email address.', 'error');
+        input.focus();
+        return;
+      }
+
+      const source = window.location.pathname;
+      const hiddenFields = { email, source };
+      button.disabled = true;
+
+      try {
+        await loadTally();
+        window.Tally!.openPopup(FORM_ID, {
+          layout: 'modal',
+          width: 480,
+          hiddenFields,
+          autoClose: 2500,
+          onSubmit: () => {
+            markSubscribed(form);
+            window.gtag?.('event', 'newsletter_signup', { source });
+          },
+          onClose: () => { button.disabled = false; },
+        });
+      } catch {
+        // Script blocked or unreachable: open the form itself instead.
+        const url = `https://tally.so/r/${FORM_ID}?${new URLSearchParams(hiddenFields)}`;
+        const tab = window.open(url, '_blank');
+        if (tab) tab.opener = null;
+        else window.location.href = url; // popup blocked: go there directly
+        button.disabled = false;
+      }
+    });
+  });
+</script>
