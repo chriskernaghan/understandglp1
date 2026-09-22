@@ -9,9 +9,11 @@ export interface Props {
   canonicalPath: string;
   /** Optional: highlight the active nav item ("news" | "stories" | "food"). */
   activeNav?: string;
+  /** Optional: nav sits transparent over a full-bleed hero until the page scrolls. */
+  overlayNav?: boolean;
 }
 
-const { title, description, canonicalPath, activeNav } = Astro.props;
+const { title, description, canonicalPath, activeNav, overlayNav = false } = Astro.props;
 const canonicalURL = new URL(canonicalPath, 'https://understandglp1.com').href;
 ---
 <!DOCTYPE html>
@@ -40,7 +42,7 @@ const canonicalURL = new URL(canonicalPath, 'https://understandglp1.com').href;
   <!-- Page-specific head content (e.g. the comparison page's scoped styles) -->
   <slot name="head" />
 </head>
-<body>
+<body class={overlayNav ? 'nav-overlay' : undefined}>
 
   <nav><div class="nav-inner">
     <a href="/" class="logo">understand<em>GLP1</em></a>
@@ -67,6 +69,16 @@ const canonicalURL = new URL(canonicalPath, 'https://understandglp1.com').href;
     <a href="/liraglutide">Liraglutide</a>
     <a href="/dulaglutide">Dulaglutide</a>
   </div>
+  {overlayNav && (
+    <script is:inline>
+      (() => {
+        const nav = document.querySelector('nav');
+        const update = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+        update();
+        window.addEventListener('scroll', update, { passive: true });
+      })();
+    </script>
+  )}
 
   <slot />
 
