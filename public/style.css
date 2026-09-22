@@ -336,6 +336,7 @@ footer {
   transition: background .2s;
 }
 .sidebar-card__btn:hover { background: var(--gray-700); }
+.sidebar-card__desc a { color: var(--accent); text-underline-offset: 2px; }
 
 /* ── Article layout (stories, blog articles, food articles) ── */
 .article-wrap {
