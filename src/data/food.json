@@ -1,5 +1,16 @@
 [
   {
+    "slug": "food-high-protein-chicken-traybake",
+    "title": "High-Protein Chicken Traybake for Small Appetites",
+    "excerpt": "One tray, ten minutes of prep and roughly 35g of protein per portion. Soft roasted veg, chicken and chickpeas that keep well for the days you can only manage a little.",
+    "category": "recipes",
+    "categoryLabel": "High Protein Recipe",
+    "emoji": "🍗",
+    "date": "Oct 1, 2026",
+    "readTime": "5 min read",
+    "featured": false
+  },
+  {
     "slug": "food-glp1-diet-guide",
     "title": "The GLP-1 Diet: What to Eat (and Avoid) for Best Results",
     "excerpt": "Your appetite is down, but what you eat still matters more than ever. A practical, comprehensive guide to maximizing nutrition, preserving lean muscle, and avoiding common dietary mistakes on GLP-1 medications.",
