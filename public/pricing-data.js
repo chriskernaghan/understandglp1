@@ -1,3 +1,50 @@
+/* ============================================================
+   UnderstandGLP1.com — UK Price Comparison Data
+   ============================================================
+   PRICES UPDATE AUTOMATICALLY once a day via
+   .github/workflows/update-prices.yml (scripts/update-prices.mjs).
+   The script rewrites everything below the header, so keep notes
+   in this header rather than inline in the data.
+
+   Updated automatically: prices, discount.code, trustpilot,
+   lastSeen, lastVerified, lastChecked.
+   Never touched by the script (edit by hand): providers list,
+   name, type, url, gphc, gphcVerified, deliversNI, note,
+   discount.note, sourceSlug.
+
+   To add a provider: add it by hand and commit. The next run
+   fills in its prices if the aggregator lists it. If its name
+   doesn't match the aggregator's /providers/<slug> URL, add
+   sourceSlug: "the-slug".
+
+   Field guide:
+   - type:        "pharmacy" or "programme" (drives the filter pills)
+   - trustpilot:  score out of 5, or null if unknown
+   - url:         provider/affiliate link. "#" = placeholder (renders
+                  as a disabled link until you confirm the URL)
+   - gphc:        GPhC registration number as a string, or null.
+                  Numbers below were sourced from comparewg.co.uk /
+                  comparemj.co.uk on 26 Aug 2026 — NOT yet cross-checked
+                  by hand against pharmacyregulation.org. Treat as
+                  provisional until someone verifies each one directly
+                  on the register and flips gphcVerified to true.
+   - gphcVerified: true only once a human has checked the number on
+                  pharmacyregulation.org directly. Defaults to false.
+   - deliversNI:  true / false / null (null renders as "Check").
+                  Verify with each provider before setting true.
+   - discount:    { code: "CODE" or null, note: "short context" or null }
+   - prices:      per-dose monthly price with best discount applied,
+                  consultation + standard delivery included.
+                  Use null for "not verified" — renders as a dash.
+   - note:        optional short note shown under the provider name
+   - sourceSlug:  optional aggregator slug if the name doesn't match
+   - lastSeen:    set by the script; date the provider was last found
+
+   To add a dose column later (e.g. Mounjaro 5mg): add it to
+   doseColumns AND add the matching key to each provider's prices.
+   The table renders columns automatically from doseColumns.
+   ============================================================ */
+
 const PRICING_DATA = {
   "lastVerified": "1 October 2026",
   "methodology": "Prices are the advertised monthly cost from each provider with the best publicly available new-patient discount applied, including the online consultation and standard UK delivery. New-patient offers usually apply to first orders only — ongoing months are typically charged at the provider's standard rate. Cross-checked against comparewg.co.uk and comparemj.co.uk.",
