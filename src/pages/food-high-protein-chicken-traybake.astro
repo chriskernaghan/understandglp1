@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+
+const url = 'https://understandglp1.com/food-high-protein-chicken-traybake';
+const image = 'https://understandglp1.com/images/food-high-protein-chicken-traybake.jpg';
+const title = 'High-Protein Chicken Traybake for Small Appetites';
+const description = 'A one-tray chicken, chickpea and soft roasted veg traybake with roughly 35g of protein per portion. Ten minutes of prep, easy to eat in small amounts and keeps well for low appetite days.';
+
+const recipe = {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": title,
+  "description": description,
+  "image": [image],
+  "author": { "@type": "Organization", "name": "Understand GLP-1", "url": "https://understandglp1.com" },
+  "datePublished": "2026-10-01",
+  "prepTime": "PT10M",
+  "cookTime": "PT35M",
+  "totalTime": "PT45M",
+  "recipeYield": "4 servings",
+  "recipeCategory": "Dinner",
+  "recipeCuisine": "Mediterranean",
+  "keywords": "high protein dinner, chicken traybake, low appetite meals, GLP-1 recipes, one tray dinner",
+  "nutrition": { "@type": "NutritionInformation", "servingSize": "1 portion (a quarter of the tray)", "proteinContent": "35 g" },
+  "recipeIngredient": [
+    "600g boneless, skinless chicken thighs, cut into bite-sized chunks",
+    "1 x 400g tin chickpeas, drained and rinsed",
+    "2 courgettes, cut into half-moons",
+    "1 red pepper, cut into chunks",
+    "1 red onion, cut into wedges",
+    "250g cherry tomatoes",
+    "2 tbsp olive oil",
+    "2 tsp smoked paprika",
+    "1 tsp dried oregano",
+    "2 garlic cloves, crushed",
+    "1 lemon, zest and juice",
+    "1/2 tsp salt and plenty of black pepper",
+    "80g feta, crumbled",
+    "Small handful of fresh parsley or dill (optional)"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "name": "Heat the oven", "text": "Heat the oven to 200°C (180°C fan, gas mark 6)." },
+    { "@type": "HowToStep", "name": "Season the tray", "text": "Put the chicken, chickpeas, courgettes, pepper and onion in a large roasting tray. Add the olive oil, smoked paprika, oregano, garlic, lemon zest, salt and pepper, then toss everything together with your hands." },
+    { "@type": "HowToStep", "name": "Roast", "text": "Spread everything out in a single layer, using two trays if it looks crowded, and roast for 20 minutes." },
+    { "@type": "HowToStep", "name": "Add the tomatoes", "text": "Add the cherry tomatoes, give everything a stir and roast for another 12 to 15 minutes, until the chicken is cooked through with no pink in the middle and the vegetables are soft with golden edges." },
+    { "@type": "HowToStep", "name": "Finish and serve", "text": "Squeeze over the lemon juice, crumble the feta on top and add the herbs if you're using them. Serve a small portion and save the rest." }
+  ]
+};
+---
+<BaseLayout
+  title={title + " \u2014 Understand GLP-1"}
+  description={description}
+  canonicalPath="/food-high-protein-chicken-traybake"
+  activeNav="food"
+>
+
+<meta property="og:type" content="article" slot="head" />
+<meta property="og:site_name" content="Understand GLP-1" slot="head" />
+<meta property="og:title" content={title} slot="head" />
+<meta property="og:description" content={description} slot="head" />
+<meta property="og:url" content={url} slot="head" />
+<meta property="og:image" content={image} slot="head" />
+<meta name="twitter:card" content="summary_large_image" slot="head" />
+<script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify(recipe)} />
+
+<div class="article-wrap">
+<article class="article-main">
+  <div class="breadcrumb"><a href="/">Home</a> / <a href="/food">Food &amp; Nutrition</a></div>
+  <div class="article-badge">High Protein Recipe</div>
+  <h1>High-Protein Chicken Traybake for Small Appetites</h1>
+  <div class="article-meta"><span>Updated Oct 2026</span><span>·</span><span>5 min read</span></div>
+
+  <p>Dinner is where a lot of people on GLP-1 medications come unstuck. You know you should be getting a decent amount of protein in, but the idea of cooking three separate things for a plate you'll only half finish isn't appealing, and by the evening your appetite has often gone altogether.</p>
+
+  <p>This traybake is built for exactly that. Everything goes on one tray, the vegetables roast down until they're soft and easy to eat, and there's enough chicken and chickpeas in it that even a small helping does some real work. It's also a recipe that's perfectly happy being eaten across a couple of sittings, which matters more than it sounds when you're full after a few bites.</p>
+
+  {/* PHOTO: drop your image in /public/images/food-high-protein-chicken-traybake.jpg, then uncomment the figure below.
+  <figure style="margin:28px 0;">
+    <img src="/images/food-high-protein-chicken-traybake.jpg" alt="Roasted chicken, chickpea and vegetable traybake with crumbled feta and lemon" width="1200" height="800" style="width:100%;height:auto;border-radius:12px;" loading="lazy" />
+  </figure>
+  */}
+
+  <div class="tldr">
+    <div class="tldr__label">TL;DR</div>
+    <ul class="tldr__list">
+      <li>Roughly 35g of protein per portion (a quarter of the tray), from chicken thighs, chickpeas and feta.</li>
+      <li>One tray, about 10 minutes of prep and 35 minutes in the oven.</li>
+      <li>The vegetables roast until soft, and the flavours are mild and savoury rather than hot or rich.</li>
+      <li>Keeps in the fridge for two days and freezes well, so one cook covers several low appetite meals.</li>
+    </ul>
+  </div>
+
+  <p><strong>Serves 4</strong> · Prep 10 minutes · Cook 35 minutes · <strong>~35g protein per portion</strong></p>
+
+  <h2>Why it works when your appetite is low</h2>
+  <p>Chicken thighs stay juicy where breast tends to dry out, which makes a real difference when you're only eating a few forkfuls and every one needs to be pleasant. The chickpeas add protein and fibre without much volume, and the feta goes on at the end for a salty hit that wakes up a plate you might otherwise lose interest in.</p>
+  <p>The seasoning is deliberately gentle, with smoked paprika, oregano and lemon rather than chilli, because spicy and greasy food is a common trigger for nausea on these medications. If you tend to find hot food off-putting, the tray is every bit as good once it's cooled for ten minutes, and it gives off a lot less smell that way.</p>
+
+  <h2>Ingredients</h2>
+  <ul>
+    <li>600g boneless, skinless chicken thighs, cut into bite-sized chunks</li>
+    <li>1 x 400g tin of chickpeas, drained and rinsed</li>
+    <li>2 courgettes, cut into half-moons</li>
+    <li>1 red pepper, cut into chunks</li>
+    <li>1 red onion, cut into wedges</li>
+    <li>250g cherry tomatoes</li>
+    <li>2 tbsp olive oil</li>
+    <li>2 tsp smoked paprika</li>
+    <li>1 tsp dried oregano</li>
+    <li>2 garlic cloves, crushed</li>
+    <li>1 lemon, zest and juice</li>
+    <li>½ tsp salt and plenty of black pepper</li>
+    <li>80g feta, crumbled</li>
+    <li>A small handful of fresh parsley or dill (optional)</li>
+  </ul>
+
+  <h2>Method</h2>
+  <ol>
+    <li><strong>Heat the oven</strong> to 200°C (180°C fan, gas mark 6).</li>
+    <li><strong>Season the tray.</strong> Put the chicken, chickpeas, courgettes, pepper and onion in a large roasting tray. Add the olive oil, smoked paprika, oregano, garlic, lemon zest, salt and pepper, then toss everything together with your hands until it's evenly coated.</li>
+    <li><strong>Roast for 20 minutes.</strong> Spread everything out in a single layer, using two trays if it looks crowded, since a packed tray steams instead of roasting and you lose the golden edges.</li>
+    <li><strong>Add the tomatoes.</strong> Stir them in and roast for another 12 to 15 minutes, until the chicken is cooked through with no pink in the middle (75°C if you have a probe) and the vegetables are soft.</li>
+    <li><strong>Finish.</strong> Squeeze over the lemon juice, crumble the feta on top and scatter the herbs over if you're using them.</li>
+  </ol>
+
+  <div class="callout">
+    <strong>Serving tip for low appetite days:</strong> A quarter of the tray is a standard portion, but plenty of people on GLP-1s will manage half of that. Eat the chicken and chickpeas first, since that's where the protein is, and leave the vegetables for the end if you start to feel full. Whatever's left is just as good the next day.
+  </div>
+
+  <h2>Swaps that work</h2>
+  <p><strong>Chicken breast</strong> works if you prefer it, though it's worth cutting the pieces slightly larger and checking it a few minutes early so it doesn't dry out. <strong>Turkey thigh</strong> or <strong>firm white fish</strong> also suit the same seasoning, with fish needing only about 12 minutes.</p>
+  <p>If you can't face feta, a spoonful of Greek yoghurt on the side adds a bit more protein and a cooling contrast. Swap the courgette and pepper for <strong>carrots, butternut squash or aubergine</strong> depending on what you've got, and if raw onion in the oven is too pungent for you, leave it out and add an extra courgette.</p>
+
+  <h2>Storing and reheating</h2>
+  <p>Cool the leftovers quickly, put them in the fridge within two hours and eat them within two days. It also freezes well for up to three months, so it's worth portioning some into containers on the day you cook it, while you've got the energy. Defrost overnight in the fridge and reheat until piping hot all the way through, and only reheat it once.</p>
+
+  <div class="callout">
+    <strong>A note on the numbers:</strong> The protein figure is an estimate based on typical values for the ingredients, and it'll shift a little with brands and portion sizes. This is a recipe rather than medical or dietary advice, so if you've been given specific nutrition targets by your prescriber or a dietitian, go by those.
+  </div>
+
+  <div class="inline-cta">
+    <h3>More food guides</h3>
+    <p>Breakfasts, meal plans and what to avoid, all written around real life on GLP-1 medications.</p>
+    <a href="/food">Browse all food guides →</a>
+  </div>
+
+</article>
+
+<aside class="article-sidebar">
+  <div class="email-box">
+    <div class="email-box__title">Stay updated</div>
+    <div class="email-box__desc">Weekly GLP-1 news, stories, and tips — no spam.</div>
+    <NewsletterForm />
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Partner</div>
+    <div class="sidebar-card__title">Ready to start?</div>
+    <div class="sidebar-card__desc">Get evaluated by a licensed provider from home.</div>
+    <a href="https://understandglp1.com/uk-glp1-price-comparison" class="sidebar-card__btn" rel="nofollow sponsored">Check Eligibility →</a>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Related</div>
+    <div class="sidebar-card__title">Read next</div>
+    <div style="margin-top:12px">
+      <a href="/food-high-protein-breakfasts" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">High-Protein Breakfasts →</a>
+      <a href="/stories" style="display:block;color:var(--accent);font-size:14px;font-weight:600;margin-bottom:8px;text-decoration:none;">Real Stories →</a>
+      <a href="/food" style="display:block;color:var(--accent);font-size:14px;font-weight:600;text-decoration:none;">Food &amp; Nutrition →</a>
+    </div>
+  </div>
+</aside>
+</div>
+
+</BaseLayout>
