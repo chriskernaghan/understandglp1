@@ -46,7 +46,7 @@
    ============================================================ */
 
 const PRICING_DATA = {
-  "lastVerified": "1 October 2026",
+  "lastVerified": "2 October 2026",
   "methodology": "Prices are the advertised monthly cost from each provider with the best publicly available new-patient discount applied, including the online consultation and standard UK delivery. New-patient offers usually apply to first orders only — ongoing months are typically charged at the provider's standard rate. Cross-checked against comparewg.co.uk and comparemj.co.uk.",
   "medications": {
     "mounjaro": {
@@ -81,7 +81,7 @@ const PRICING_DATA = {
             "2.5mg": 134.99,
             "15mg": 264.99
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Oushk",
@@ -99,7 +99,7 @@ const PRICING_DATA = {
             "2.5mg": 129,
             "15mg": 270
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Curely",
@@ -117,7 +117,7 @@ const PRICING_DATA = {
             "2.5mg": 136.8,
             "15mg": 274.5
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Ashcroft Pharmacy",
@@ -135,7 +135,7 @@ const PRICING_DATA = {
             "2.5mg": 134.99,
             "15mg": 279.99
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "MedExpress",
@@ -153,7 +153,7 @@ const PRICING_DATA = {
             "2.5mg": 139.99,
             "15mg": 269.99
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Asda Online Doctor",
@@ -171,7 +171,7 @@ const PRICING_DATA = {
             "2.5mg": 138.97,
             "15mg": 288.97
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Simple Online Pharmacy",
@@ -189,7 +189,7 @@ const PRICING_DATA = {
             "2.5mg": 169,
             "15mg": 319.99
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "The Independent Pharmacy",
@@ -207,7 +207,7 @@ const PRICING_DATA = {
             "2.5mg": 152.99,
             "15mg": 280.49
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Boots Online Doctor",
@@ -225,7 +225,7 @@ const PRICING_DATA = {
             "2.5mg": 159.57,
             "15mg": 301.5
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Superdrug Online Doctor",
@@ -243,7 +243,7 @@ const PRICING_DATA = {
             "2.5mg": 156,
             "15mg": 314
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Numan",
@@ -261,7 +261,7 @@ const PRICING_DATA = {
             "2.5mg": 209,
             "15mg": 339
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Juniper",
@@ -279,7 +279,7 @@ const PRICING_DATA = {
             "2.5mg": 199,
             "15mg": 339
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Medicspot",
@@ -297,7 +297,7 @@ const PRICING_DATA = {
             "2.5mg": 149,
             "15mg": 279
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Voy",
@@ -315,7 +315,7 @@ const PRICING_DATA = {
             "2.5mg": 194,
             "15mg": 339
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Second Nature",
@@ -333,7 +333,7 @@ const PRICING_DATA = {
             "2.5mg": 179,
             "15mg": 299
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "SheMed",
@@ -352,7 +352,7 @@ const PRICING_DATA = {
             "2.5mg": 179,
             "15mg": 319
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "The Weight Clinic",
@@ -407,7 +407,7 @@ const PRICING_DATA = {
             "0.25mg": 69.99,
             "2.4mg": 158.99
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Oushk",
@@ -425,7 +425,7 @@ const PRICING_DATA = {
             "0.25mg": 85,
             "2.4mg": 150
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "MedExpress",
@@ -443,7 +443,7 @@ const PRICING_DATA = {
             "0.25mg": 69.99,
             "2.4mg": 159.99
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Asda Online Doctor",
@@ -461,7 +461,7 @@ const PRICING_DATA = {
             "0.25mg": 78.97,
             "2.4mg": 178.97
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Phlo Clinic",
@@ -479,7 +479,7 @@ const PRICING_DATA = {
             "0.25mg": 89,
             "2.4mg": 199
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Medicspot",
@@ -497,7 +497,7 @@ const PRICING_DATA = {
             "0.25mg": 89,
             "2.4mg": 169
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "The Independent Pharmacy",
@@ -515,7 +515,7 @@ const PRICING_DATA = {
             "0.25mg": 84.82,
             "2.4mg": 161.49
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Pharmacy Online",
@@ -533,7 +533,7 @@ const PRICING_DATA = {
             "0.25mg": 99.99,
             "2.4mg": 159.99
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Second Nature",
@@ -551,7 +551,7 @@ const PRICING_DATA = {
             "0.25mg": 99,
             "2.4mg": 199
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Voy",
@@ -569,7 +569,7 @@ const PRICING_DATA = {
             "0.25mg": 144,
             "2.4mg": 239
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Ashcroft Pharmacy",
@@ -587,7 +587,7 @@ const PRICING_DATA = {
             "0.25mg": 105,
             "2.4mg": 210
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Boots Online Doctor",
@@ -605,7 +605,7 @@ const PRICING_DATA = {
             "0.25mg": 79.97,
             "2.4mg": 185.4
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Cloud Pharmacy",
@@ -623,7 +623,7 @@ const PRICING_DATA = {
             "0.25mg": 114.99,
             "2.4mg": 174.99
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Fella Health",
@@ -642,7 +642,7 @@ const PRICING_DATA = {
             "0.25mg": 119,
             "2.4mg": 199
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "SheMed",
@@ -661,7 +661,7 @@ const PRICING_DATA = {
             "0.25mg": 79,
             "2.4mg": 159
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "Juniper",
@@ -679,7 +679,7 @@ const PRICING_DATA = {
             "0.25mg": 164,
             "2.4mg": 229
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-02"
         },
         {
           "name": "The Weight Clinic",
@@ -703,5 +703,5 @@ const PRICING_DATA = {
       ]
     }
   },
-  "lastChecked": "2026-10-01T11:37:10.071Z"
+  "lastChecked": "2026-10-02T11:06:27.920Z"
 };
