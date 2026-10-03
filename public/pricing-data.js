@@ -358,20 +358,20 @@ const PRICING_DATA = {
           "name": "The Weight Clinic",
           "type": "pharmacy",
           "trustpilot": 4.4,
-          "url": "https://theweightclinic.co.uk/mounjaro",
+          "url": "https://theweightclinic.co.uk/partners/understandglp1/mounjaro",
           "gphc": "1034996",
           "gphcVerified": false,
           "deliversNI": null,
           "discount": {
             "code": null,
-            "note": "No first-order code"
+            "note": "Discount automatically applied"
           },
-          "note": "£5 tracked delivery included",
+          "note": "£5 delivery included",
           "prices": {
-            "2.5mg": 165,
-            "15mg": 300
+            "2.5mg": 128,
+            "15mg": 264
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-03"
         }
       ]
     },
@@ -685,20 +685,20 @@ const PRICING_DATA = {
           "name": "The Weight Clinic",
           "type": "pharmacy",
           "trustpilot": 4.4,
-          "url": "https://theweightclinic.co.uk/wegovy",
+          "url": "https://theweightclinic.co.uk/partners/understandglp1/wegovy",
           "gphc": "1034996",
           "gphcVerified": false,
           "deliversNI": null,
           "discount": {
             "code": null,
-            "note": "No first-order code"
+            "note": "Discount automatically applied"
           },
-          "note": "£5 tracked delivery included",
+          "note": "£5 delivery included",
           "prices": {
-            "0.25mg": 120,
-            "2.4mg": 235
+            "0.25mg": 78,
+            "2.4mg": 195
           },
-          "lastSeen": "2026-10-01"
+          "lastSeen": "2026-10-03"
         }
       ]
     }
