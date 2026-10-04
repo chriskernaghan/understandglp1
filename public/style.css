@@ -1805,40 +1805,30 @@ body.nav-overlay:not(:has(.mobile-menu.open)) nav:not(.scrolled) .burger span { 
   .recipe-stats__value { font-size: 26px; }
 }
 
-.featured {
-  padding: 44px 0 12px;
-  background: #fff;
-  border: 0;
+.provider-strip {
+  display: block;
+  padding: 8px 0 48px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(31, 42, 36, .08);
 }
-.featured__inner {
-  width: 100%;
-  max-width: 1100px;      /* copy the max-width from your .section-wrap */
-  margin: 0 auto;
-  padding: 0 24px;        /* copy the horizontal padding from your .section-wrap */
-  box-sizing: border-box;
-}
-.featured__label {
-  text-align: left;       /* matches the left-aligned "Everything in one place" heading */
-  font-family: 'Outfit', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: #8a8f8c;
-  margin-bottom: 26px;
-}
-.featured__row {
+.provider-strip__row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  gap: 24px 48px;
+  gap: 40px;
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.featured__row a { display: block; }
-.featured__row svg {
+.provider-strip__row li {
+  flex: 0 1 auto;
+  margin: 0;
+  padding: 0;
+}
+.provider-strip__row a { display: block; }
+.provider-strip__row svg {
   height: 28px;
   width: auto;
   display: block;
@@ -1847,11 +1837,10 @@ body.nav-overlay:not(:has(.mobile-menu.open)) nav:not(.scrolled) .burger span { 
   opacity: .45;
   transition: opacity .2s ease;
 }
-.featured__row a:hover svg,
-.featured__row a:focus-visible svg { opacity: .9; }
+.provider-strip__row a:hover svg,
+.provider-strip__row a:focus-visible svg { opacity: .9; }
 
-@media (max-width: 640px) {
-  .featured__label { text-align: center; }
-  .featured__row { justify-content: center; gap: 20px 36px; }
-  .featured__row svg { height: 22px; }
+@media (max-width: 900px) {
+  .provider-strip__row { flex-wrap: wrap; justify-content: center; gap: 24px 36px; }
+  .provider-strip__row svg { height: 22px; }
 }
