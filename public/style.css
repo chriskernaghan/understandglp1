@@ -1807,16 +1807,23 @@ body.nav-overlay:not(:has(.mobile-menu.open)) nav:not(.scrolled) .burger span { 
 
 .provider-strip {
   display: block;
-  padding: 8px 0 48px;
-  margin-bottom: 8px;
-  border-bottom: 1px solid rgba(31, 42, 36, .08);
+  width: 100%;
+  padding: 48px 0 8px;
+  background: #fff;
+}
+.provider-strip__inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+  box-sizing: border-box;
 }
 .provider-strip__row {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: 32px;
   width: 100%;
   margin: 0;
   padding: 0;
