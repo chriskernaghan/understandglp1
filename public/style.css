@@ -1805,9 +1805,20 @@ body.nav-overlay:not(:has(.mobile-menu.open)) nav:not(.scrolled) .burger span { 
   .recipe-stats__value { font-size: 26px; }
 }
 
-.featured { padding: 44px 0 12px; background: #fff; }
+.featured {
+  padding: 44px 0 12px;
+  background: #fff;
+  border: 0;
+}
+.featured__inner {
+  width: 100%;
+  max-width: 1100px;      /* copy the max-width from your .section-wrap */
+  margin: 0 auto;
+  padding: 0 24px;        /* copy the horizontal padding from your .section-wrap */
+  box-sizing: border-box;
+}
 .featured__label {
-  text-align: center;
+  text-align: left;       /* matches the left-aligned "Everything in one place" heading */
   font-family: 'Outfit', sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -1831,6 +1842,7 @@ body.nav-overlay:not(:has(.mobile-menu.open)) nav:not(.scrolled) .burger span { 
   height: 28px;
   width: auto;
   display: block;
+  overflow: visible;
   color: #1f2a24;
   opacity: .45;
   transition: opacity .2s ease;
@@ -1839,6 +1851,7 @@ body.nav-overlay:not(:has(.mobile-menu.open)) nav:not(.scrolled) .burger span { 
 .featured__row a:focus-visible svg { opacity: .9; }
 
 @media (max-width: 640px) {
+  .featured__label { text-align: center; }
   .featured__row { justify-content: center; gap: 20px 36px; }
   .featured__row svg { height: 22px; }
 }
