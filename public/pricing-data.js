@@ -341,7 +341,7 @@ const PRICING_DATA = {
           "trustpilot": 4.3,
           "url": "https://www.shemed.co.uk/?product=mounjaro",
           "gphc": "9012578",
-          "gphcVerified": false,
+          "gphcVerified": true,
           "deliversNI": null,
           "discount": {
             "code": null,
@@ -650,7 +650,7 @@ const PRICING_DATA = {
           "trustpilot": 4.3,
           "url": "https://www.shemed.co.uk/?product=wegovy",
           "gphc": "9012578",
-          "gphcVerified": false,
+          "gphcVerified": true,
           "deliversNI": null,
           "discount": {
             "code": null,
