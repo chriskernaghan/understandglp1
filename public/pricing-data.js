@@ -33,6 +33,9 @@
    - deliversNI:  true / false / null (null renders as "Check").
                   Verify with each provider before setting true.
    - discount:    { code: "CODE" or null, note: "short context" or null }
+   - codeLocked:  optional. true = the script never changes this
+                  provider's discount code or note (for hand-set
+                  affiliate codes). Leave it out for everyone else.
    - prices:      per-dose monthly price with best discount applied,
                   consultation + standard delivery included.
                   Use null for "not verified" — renders as a dash.
@@ -343,9 +346,10 @@ const PRICING_DATA = {
           "gphc": "9012578",
           "gphcVerified": true,
           "deliversNI": null,
+          "codeLocked": true,
           "discount": {
-            "code": null,
-            "note": null
+            "code": "UNDERSTANDGLP1",
+            "note": "20% off your first payment"
           },
           "note": "Women only · £229/month after first order",
           "prices": {
@@ -652,9 +656,10 @@ const PRICING_DATA = {
           "gphc": "9012578",
           "gphcVerified": true,
           "deliversNI": null,
+          "codeLocked": true,
           "discount": {
-            "code": null,
-            "note": null
+            "code": "UNDERSTANDGLP1",
+            "note": "20% off your first payment"
           },
           "note": "Women only · £139/month after first order",
           "prices": {
