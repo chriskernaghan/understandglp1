@@ -12,6 +12,8 @@
      discount code, Trustpilot score, lastSeen.
    - Never adds or removes providers, and never touches url, type,
      gphc, gphcVerified, deliversNI or note. Those stay editorial.
+   - If a provider has "codeLocked": true, its discount code and note
+     are left alone too (use this for hand-set affiliate codes).
 
    Safety rails
    - A page yielding fewer than MIN_PROVIDERS_PER_PAGE is treated as
@@ -217,7 +219,9 @@ export async function main() {
         // Codes and ratings are the same across doses, so take them from the first dose found.
         if (dose === firstDose || !pages[firstDose].has(slug)) {
           const oldCode = p.discount?.code ?? null;
-          if (hit.code && hit.code !== oldCode) {
+          if (p.codeLocked) {
+            // Code is set by hand (e.g. an affiliate code), so leave it exactly as it is.
+          } else if (hit.code && hit.code !== oldCode) {
             p.discount = { code: hit.code, note: oldCode ? p.discount.note : "First-order code" };
             log.changes.push(`${med.label} · ${p.name}: code ${oldCode ?? "none"} → ${hit.code}`);
           } else if (!hit.code && oldCode) {
